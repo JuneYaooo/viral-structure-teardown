@@ -1,0 +1,30 @@
+{
+  "version": "0.1.0",
+  "source": "evals/fixtures/no_punctuation_v1.txt",
+  "format": "txt",
+  "timed": false,
+  "duration_s": null,
+  "punctuation": false,
+  "strategy": "fixed_length",
+  "block_count": 3,
+  "blocks": [
+    {
+      "i": 0,
+      "start": null,
+      "end": null,
+      "text": "很多人问我为什么你剪视频那么快其实秘密全在粗剪这一步我从来不是对着脚本找素材而是"
+    },
+    {
+      "i": 1,
+      "start": null,
+      "end": null,
+      "text": "先把所有素材按情绪分成三堆高燃的温柔的搞笑的然后先定情绪线再往里填内容这样成片的"
+    },
+    {
+      "i": 2,
+      "start": null,
+      "end": null,
+      "text": "节奏天然就是对的观众根本说不清为什么但就是愿意看完方法就这么简单今天先讲到这"
+    }
+  ]
+}

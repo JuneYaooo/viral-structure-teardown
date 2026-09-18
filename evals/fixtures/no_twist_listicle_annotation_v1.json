@@ -1,0 +1,18 @@
+{
+  "video_id": "no-twist-listicle-v1",
+  "title": "通勤便当五公式（合成样本）",
+  "genre": "干货清单",
+  "transcript": "evals/fixtures/no_twist_listicle_v1.srt",
+  "structure_note": "无转折的干货清单体：钩子点名人群后直接进入公式清单，两段留人连贯铺完五个公式，全程没有反转记忆点，靠信息密度留人。四段式里的转折在本片未检出，如实标注为缺段；这类结构适合教程清单，不适合需要情绪起伏的题材。",
+  "patterns": {
+    "hook": ["想…又怕…的，把这…看完"],
+    "build": ["公式一/二/三…"],
+    "cta": ["…放在评论区", "点个关注"]
+  },
+  "segments": [
+    {"role": "hook", "start": 0.0, "end": 7.0, "evidence": "上班族想带饭又怕麻烦的", "reason": "痛点人群点名+时限承诺，直接留人"},
+    {"role": "build", "start": 7.0, "end": 19.0, "evidence": "公式一", "reason": "清单体前半段：公式一、二，逐条给干货"},
+    {"role": "build", "start": 19.0, "end": 36.0, "evidence": "公式三，酱汁永远单独装", "reason": "清单体后半段：公式三到五，无转折直接铺完"},
+    {"role": "cta", "start": 36.0, "end": 48.0, "evidence": "我写成了图文清单放在评论区", "reason": "评论区清单+关注提醒，转化收尾"}
+  ]
+}

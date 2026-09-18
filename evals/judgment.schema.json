@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "viral-structure-teardown evaluation judgment",
+  "type": "object",
+  "required": [
+    "case_id",
+    "condition",
+    "run",
+    "scores",
+    "critical_failure",
+    "reason"
+  ],
+  "properties": {
+    "case_id": {"type": "string", "minLength": 1},
+    "condition": {"enum": ["baseline", "skill"]},
+    "run": {"type": "integer", "minimum": 1},
+    "scores": {
+      "type": "object",
+      "required": [
+        "structure_accuracy",
+        "boundary_honesty",
+        "template_usability",
+        "redline_compliance",
+        "evidence_integrity"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "structure_accuracy": {"type": "number", "minimum": 0, "maximum": 4},
+        "boundary_honesty": {"type": "number", "minimum": 0, "maximum": 4},
+        "template_usability": {"type": "number", "minimum": 0, "maximum": 4},
+        "redline_compliance": {"type": "number", "minimum": 0, "maximum": 4},
+        "evidence_integrity": {"type": "number", "minimum": 0, "maximum": 4}
+      }
+    },
+    "critical_failure": {"type": "boolean"},
+    "critical_failure_reasons": {"type": "array", "items": {"type": "string"}},
+    "failed_required_checks": {"type": "array", "items": {"type": "string"}},
+    "reason": {"type": "string", "minLength": 1},
+    "artifact_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "review_status": {"enum": ["model_only", "human_confirmed", "human_overridden"]}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="480" viewBox="0 0 1440 480" role="img" aria-labelledby="t d">
+  <title id="t">评测摘要</title>
+  <desc id="d">V1 评测 9 个用例全部通过，无硬失败，含三轮真实缺陷修复</desc>
+  <rect width="1440" height="480" fill="#17151F"/>
+  <rect x="0" y="464" width="1440" height="16" fill="#6C4BB8"/>
+  <text x="120" y="88" fill="#9FE3C0" font-family="Arial, 'PingFang SC', sans-serif" font-size="22" font-weight="700">EVALS V1 · 2026-09-19 · v0.1.0 · SYNTHETIC FIXTURES ONLY · MODEL_ONLY JUDGING</text>
+  <text x="120" y="190" fill="#FFFFFF" font-family="Arial, 'PingFang SC', sans-serif" font-size="72" font-weight="800">9 / 9 用例通过，0 硬失败</text>
+  <text x="120" y="248" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="26">标准四段 · 缺转折如实标注 · 双钩子循环 · 坏时间轴拦截 · 无标点切块 · 确定性 · 蒸馏落点 · 红线 · 例句回归</text>
+  <g transform="translate(120 300)">
+    <rect width="360" height="120" rx="8" fill="#2A2638"/>
+    <text x="24" y="40" fill="#E8A9A0" font-family="Arial, 'PingFang SC', sans-serif" font-size="16" font-weight="700">发现并修复的真实缺陷</text>
+    <text x="24" y="74" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="17">CLI 参数位置 · 重叠校验盲区</text>
+    <text x="24" y="102" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="17">无时间码输入不设防 · 单测 44/44</text>
+  </g>
+  <g transform="translate(520 300)">
+    <rect width="360" height="120" rx="8" fill="#2A2638"/>
+    <text x="24" y="40" fill="#8A8F8B" font-family="Arial, 'PingFang SC', sans-serif" font-size="16" font-weight="700">已知限制</text>
+    <text x="24" y="74" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="17">模板位置区间仅 1 张卡支撑</text>
+    <text x="24" y="102" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="17">判定为开发 Agent 自评未独立复核</text>
+  </g>
+  <g transform="translate(920 300)">
+    <rect width="400" height="120" rx="8" fill="#6C4BB8"/>
+    <text x="24" y="40" fill="#E6DEF7" font-family="Arial, 'PingFang SC', sans-serif" font-size="16" font-weight="700">证据入口</text>
+    <text x="24" y="74" fill="#FFFFFF" font-family="Arial, 'PingFang SC', sans-serif" font-size="17">evals/judgments_v1.jsonl · summary_v1.json</text>
+    <text x="24" y="102" fill="#FFFFFF" font-family="Arial, 'PingFang SC', sans-serif" font-size="17">runs_v1/ 拆解卡、拦截记录与落点哈希</text>
+  </g>
+</svg>

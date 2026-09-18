@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-labelledby="t d">
+  <title id="t">viral-structure-teardown</title>
+  <desc id="d">把口播时间轴切成钩子、留人、转折、转化四段结构</desc>
+  <rect width="128" height="128" rx="24" fill="#17151F"/>
+  <rect x="20" y="30" width="88" height="10" rx="5" fill="#6C4BB8"/>
+  <rect x="20" y="48" width="88" height="10" rx="5" fill="#3A3550"/>
+  <rect x="20" y="66" width="88" height="10" rx="5" fill="#3A3550"/>
+  <rect x="20" y="84" width="88" height="10" rx="5" fill="#E8A9A0"/>
+  <rect x="20" y="30" width="24" height="10" rx="5" fill="#9FE3C0"/>
+  <rect x="94" y="30" width="14" height="10" rx="5" fill="#F0C94B"/>
+  <rect x="20" y="102" width="88" height="4" rx="2" fill="#3A3550"/>
+  <circle cx="32" cy="104" r="3" fill="#6C4BB8"/>
+  <circle cx="64" cy="104" r="3" fill="#6C4BB8"/>
+  <circle cx="96" cy="104" r="3" fill="#6C4BB8"/>
+</svg>

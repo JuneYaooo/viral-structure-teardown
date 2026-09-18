@@ -1,0 +1,131 @@
+{
+  "version": "0.1.0",
+  "template_id": "listicle-notwist-v1",
+  "name": "无转折清单体",
+  "created": "2026-09-19",
+  "source_cards": [
+    "no-twist-listicle-v1"
+  ],
+  "card_count": 1,
+  "genres": [
+    "干货清单"
+  ],
+  "duration_range_s": [
+    48.0,
+    48.0
+  ],
+  "role_sequences": [
+    {
+      "sequence": [
+        "hook",
+        "build",
+        "build",
+        "cta"
+      ],
+      "count": 1
+    }
+  ],
+  "primary_sequence": [
+    "hook",
+    "build",
+    "build",
+    "cta"
+  ],
+  "positions": [
+    {
+      "position": 1,
+      "role": "hook",
+      "ratio": [
+        0.0,
+        0.1458
+      ],
+      "sample_cards": 1,
+      "functions": [
+        "痛点人群点名+时限承诺，直接留人"
+      ],
+      "example_lines": [
+        "上班族想带饭又怕麻烦的"
+      ],
+      "patterns": []
+    },
+    {
+      "position": 2,
+      "role": "build",
+      "ratio": [
+        0.1458,
+        0.3958
+      ],
+      "sample_cards": 1,
+      "functions": [
+        "清单体前半段：公式一、二，逐条给干货"
+      ],
+      "example_lines": [
+        "公式一"
+      ],
+      "patterns": []
+    },
+    {
+      "position": 3,
+      "role": "build",
+      "ratio": [
+        0.3958,
+        0.75
+      ],
+      "sample_cards": 1,
+      "functions": [
+        "清单体后半段：公式三到五，无转折直接铺完"
+      ],
+      "example_lines": [
+        "公式三，酱汁永远单独装"
+      ],
+      "patterns": []
+    },
+    {
+      "position": 4,
+      "role": "cta",
+      "ratio": [
+        0.75,
+        1.0
+      ],
+      "sample_cards": 1,
+      "functions": [
+        "评论区清单+关注提醒，转化收尾"
+      ],
+      "example_lines": [
+        "我写成了图文清单放在评论区"
+      ],
+      "patterns": []
+    }
+  ],
+  "role_ratio_ranges": {
+    "hook": [
+      0.0,
+      0.1458
+    ],
+    "build": [
+      0.1458,
+      0.75
+    ],
+    "cta": [
+      0.75,
+      1.0
+    ]
+  },
+  "patterns": {
+    "hook": [],
+    "build": [],
+    "twist": [],
+    "cta": []
+  },
+  "intent_map": {
+    "hook": "AIDA-Attention",
+    "build": "AIDA-Interest/Desire",
+    "twist": "HSO-Story",
+    "cta": "HSO-Offer"
+  },
+  "red_lines": [
+    "只沉淀结构位置与句式功能，不收录整段文案，不做内容代写",
+    "不打分：不做流量预测与内容质量打分",
+    "例句仅示范该段功能，套用时必须替换为原创内容"
+  ]
+}

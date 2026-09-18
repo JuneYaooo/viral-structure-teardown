@@ -1,0 +1,13 @@
+{
+  "video_id": "misplaced-evidence-v1",
+  "title": "例句错位标注（回归用合成样本）",
+  "genre": "好物测评",
+  "transcript": "evals/fixtures/standard_four_part_v1.srt",
+  "structure_note": "时间轴合法但钩子段的例句取自片尾转化段：拆解卡应把例句核对记为 3/4 命中，并逐条提示错位例句，供修正标注。",
+  "segments": [
+    {"role": "hook", "start": 0.0, "end": 7.0, "evidence": "关注我，下期把这五口锅拿去炒糖色", "reason": "例句错位：该句位于片尾转化段（52–58s），不在钩子段内"},
+    {"role": "build", "start": 7.0, "end": 33.0, "evidence": "先说我的三个测试标准", "reason": "铺垫段例句正确"},
+    {"role": "twist", "start": 33.0, "end": 45.0, "evidence": "卖得最贵的那口，三项全部垫底", "reason": "转折段例句正确"},
+    {"role": "cta", "start": 45.0, "end": 58.0, "evidence": "完整的测试数据表我贴在评论区置顶", "reason": "转化段例句正确"}
+  ]
+}

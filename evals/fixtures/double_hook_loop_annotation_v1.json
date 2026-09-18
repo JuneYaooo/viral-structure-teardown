@@ -1,0 +1,20 @@
+{
+  "video_id": "double-hook-loop-v1",
+  "title": "隔断房维权记（合成样本）",
+  "genre": "剧情维权",
+  "transcript": "evals/fixtures/double_hook_loop_v1.srt",
+  "structure_note": "双钩子循环结构：7.5 秒内用隔断房开局，20 秒处第一次反转（聊天记录实锤）后不收尾，26.5 秒用「你以为就完了」再起一个钩子，把同一条稿子拆成两波冲突。钩子→留人→转折→钩子→留人→转化的循环是剧情维权体拉完播率的典型打法。",
+  "patterns": {
+    "hook": ["我以为…直到…", "你以为…？远远没有"],
+    "twist": ["关键转折在这"],
+    "cta": ["…整理好放在评论区", "关注我，下期…"]
+  },
+  "segments": [
+    {"role": "hook", "start": 0.0, "end": 7.5, "evidence": "住到第二十天才发现是隔断房", "reason": "第一人称倒霉开局+利益受损，强冲突钩子"},
+    {"role": "build", "start": 7.5, "end": 20.0, "evidence": "墙体敲上去是空心的", "reason": "交代发现过程与第一次交锋，铺垫冲突升级"},
+    {"role": "twist", "start": 20.0, "end": 26.5, "evidence": "中介发过一句这个户型没有隔断", "reason": "翻出聊天记录实锤，第一次反转"},
+    {"role": "hook", "start": 26.5, "end": 30.5, "evidence": "你以为到这一步就能退钱了", "reason": "二次钩子：反转再反转，把观众留下看下半场"},
+    {"role": "build", "start": 30.5, "end": 50.0, "evidence": "逐帧对时间戳", "reason": "取证反击到全额退款，铺完解决过程"},
+    {"role": "cta", "start": 50.0, "end": 63.0, "evidence": "我整理好放在评论区", "reason": "评论区模板+下期预告，转化收尾"}
+  ]
+}

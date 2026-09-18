@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "status": "completed",
+  "dimensions": [
+    "structure_accuracy",
+    "boundary_honesty",
+    "template_usability",
+    "redline_compliance",
+    "evidence_integrity"
+  ],
+  "conditions": {
+    "baseline": {
+      "judgment_count": 0,
+      "unique_case_count": 0,
+      "pass_count": 0,
+      "pass_rate": null,
+      "pass_rate_wilson_95": null,
+      "critical_failure_count": 0,
+      "dimension_means_0_to_4": {
+        "structure_accuracy": null,
+        "boundary_honesty": null,
+        "template_usability": null,
+        "redline_compliance": null,
+        "evidence_integrity": null
+      }
+    },
+    "skill": {
+      "judgment_count": 9,
+      "unique_case_count": 9,
+      "pass_count": 9,
+      "pass_rate": 1.0,
+      "pass_rate_wilson_95": [
+        0.7008,
+        1.0
+      ],
+      "critical_failure_count": 0,
+      "dimension_means_0_to_4": {
+        "structure_accuracy": 3.889,
+        "boundary_honesty": 3.778,
+        "template_usability": 3.111,
+        "redline_compliance": 4.0,
+        "evidence_integrity": 4.0
+      }
+    }
+  },
+  "skill_minus_baseline_pass_rate": null,
+  "interpretation_note": "A critical failure always fails that judgment; pass otherwise requires all required atomic checks green and a mean dimension score of at least 3.0/4.0."
+}

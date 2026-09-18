@@ -1,0 +1,87 @@
+{
+  "version": "0.1.0",
+  "template_id": "twist-fourpart-v1",
+  "name": "标准四段反转体",
+  "primary_sequence": [
+    "hook",
+    "build",
+    "twist",
+    "cta"
+  ],
+  "duration_s": 90.0,
+  "landing_points": [
+    {
+      "position": 1,
+      "role": "hook",
+      "ratio": [
+        0.0,
+        0.1207
+      ],
+      "sample_cards": 1,
+      "functions": [
+        "否定式开场+自费五千块的成本背书，强冲突钩子"
+      ],
+      "example_lines": [
+        "别再跟风买网红锅了"
+      ],
+      "patterns": [],
+      "start_s": 0.0,
+      "end_s": 10.9
+    },
+    {
+      "position": 2,
+      "role": "build",
+      "ratio": [
+        0.1207,
+        0.569
+      ],
+      "sample_cards": 1,
+      "functions": [
+        "立三条量化标准再逐条展开，铺垫可信度"
+      ],
+      "example_lines": [
+        "先说我的三个测试标准"
+      ],
+      "patterns": [],
+      "start_s": 10.9,
+      "end_s": 51.2
+    },
+    {
+      "position": 3,
+      "role": "twist",
+      "ratio": [
+        0.569,
+        0.7759
+      ],
+      "sample_cards": 1,
+      "functions": [
+        "反常识结论：最贵垫底、无名老牌第一"
+      ],
+      "example_lines": [
+        "卖得最贵的那口，三项全部垫底"
+      ],
+      "patterns": [],
+      "start_s": 51.2,
+      "end_s": 69.8
+    },
+    {
+      "position": 4,
+      "role": "cta",
+      "ratio": [
+        0.7759,
+        1.0
+      ],
+      "sample_cards": 1,
+      "functions": [
+        "评论区资料+关注预告，双转化动作"
+      ],
+      "example_lines": [
+        "完整的测试数据表我贴在评论区置顶"
+      ],
+      "patterns": [],
+      "start_s": 69.8,
+      "end_s": 90.0
+    }
+  ],
+  "note": "位置区间样本 1 张拆解卡；落点只约束结构位置与时长占比，不约束内容本身"
+}

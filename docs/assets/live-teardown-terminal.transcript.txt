@@ -1,0 +1,28 @@
+# viral-structure-teardown · 合成夹具演示 · 2026-09-19 · v0.1.0
+$ python3 scripts/parse_transcript.py evals/fixtures/standard_four_part_v1.srt -o /tmp/blocks_std.json
+[g]解析完成：SRT · 11 个句块 · 全长 58.0s （切法 sentence_punct）→ /tmp/blocks_std.json
+$ python3 scripts/annotate.py /tmp/blocks_std.json evals/fixtures/standard_four_part_annotation_v1.json -o /tmp/card_std.md --json /tmp/card_std.json
+[g]校验通过：时间轴合法 · 覆盖率 100.0% · 四段齐全（钩子→留人→转折→转化）
+[g]拆解卡已生成：/tmp/card_std.md（边界错位 0 处 · 例句 4/4 命中）
+$ python3 scripts/annotate.py /tmp/blocks_std.json evals/fixtures/bad_timeline_annotation_v1.json -o /tmp/bad.md
+[r]校验失败（exit 3）：时间轴校验失败：
+[r]- 第 3 段（转折）与前一段重叠或乱序：start 33.0s < 前一段 end 36.0s
+[r]- 第 4 段（转化）时间轴非法：end 20.0s ≤ start 25.0s
+[r]- 第 5 段（留人）超出转写时长 58.0s：end 62.0s
+[r]exit=3
+# 校验不通过：不生成任何拆解卡（/tmp/bad.md 未落盘）
+$ python3 scripts/templates.py apply twist-fourpart-v1 --duration 90
+[g]# 模板套用落点：标准四段反转体（twist-fourpart-v1）
+[g]
+[g]- 目标时长 90 秒 ｜ 主段序列：钩子→留人→转折→转化
+[g]
+[g]| 序 | 角色 | 期望落点（秒） | 占比参考 |
+[g]| --- | --- | --- | --- |
+[g]| 1 | 钩子 hook | 0.0–10.9s | 0.0%–12.1% |
+[g]| 2 | 留人 build | 10.9–51.2s | 12.1%–56.9% |
+[g]| 3 | 转折 twist | 51.2–69.8s | 56.9%–77.6% |
+[g]| 4 | 转化 cta | 69.8–90.0s | 77.6%–100.0% |
+[g]
+[g]- 位置区间样本 1 张拆解卡；落点只约束结构位置与时长占比，不约束内容本身
+[g]- 段循环（如二次钩子）时按序列就近落位；区间随模板库扩充而更新。
+[g]- 红线：例句只示范结构功能，写稿必须使用原创内容；本落点不打分、不预测流量。

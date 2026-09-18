@@ -1,0 +1,7 @@
+interface:
+  display_name: "爆款拆解模板库"
+  short_description: "钩子留人转折转化，拆完沉淀成模板"
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#6C4BB8"
+  default_prompt: "Use $viral-structure-teardown to annotate this transcript's hook/build/twist/cta structure, distill reusable structure templates, and give me second-level landing points for a new script."

@@ -1,0 +1,17 @@
+viral-structure-teardown
+Copyright 2026 JuneYaooo
+
+This product includes original skill guidance, deterministic transcript
+parsing / structure annotation / template distillation scripts, and
+evaluation artifacts released under the Apache License, Version 2.0.
+
+Methodology note: the four-part structure vocabulary (hook / build /
+twist / cta) reflects common Chinese short-video practice; the practice of
+converting duration ratios into second-level beat points is inspired by
+published screenwriting beat-sheet methods. These names and methods are
+referenced for description only; no third-party material is redistributed.
+
+All evaluation fixtures (transcripts, annotations, template seeds) are
+synthetic and written by hand for this repository. No real video script,
+transcript, or creator content is included, and nothing here scores or
+rates content quality.

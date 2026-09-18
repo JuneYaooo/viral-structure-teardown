@@ -1,0 +1,14 @@
+{
+  "video_id": "bad-timeline-v1",
+  "title": "坏时间轴标注（校验拦截用合成样本）",
+  "genre": "好物测评",
+  "transcript": "evals/fixtures/standard_four_part_v1.srt",
+  "structure_note": "此文件专用于测试校验拦截：包含 end ≤ start、段重叠、超出全片时长三类非法时间轴，annotate.py 应以退出码 3 拒绝并逐条给出中文原因，不输出拆解卡。",
+  "segments": [
+    {"role": "hook", "start": 0.0, "end": 7.0, "evidence": "别再跟风买网红锅了", "reason": "合法段，用于确认校验能穿透合法段找到后续错误"},
+    {"role": "build", "start": 30.0, "end": 36.0, "evidence": "先说我的三个测试标准", "reason": "合法段本身，但与下一段重叠"},
+    {"role": "twist", "start": 33.0, "end": 39.0, "evidence": "但真正的反转在最后", "reason": "非法：start 落在前一段之内（段重叠）"},
+    {"role": "cta", "start": 25.0, "end": 20.0, "evidence": "点个关注", "reason": "非法：end 小于 start"},
+    {"role": "build", "start": 55.0, "end": 62.0, "evidence": "涂层耐磨用钢丝球定量擦两百下", "reason": "非法：end 62.0s 超出全片 58.0s"}
+  ]
+}

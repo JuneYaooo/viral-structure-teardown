@@ -1,0 +1,87 @@
+{
+  "version": "0.1.0",
+  "template_id": "listicle-notwist-v1",
+  "name": "无转折清单体",
+  "primary_sequence": [
+    "hook",
+    "build",
+    "build",
+    "cta"
+  ],
+  "duration_s": 60.0,
+  "landing_points": [
+    {
+      "position": 1,
+      "role": "hook",
+      "ratio": [
+        0.0,
+        0.1458
+      ],
+      "sample_cards": 1,
+      "functions": [
+        "痛点人群点名+时限承诺，直接留人"
+      ],
+      "example_lines": [
+        "上班族想带饭又怕麻烦的"
+      ],
+      "patterns": [],
+      "start_s": 0.0,
+      "end_s": 8.7
+    },
+    {
+      "position": 2,
+      "role": "build",
+      "ratio": [
+        0.1458,
+        0.3958
+      ],
+      "sample_cards": 1,
+      "functions": [
+        "清单体前半段：公式一、二，逐条给干货"
+      ],
+      "example_lines": [
+        "公式一"
+      ],
+      "patterns": [],
+      "start_s": 8.7,
+      "end_s": 23.7
+    },
+    {
+      "position": 3,
+      "role": "build",
+      "ratio": [
+        0.3958,
+        0.75
+      ],
+      "sample_cards": 1,
+      "functions": [
+        "清单体后半段：公式三到五，无转折直接铺完"
+      ],
+      "example_lines": [
+        "公式三，酱汁永远单独装"
+      ],
+      "patterns": [],
+      "start_s": 23.7,
+      "end_s": 45.0
+    },
+    {
+      "position": 4,
+      "role": "cta",
+      "ratio": [
+        0.75,
+        1.0
+      ],
+      "sample_cards": 1,
+      "functions": [
+        "评论区清单+关注提醒，转化收尾"
+      ],
+      "example_lines": [
+        "我写成了图文清单放在评论区"
+      ],
+      "patterns": [],
+      "start_s": 45.0,
+      "end_s": 60.0
+    }
+  ],
+  "note": "位置区间样本 1 张拆解卡；落点只约束结构位置与时长占比，不约束内容本身"
+}

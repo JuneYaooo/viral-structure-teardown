@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "suite": "viral-structure-teardown-v1",
+  "case_file": "cases_v1.jsonl",
+  "rubric_file": "rubric_v1.md",
+  "layers": {
+    "script_behavior": {
+      "runner": "python3 scripts/parse_transcript.py / scripts/annotate.py / scripts/templates.py 于仓库根目录按 docs/usage.md 命令执行，逐条核对 cases_v1.jsonl 的 required/forbidden 原子检查；脚本全部确定性，重复运行输出 sha256 一致",
+      "runs_per_case": 1,
+      "note": "case c6 显式验证同一标注两次渲染拆解卡 sha256 一致（e8b80c7e…）；case c4 验证非法时间轴被 exit 3 拦截且不产出半成品"
+    },
+    "agent_workflow": {
+      "runner": "开发 Agent（GLM / ZCode CLI）读取句块 JSON 后按设计段位撰写三份标注并提取例句，经 annotate.py 校验落位；产物随 runs_v1/ 提交",
+      "runs_per_case": 1
+    }
+  },
+  "conditions": ["skill"],
+  "baseline_note": "基线是人工逐句拉片填表（训练营作业与飞书/Notion 拆解表均为此形态），人工标注无法在同一夹具上确定性复现，故不作 baseline/skill 数值对比；人工拆一条约 0.5–1 小时为本 Skill 的对照参照（调研见 references/benchmarks.md）。",
+  "judging": {
+    "judge": "开发同一 Agent（GLM / ZCode CLI）自评，标 review_status=model_only；夹具设计段位写死于 evals/fixtures/README.md，标注落点可逐段机械核对",
+    "blind_condition_labels": false,
+    "human_review": "尚未进行独立人工复核，是当前评测的主要限制"
+  },
+  "pass_rule": {
+    "critical_failure_must_be_false": true,
+    "script_layer": "全部 required 原子检查通过且不触发 forbidden",
+    "agent_layer_minimum_mean_dimension_score": 3.0
+  },
+  "current_run": {
+    "status": "completed",
+    "date": "2026-09-19",
+    "model": "GLM（ZCode CLI 内置模型）",
+    "skill_version": "0.1.0",
+    "environment": {
+      "os": "macOS 25.5.0 arm64 (Darwin)",
+      "python": "3.13",
+      "network": "offline（脚本层全程未访问网络）"
+    },
+    "artifacts": [
+      "runs_v1/blocks_standard_v1.json",
+      "runs_v1/blocks_no_twist_v1.json",
+      "runs_v1/blocks_double_hook_v1.json",
+      "runs_v1/blocks_no_punct_v1.json",
+      "runs_v1/card_standard_v1.md",
+      "runs_v1/card_no_twist_v1.md",
+      "runs_v1/card_double_hook_v1.md",
+      "runs_v1/card_misplaced_evidence_v1.md",
+      "runs_v1/bad_timeline_rejected.txt",
+      "runs_v1/apply_twist_fourpart_90s.md",
+      "runs_v1/apply_listicle_notwist_60s.md",
+      "templates/twist-fourpart-v1.json",
+      "templates/listicle-notwist-v1.json"
+    ]
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "version": "0.1.0",
+  "template_id": "twist-fourpart-v1",
+  "name": "标准四段反转体",
+  "created": "2026-09-19",
+  "source_cards": [
+    "standard-four-part-v1",
+    "double-hook-loop-v1"
+  ],
+  "card_count": 2,
+  "genres": [
+    "好物测评",
+    "剧情维权"
+  ],
+  "duration_range_s": [
+    58.0,
+    63.0
+  ],
+  "role_sequences": [
+    {
+      "sequence": [
+        "hook",
+        "build",
+        "twist",
+        "cta"
+      ],
+      "count": 1
+    },
+    {
+      "sequence": [
+        "hook",
+        "build",
+        "twist",
+        "hook",
+        "build",
+        "cta"
+      ],
+      "count": 1
+    }
+  ],
+  "primary_sequence": [
+    "hook",
+    "build",
+    "twist",
+    "cta"
+  ],
+  "positions": [
+    {
+      "position": 1,
+      "role": "hook",
+      "ratio": [
+        0.0,
+        0.1207
+      ],
+      "sample_cards": 1,
+      "functions": [
+        "否定式开场+自费五千块的成本背书，强冲突钩子"
+      ],
+      "example_lines": [
+        "别再跟风买网红锅了"
+      ],
+      "patterns": []
+    },
+    {
+      "position": 2,
+      "role": "build",
+      "ratio": [
+        0.1207,
+        0.569
+      ],
+      "sample_cards": 1,
+      "functions": [
+        "立三条量化标准再逐条展开，铺垫可信度"
+      ],
+      "example_lines": [
+        "先说我的三个测试标准"
+      ],
+      "patterns": []
+    },
+    {
+      "position": 3,
+      "role": "twist",
+      "ratio": [
+        0.569,
+        0.7759
+      ],
+      "sample_cards": 1,
+      "functions": [
+        "反常识结论：最贵垫底、无名老牌第一"
+      ],
+      "example_lines": [
+        "卖得最贵的那口，三项全部垫底"
+      ],
+      "patterns": []
+    },
+    {
+      "position": 4,
+      "role": "cta",
+      "ratio": [
+        0.7759,
+        1.0
+      ],
+      "sample_cards": 1,
+      "functions": [
+        "评论区资料+关注预告，双转化动作"
+      ],
+      "example_lines": [
+        "完整的测试数据表我贴在评论区置顶"
+      ],
+      "patterns": []
+    }
+  ],
+  "role_ratio_ranges": {
+    "hook": [
+      0.0,
+      0.4841
+    ],
+    "build": [
+      0.119,
+      0.7937
+    ],
+    "twist": [
+      0.3175,
+      0.7759
+    ],
+    "cta": [
+      0.7759,
+      1.0
+    ]
+  },
+  "patterns": {
+    "hook": [],
+    "build": [],
+    "twist": [],
+    "cta": []
+  },
+  "intent_map": {
+    "hook": "AIDA-Attention",
+    "build": "AIDA-Interest/Desire",
+    "twist": "HSO-Story",
+    "cta": "HSO-Offer"
+  },
+  "red_lines": [
+    "只沉淀结构位置与句式功能，不收录整段文案，不做内容代写",
+    "不打分：不做流量预测与内容质量打分",
+    "例句仅示范该段功能，套用时必须替换为原创内容"
+  ]
+}

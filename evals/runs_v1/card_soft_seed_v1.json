@@ -1,0 +1,98 @@
+{
+  "version": "0.2.0",
+  "video_id": "soft-seed-v1",
+  "title": "雪夜电炖锅（合成样本）",
+  "genre": "剧情",
+  "transcript": "evals/fixtures/soft_seed_v1.srt",
+  "timed": true,
+  "duration_s": 70.0,
+  "block_count": 13,
+  "structure_pattern": "hook→build→twist→build",
+  "roles_present": [
+    "hook",
+    "build",
+    "twist"
+  ],
+  "roles_missing": [
+    "cta"
+  ],
+  "segments": [
+    {
+      "index": 1,
+      "role": "hook",
+      "start": 0.0,
+      "end": 7.0,
+      "evidence": "接到了房东的电话",
+      "reason": "深夜+便利店+房东来电的倒霉开局，悬念钩子",
+      "duration_s": 7.0,
+      "ratio": 0.1,
+      "evidence_ok": true,
+      "cut_blocks": []
+    },
+    {
+      "index": 2,
+      "role": "build",
+      "start": 7.0,
+      "end": 26.0,
+      "evidence": "翻出柜子深处单位发的年货电炖锅",
+      "reason": "处境铺垫到雪夜第一次用锅，情绪线起步",
+      "duration_s": 19.0,
+      "ratio": 0.2714,
+      "evidence_ok": true,
+      "cut_blocks": []
+    },
+    {
+      "index": 3,
+      "role": "twist",
+      "start": 26.0,
+      "end": 38.0,
+      "evidence": "租金还降了两百",
+      "reason": "外部人物（房东）的态度反转，第三方背书式转折",
+      "duration_s": 12.0,
+      "ratio": 0.1714,
+      "evidence_ok": true,
+      "cut_blocks": []
+    },
+    {
+      "index": 4,
+      "role": "build",
+      "start": 38.0,
+      "end": 70.0,
+      "evidence": "一人食汤谱整理了十二道",
+      "reason": "种草收尾段：习惯养成+汤谱清单+「哪买的不重要」，无转化动作",
+      "duration_s": 32.0,
+      "ratio": 0.4571,
+      "evidence_ok": true,
+      "cut_blocks": []
+    }
+  ],
+  "role_stats": {
+    "hook": {
+      "count": 1,
+      "duration_s": 7.0,
+      "ratio": 0.1
+    },
+    "build": {
+      "count": 2,
+      "duration_s": 51.0,
+      "ratio": 0.7286
+    },
+    "twist": {
+      "count": 1,
+      "duration_s": 12.0,
+      "ratio": 0.1714
+    }
+  },
+  "coverage": 1.0,
+  "uncovered": [],
+  "cut_block_count": 0,
+  "evidence_total": 4,
+  "evidence_hits": 4,
+  "checks": {
+    "timeline_legal": true,
+    "coverage_ok": true,
+    "alignment_clean": true,
+    "evidence_all_found": true
+  },
+  "structure_note": "剧情号软种草：情绪线（出租屋到家的转变）与产品线（电炖锅）拧在一条故事里，转折借房东的态度反转完成第三方背书，全片不喊关注、不挂链接，明确说「哪买的不重要」，靠故事余味完成种草——转化段缺位是结构上的刻意设计，末段留人段承载全部种草信息。"
+}

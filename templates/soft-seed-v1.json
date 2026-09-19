@@ -1,0 +1,131 @@
+{
+  "version": "0.2.0",
+  "template_id": "soft-seed-v1",
+  "name": "剧情软种草体",
+  "created": "2026-09-19",
+  "source_cards": [
+    "soft-seed-v1"
+  ],
+  "card_count": 1,
+  "genres": [
+    "剧情"
+  ],
+  "duration_range_s": [
+    70.0,
+    70.0
+  ],
+  "role_sequences": [
+    {
+      "sequence": [
+        "hook",
+        "build",
+        "twist",
+        "build"
+      ],
+      "count": 1
+    }
+  ],
+  "primary_sequence": [
+    "hook",
+    "build",
+    "twist",
+    "build"
+  ],
+  "positions": [
+    {
+      "position": 1,
+      "role": "hook",
+      "ratio": [
+        0.0,
+        0.1
+      ],
+      "sample_cards": 1,
+      "functions": [
+        "深夜+便利店+房东来电的倒霉开局，悬念钩子"
+      ],
+      "example_lines": [
+        "接到了房东的电话"
+      ],
+      "patterns": []
+    },
+    {
+      "position": 2,
+      "role": "build",
+      "ratio": [
+        0.1,
+        0.3714
+      ],
+      "sample_cards": 1,
+      "functions": [
+        "处境铺垫到雪夜第一次用锅，情绪线起步"
+      ],
+      "example_lines": [
+        "翻出柜子深处单位发的年货电炖锅"
+      ],
+      "patterns": []
+    },
+    {
+      "position": 3,
+      "role": "twist",
+      "ratio": [
+        0.3714,
+        0.5429
+      ],
+      "sample_cards": 1,
+      "functions": [
+        "外部人物（房东）的态度反转，第三方背书式转折"
+      ],
+      "example_lines": [
+        "租金还降了两百"
+      ],
+      "patterns": []
+    },
+    {
+      "position": 4,
+      "role": "build",
+      "ratio": [
+        0.5429,
+        1.0
+      ],
+      "sample_cards": 1,
+      "functions": [
+        "种草收尾段：习惯养成+汤谱清单+「哪买的不重要」，无转化动作"
+      ],
+      "example_lines": [
+        "一人食汤谱整理了十二道"
+      ],
+      "patterns": []
+    }
+  ],
+  "role_ratio_ranges": {
+    "hook": [
+      0.0,
+      0.1
+    ],
+    "build": [
+      0.1,
+      1.0
+    ],
+    "twist": [
+      0.3714,
+      0.5429
+    ]
+  },
+  "patterns": {
+    "hook": [],
+    "build": [],
+    "twist": [],
+    "cta": []
+  },
+  "intent_map": {
+    "hook": "AIDA-Attention",
+    "build": "AIDA-Interest/Desire",
+    "twist": "HSO-Story",
+    "cta": "HSO-Offer"
+  },
+  "red_lines": [
+    "只沉淀结构位置与句式功能，不收录整段文案，不做内容代写",
+    "不打分：不做流量预测与内容质量打分",
+    "例句仅示范该段功能，套用时必须替换为原创内容"
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "version": "0.2.0",
+  "template_id": "flat-notwist-v1",
+  "name": "无转折平铺讲解体",
+  "primary_sequence": [
+    "hook",
+    "build",
+    "build",
+    "cta"
+  ],
+  "duration_s": 90.0,
+  "landing_points": [
+    {
+      "position": 1,
+      "role": "hook",
+      "ratio": [
+        0.0,
+        0.1458
+      ],
+      "sample_cards": 2,
+      "functions": [
+        "痛点人群点名+时限承诺，直接留人",
+        "损失厌恶式承诺+人群点名，利益前置的强钩子"
+      ],
+      "example_lines": [
+        "上班族想带饭又怕麻烦的",
+        "租房被坑过的人，这条先收藏"
+      ],
+      "patterns": [],
+      "start_s": 0.0,
+      "end_s": 13.1
+    },
+    {
+      "position": 2,
+      "role": "build",
+      "ratio": [
+        0.0968,
+        0.4194
+      ],
+      "sample_cards": 2,
+      "functions": [
+        "清单体前半段：公式一、二，逐条给干货",
+        "清单体第一组：看房三看，逐条给可执行动作"
+      ],
+      "example_lines": [
+        "公式一",
+        "第一看，别在晚上看"
+      ],
+      "patterns": [],
+      "start_s": 8.7,
+      "end_s": 37.7
+    },
+    {
+      "position": 3,
+      "role": "build",
+      "ratio": [
+        0.3958,
+        0.75
+      ],
+      "sample_cards": 2,
+      "functions": [
+        "清单体后半段：公式三到五，无转折直接铺完",
+        "清单体第二组：合同三查，与上一组平行推进"
+      ],
+      "example_lines": [
+        "公式三，酱汁永远单独装",
+        "第一查，查签约主体"
+      ],
+      "patterns": [],
+      "start_s": 35.6,
+      "end_s": 67.5
+    },
+    {
+      "position": 4,
+      "role": "cta",
+      "ratio": [
+        0.7419,
+        1.0
+      ],
+      "sample_cards": 2,
+      "functions": [
+        "评论区清单+关注提醒，转化收尾",
+        "资料清单+关注预告+下期选题，双转化收尾"
+      ],
+      "example_lines": [
+        "我写成了图文清单放在评论区",
+        "核对清单做成了表格，放在评论区置顶"
+      ],
+      "patterns": [],
+      "start_s": 66.8,
+      "end_s": 90.0
+    }
+  ],
+  "note": "位置区间样本 2 张拆解卡；落点只约束结构位置与时长占比，不约束内容本身"
+}

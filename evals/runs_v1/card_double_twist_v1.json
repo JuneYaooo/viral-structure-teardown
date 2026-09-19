@@ -1,0 +1,126 @@
+{
+  "version": "0.2.0",
+  "video_id": "double-twist-v1",
+  "title": "三款便携挂烫机实测（合成样本）",
+  "genre": "带货测评",
+  "transcript": "evals/fixtures/double_twist_v1.srt",
+  "timed": true,
+  "duration_s": 75.0,
+  "block_count": 14,
+  "structure_pattern": "hook→build→twist→build→twist→cta",
+  "roles_present": [
+    "hook",
+    "build",
+    "twist",
+    "cta"
+  ],
+  "roles_missing": [],
+  "segments": [
+    {
+      "index": 1,
+      "role": "hook",
+      "start": 0.0,
+      "end": 7.0,
+      "evidence": "卖爆的三款便携挂烫机",
+      "reason": "自费横评+结论后置，制造「猜哪款」的悬念开局",
+      "duration_s": 7.0,
+      "ratio": 0.0933,
+      "evidence_ok": true,
+      "cut_blocks": []
+    },
+    {
+      "index": 2,
+      "role": "build",
+      "start": 7.0,
+      "end": 22.0,
+      "evidence": "广告说酒店都在用",
+      "reason": "三款产品按价格梯度介绍，立第一轮实测的预期",
+      "duration_s": 15.0,
+      "ratio": 0.2,
+      "evidence_ok": true,
+      "cut_blocks": []
+    },
+    {
+      "index": 3,
+      "role": "twist",
+      "start": 22.0,
+      "end": 34.0,
+      "evidence": "水箱接缝开始渗水",
+      "reason": "第一次反转：「贵的就是对的」被渗水实锤当场推翻",
+      "duration_s": 12.0,
+      "ratio": 0.16,
+      "evidence_ok": true,
+      "cut_blocks": []
+    },
+    {
+      "index": 4,
+      "role": "build",
+      "start": 34.0,
+      "end": 50.0,
+      "evidence": "渗水点出在软管接口的胶圈上",
+      "reason": "拆机找证据+查竞品参数，为第二次反转铺垫线索",
+      "duration_s": 16.0,
+      "ratio": 0.2133,
+      "evidence_ok": true,
+      "cut_blocks": []
+    },
+    {
+      "index": 5,
+      "role": "twist",
+      "start": 50.0,
+      "end": 63.0,
+      "evidence": "最便宜那台全程零渗水",
+      "reason": "第二次反转：实测反超，便宜款登顶",
+      "duration_s": 13.0,
+      "ratio": 0.1733,
+      "evidence_ok": true,
+      "cut_blocks": []
+    },
+    {
+      "index": 6,
+      "role": "cta",
+      "start": 63.0,
+      "end": 75.0,
+      "evidence": "实测数据表我贴在评论区",
+      "reason": "数据表+扣字引导下期内容，软性转化",
+      "duration_s": 12.0,
+      "ratio": 0.16,
+      "evidence_ok": true,
+      "cut_blocks": []
+    }
+  ],
+  "role_stats": {
+    "hook": {
+      "count": 1,
+      "duration_s": 7.0,
+      "ratio": 0.0933
+    },
+    "build": {
+      "count": 2,
+      "duration_s": 31.0,
+      "ratio": 0.4133
+    },
+    "twist": {
+      "count": 2,
+      "duration_s": 25.0,
+      "ratio": 0.3333
+    },
+    "cta": {
+      "count": 1,
+      "duration_s": 12.0,
+      "ratio": 0.16
+    }
+  },
+  "coverage": 1.0,
+  "uncovered": [],
+  "cut_block_count": 0,
+  "evidence_total": 6,
+  "evidence_hits": 6,
+  "checks": {
+    "timeline_legal": true,
+    "coverage_ok": true,
+    "alignment_clean": true,
+    "evidence_all_found": true
+  },
+  "structure_note": "双转折带货体的骨架：钩子用「全买回来+结论后置」制造期待，第一轮实测先立「贵的就是对的」再当场推翻（第一次反转），拆机找线索铺垫第二次实测后完成第二次反转（最便宜的反超），两次转折层层递进把信任推满，转化只用数据表和扣字引导，不喊三连。"
+}

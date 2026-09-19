@@ -21,7 +21,7 @@ import re
 import sys
 from pathlib import Path
 
-VERSION = "0.1.0"
+VERSION = "0.2.0"
 
 SENTENCE_END = "。！？!?；;…"
 PAUSE_GAP_S = 0.8          # 相邻字幕条间隔超过该值视为停顿边界

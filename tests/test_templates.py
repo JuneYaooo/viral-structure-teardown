@@ -55,6 +55,83 @@ CARD_LOOP = {
 }
 
 
+class EnvelopeStabilityTests(unittest.TestCase):
+    """占比区间聚合（min–max 包络）在样本 2→5 张时的行为：固定包络语义，防回归。"""
+
+    @staticmethod
+    def make_card(n: int, boundaries: list[tuple[float, float]]) -> dict:
+        roles = ["hook", "build", "twist", "cta"]
+        duration = boundaries[-1][1]
+        return {
+            "version": "0.1.0",
+            "video_id": f"synthetic-{n}",
+            "genre": "知识口播",
+            "duration_s": duration,
+            "structure_pattern": "hook→build→twist→cta",
+            "patterns": {},
+            "segments": [
+                {"index": i + 1, "role": roles[i], "start": s, "end": e,
+                 "duration_s": round(e - s, 2), "ratio": round((e - s) / duration, 4),
+                 "evidence": f"例句{n}-{i}", "reason": "合成"}
+                for i, (s, e) in enumerate(boundaries)
+            ],
+        }
+
+    @classmethod
+    def setUpClass(cls):
+        # 5 张同主序列卡：各段边界逐渐「外扩」，模拟真实样本波动
+        cls.boundaries = [
+            [(0.0, 7.0), (7.0, 33.0), (33.0, 45.0), (45.0, 58.0)],
+            [(0.0, 5.0), (5.0, 35.0), (35.0, 47.0), (47.0, 60.0)],
+            [(0.0, 9.0), (9.0, 30.0), (30.0, 44.0), (44.0, 62.0)],
+            [(0.0, 6.5), (6.5, 37.0), (37.0, 49.0), (49.0, 66.0)],
+            [(0.0, 8.0), (8.0, 32.0), (32.0, 46.0), (46.0, 70.0)],
+        ]
+        cls.cards = [cls.make_card(i + 1, b) for i, b in enumerate(cls.boundaries)]
+        cls.templates = {
+            n: tp.distill(cls.cards[:n], DistillArgs(f"env-{n}", "包络"))
+            for n in range(2, 6)
+        }
+
+    def test_sample_cards_grows_with_matching_cards(self):
+        for n in range(2, 6):
+            self.assertTrue(all(p["sample_cards"] == n for p in self.templates[n]["positions"]))
+
+    def test_envelope_is_monotone_non_shrinking(self):
+        # min–max 包络：样本增加时区间只能外扩（这是文档化语义，不允许悄悄变窄）
+        for n in range(3, 6):
+            prev, curr = self.templates[n - 1]["positions"], self.templates[n]["positions"]
+            for p_prev, p_curr in zip(prev, curr):
+                self.assertLessEqual(p_curr["ratio"][0], p_prev["ratio"][0] + 1e-9)
+                self.assertGreaterEqual(p_curr["ratio"][1], p_prev["ratio"][1] - 1e-9)
+
+    def test_envelope_matches_observed_min_max(self):
+        t5 = self.templates[5]
+        durations = [58.0, 60.0, 62.0, 66.0, 70.0]
+        hook_end_ratios = [round(self.boundaries[i][0][1] / durations[i], 4) for i in range(5)]
+        self.assertEqual(t5["positions"][0]["ratio"][0], 0.0)  # hook start 恒为 0
+        self.assertEqual(t5["positions"][0]["ratio"][1], max(hook_end_ratios))
+
+    def test_distill_is_deterministic(self):
+        args_a = DistillArgs("det", "确定性")
+        args_b = DistillArgs("det", "确定性")
+        self.assertEqual(
+            json.dumps(tp.distill(self.cards, args_a), ensure_ascii=False, sort_keys=True),
+            json.dumps(tp.distill(self.cards, args_b), ensure_ascii=False, sort_keys=True),
+        )
+
+    def test_template_md_contains_support_count_column(self):
+        rendered = tp.render_template_md(self.templates[5])
+        self.assertIn("支撑卡数", rendered)
+        self.assertIn("| 1 | 钩子 hook |", rendered)
+        self.assertIn("观测包络", rendered)
+
+    def test_apply_note_discloses_sample_size(self):
+        result = tp.run_apply(self.templates[3], 90.0)
+        self.assertIn("3 张拆解卡", result["note"])
+        self.assertEqual(result["landing_points"][3]["end_s"], 90.0)
+
+
 class DistillArgs:
     def __init__(self, template_id="t1", name="模板", genres="好物测评", created="2026-09-19"):
         self.template_id = template_id

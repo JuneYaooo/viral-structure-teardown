@@ -25,7 +25,7 @@
 
 ```json
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "source": "evals/fixtures/standard_four_part_v1.srt",
   "format": "srt",
   "timed": true,
@@ -77,7 +77,7 @@
 
 ```json
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "template_id": "twist-fourpart-v1",
   "name": "标准四段反转体",
   "created": "2026-09-19",
@@ -107,8 +107,8 @@
 | 字段 | 说明 |
 | --- | --- |
 | role_sequences | 观测到的全部段序列及次数；主序列取最常见（并列取更短者） |
-| positions[].ratio | 该序位在各卡中的占比区间 [min_start, max_end]；只统计与主序列一致的卡 |
-| positions[].sample_cards | 支撑该序位的卡片数（样本量必须如实随产物披露） |
+| positions[].ratio | 该序位在各卡中的占比区间 [min_start, max_end]，即观测包络（样本增加时只增不减）；只统计与主序列一致的卡 |
+| positions[].sample_cards | 支撑该序位的卡片数（样本量必须如实随产物披露，模板说明的段位表含「支撑卡数」列） |
 | role_ratio_ranges | 每个角色跨全部卡的总出现区间（含复现段，供参考） |
 
 apply 落点：期望区间（秒）= positions[].ratio × 目标时长，节拍表式按百分比打点；

@@ -25,7 +25,7 @@ import json
 import sys
 from pathlib import Path
 
-VERSION = "0.1.0"
+VERSION = "0.2.0"
 
 ROLES = ("hook", "build", "twist", "cta")
 ROLE_CN = {"hook": "钩子", "build": "留人", "twist": "转折", "cta": "转化"}

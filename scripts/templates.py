@@ -19,7 +19,7 @@ import json
 import sys
 from pathlib import Path
 
-VERSION = "0.1.0"
+VERSION = "0.2.0"
 
 ROLES = ("hook", "build", "twist", "cta")
 ROLE_CN = {"hook": "钩子", "build": "留人", "twist": "转折", "cta": "转化"}
@@ -165,8 +165,8 @@ def render_template_md(template: dict) -> str:
         "",
         "## 段位与占比区间",
         "",
-        "| 序 | 角色 | 占比区间 | 功能 | 句式模式 | 例句参考 |",
-        "| --- | --- | --- | --- | --- | --- |",
+        "| 序 | 角色 | 占比区间 | 支撑卡数 | 功能 | 句式模式 | 例句参考 |",
+        "| --- | --- | --- | --- | --- | --- | --- |",
     ]
     for pos in template["positions"]:
         ratio = f"{pos['ratio'][0] * 100:.1f}%–{pos['ratio'][1] * 100:.1f}%" if pos["ratio"] else "—"
@@ -174,9 +174,13 @@ def render_template_md(template: dict) -> str:
         patterns = "；".join(pos["patterns"]) or "—"
         lines.append(
             f"| {pos['position']} | {ROLE_CN[pos['role']]} {pos['role']} | {ratio} "
+            f"| {pos.get('sample_cards', '—')} "
             f"| {('；'.join(pos['functions'])) or '—'} | {patterns} | {examples} |"
         )
     lines += [
+        "",
+        "占比区间为各支撑卡的观测包络（min–max），样本扩充时只增不减、覆盖真实波动；"
+        "支撑卡数 = 与主段序列一致的拆解卡数。",
         "",
         "## 段序列模式",
         "",

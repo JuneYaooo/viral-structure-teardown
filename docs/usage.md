@@ -62,7 +62,7 @@ patterns（句式模式）。
 ## 测试与评测
 
 ```bash
-python3 -m unittest discover tests      # 44 项单元测试
+python3 -m unittest discover tests      # 50 项单元测试
 ```
 
 完整评测流程与证据见 [evals/README.md](../evals/README.md)；脚本层全程离线，

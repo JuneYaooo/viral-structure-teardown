@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect x="16" y="16" width="480" height="480" rx="96" fill="#6C4BB8"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="28" stroke-linecap="round">
+    <line x1="128" y1="128" x2="128" y2="200"/>
+    <line x1="256" y1="112" x2="256" y2="216"/>
+    <line x1="384" y1="128" x2="384" y2="200"/>
+    <line x1="128" y1="296" x2="128" y2="312"/>
+    <line x1="256" y1="280" x2="256" y2="400"/>
+    <line x1="384" y1="296" x2="384" y2="312"/>
+  </g>
+  <g fill="#FFFFFF" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-weight="700" text-anchor="middle">
+    <text x="256" y="470" font-size="64">结构拆解</text>
+  </g>
+</svg>

@@ -1,0 +1,112 @@
+{
+  "version": "0.3.0",
+  "video_id": "knowledge-flat-v1",
+  "title": "租房避坑六查（合成样本）",
+  "genre": "知识口播",
+  "transcript": "evals/fixtures/knowledge_flat_v1.srt",
+  "timed": true,
+  "duration_s": 62.0,
+  "block_count": 13,
+  "structure_pattern": "hook→build→build→cta",
+  "roles_present": [
+    "hook",
+    "build",
+    "cta"
+  ],
+  "roles_missing": [
+    "twist"
+  ],
+  "segments": [
+    {
+      "index": 1,
+      "role": "hook",
+      "start": 0.0,
+      "end": 6.0,
+      "evidence": "租房被坑过的人，这条先收藏",
+      "reason": "损失厌恶式承诺+人群点名，利益前置的强钩子",
+      "duration_s": 6.0,
+      "ratio": 0.0968,
+      "evidence_ok": true,
+      "cut_blocks": [],
+      "chars_per_s": 6.83
+    },
+    {
+      "index": 2,
+      "role": "build",
+      "start": 6.0,
+      "end": 26.0,
+      "evidence": "第一看，别在晚上看",
+      "reason": "清单体第一组：看房三看，逐条给可执行动作",
+      "duration_s": 20.0,
+      "ratio": 0.3226,
+      "evidence_ok": true,
+      "cut_blocks": [],
+      "chars_per_s": 4.75
+    },
+    {
+      "index": 3,
+      "role": "build",
+      "start": 26.0,
+      "end": 46.0,
+      "evidence": "第一查，查签约主体",
+      "reason": "清单体第二组：合同三查，与上一组平行推进",
+      "duration_s": 20.0,
+      "ratio": 0.3226,
+      "evidence_ok": true,
+      "cut_blocks": [],
+      "chars_per_s": 4.8
+    },
+    {
+      "index": 4,
+      "role": "cta",
+      "start": 46.0,
+      "end": 62.0,
+      "evidence": "核对清单做成了表格，放在评论区置顶",
+      "reason": "资料清单+关注预告+下期选题，双转化收尾",
+      "duration_s": 16.0,
+      "ratio": 0.2581,
+      "evidence_ok": true,
+      "cut_blocks": [],
+      "chars_per_s": 4.31
+    }
+  ],
+  "role_stats": {
+    "hook": {
+      "count": 1,
+      "duration_s": 6.0,
+      "ratio": 0.0968
+    },
+    "build": {
+      "count": 2,
+      "duration_s": 40.0,
+      "ratio": 0.6452
+    },
+    "cta": {
+      "count": 1,
+      "duration_s": 16.0,
+      "ratio": 0.2581
+    }
+  },
+  "coverage": 1.0,
+  "uncovered": [],
+  "cut_block_count": 0,
+  "hook_check": {
+    "first_role": "hook",
+    "opens_with_hook": true,
+    "speech_start_s": 0.0,
+    "first_hook_start_s": 0.0,
+    "first_hook_end_s": 6.0,
+    "hook_ends_within_6s": true,
+    "reference": "TikTok 官方创意建议：前 3 秒亮出内容主张、钩子优先放在前 6 秒（参照，不判对错）"
+  },
+  "chars_per_s": 4.85,
+  "evidence_total": 4,
+  "evidence_hits": 4,
+  "checks": {
+    "timeline_legal": true,
+    "coverage_ok": true,
+    "alignment_clean": true,
+    "evidence_all_found": true
+  },
+  "structure_note": "钩子前置平铺型的典型节奏：开头用损失厌恶式承诺（省一个月房租）直接圈人，正文两组「三看三查」清单平铺推进，全程无转折，靠清单密度与递进结构留人；结尾用资料清单加下期预告完成双转化。"
+}

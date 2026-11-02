@@ -1,0 +1,57 @@
+{
+  "baseline_commit": "266ad86",
+  "blocks_sparse_punct": {
+    "format": "srt",
+    "timed": true,
+    "strategy": "sentence_punct",
+    "block_count": 3,
+    "zero_length_blocks": 0,
+    "max_block_s": 24.6,
+    "median_block_s": 15.0,
+    "max_block_chars": 111,
+    "text_contains_timecode": false
+  },
+  "blocks_multi_sentence": {
+    "format": "srt",
+    "timed": true,
+    "strategy": "sentence_punct",
+    "block_count": 14,
+    "zero_length_blocks": 8,
+    "max_block_s": 8.0,
+    "median_block_s": 0.0,
+    "max_block_chars": 25,
+    "text_contains_timecode": false
+  },
+  "card_sparse_punct": {
+    "stdout": [
+      "校验通过：时间轴合法 · 覆盖率 96.9% · 四段齐全（钩子→留人→转折→转化）",
+      "拆解卡已生成：evals/runs_v2/before_v0.2.0/card_sparse_punct.md（边界错位 6 处 · 例句 2/4 命中）"
+    ],
+    "cut_block_count": 6,
+    "evidence": "2/4"
+  },
+  "real_whisper": {
+    "srt": {
+      "format": "srt",
+      "timed": true,
+      "strategy": "pause_gap",
+      "block_count": 5,
+      "zero_length_blocks": 0,
+      "max_block_s": 23.0,
+      "median_block_s": 20.0,
+      "max_block_chars": 73,
+      "text_contains_timecode": false
+    },
+    "vtt": {
+      "format": "txt",
+      "timed": false,
+      "strategy": "fixed_length",
+      "block_count": 26,
+      "zero_length_blocks": 0,
+      "max_block_s": null,
+      "median_block_s": null,
+      "max_block_chars": 40,
+      "text_contains_timecode": true
+    }
+  }
+}

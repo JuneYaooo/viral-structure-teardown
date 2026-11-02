@@ -1,0 +1,128 @@
+{
+  "version": "0.3.0",
+  "template_id": "flat-notwist-v1",
+  "name": "无转折平铺讲解体",
+  "primary_sequence": [
+    "hook",
+    "build",
+    "build",
+    "cta"
+  ],
+  "duration_s": 30.0,
+  "method": "median",
+  "landing_points": [
+    {
+      "position": 1,
+      "role": "hook",
+      "ratio": [
+        0.0,
+        0.1458
+      ],
+      "sample_cards": 2,
+      "functions": [
+        "痛点人群点名+时限承诺，直接留人",
+        "损失厌恶式承诺+人群点名，利益前置的强钩子"
+      ],
+      "expected_start_s": 0.0,
+      "expected_end_s": 3.6,
+      "observed_start_s": [
+        0.0,
+        0.0
+      ],
+      "observed_end_s": [
+        2.9,
+        4.4
+      ],
+      "hook_anchor_s": 6.5,
+      "hook_ratio_end_s": 3.6,
+      "start_s": 0.0,
+      "end_s": 4.4
+    },
+    {
+      "position": 2,
+      "role": "build",
+      "ratio": [
+        0.0968,
+        0.4194
+      ],
+      "sample_cards": 2,
+      "functions": [
+        "清单体前半段：公式一、二，逐条给干货",
+        "清单体第一组：看房三看，逐条给可执行动作"
+      ],
+      "expected_start_s": 3.6,
+      "expected_end_s": 12.2,
+      "observed_start_s": [
+        2.9,
+        4.4
+      ],
+      "observed_end_s": [
+        11.9,
+        12.6
+      ],
+      "hook_anchor_s": null,
+      "hook_ratio_end_s": null,
+      "start_s": 2.9,
+      "end_s": 12.6
+    },
+    {
+      "position": 3,
+      "role": "build",
+      "ratio": [
+        0.3958,
+        0.75
+      ],
+      "sample_cards": 2,
+      "functions": [
+        "清单体后半段：公式三到五，无转折直接铺完",
+        "清单体第二组：合同三查，与上一组平行推进"
+      ],
+      "expected_start_s": 12.2,
+      "expected_end_s": 22.4,
+      "observed_start_s": [
+        11.9,
+        12.6
+      ],
+      "observed_end_s": [
+        22.3,
+        22.5
+      ],
+      "hook_anchor_s": null,
+      "hook_ratio_end_s": null,
+      "start_s": 11.9,
+      "end_s": 22.5
+    },
+    {
+      "position": 4,
+      "role": "cta",
+      "ratio": [
+        0.7419,
+        1.0
+      ],
+      "sample_cards": 2,
+      "functions": [
+        "评论区清单+关注提醒，转化收尾",
+        "资料清单+关注预告+下期选题，双转化收尾"
+      ],
+      "expected_start_s": 22.4,
+      "expected_end_s": 30.0,
+      "observed_start_s": [
+        22.3,
+        22.5
+      ],
+      "observed_end_s": [
+        30.0,
+        30.0
+      ],
+      "hook_anchor_s": null,
+      "hook_ratio_end_s": null,
+      "start_s": 22.3,
+      "end_s": 30.0
+    }
+  ],
+  "warnings": [
+    "目标时长 30s 超出样本时长范围 48–62s，属外推：占比是否随时长线性缩放没有样本支撑",
+    "冷启动：位置区间仅 2 张拆解卡支撑（< 3），中位落点即个例值"
+  ],
+  "note": "位置区间样本 2 张拆解卡；落点只约束结构位置与时长占比，不约束内容本身"
+}

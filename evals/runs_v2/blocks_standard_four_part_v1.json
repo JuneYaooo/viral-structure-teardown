@@ -1,0 +1,91 @@
+{
+  "version": "0.3.0",
+  "source": "evals/fixtures/standard_four_part_v1.srt",
+  "format": "srt",
+  "timed": true,
+  "duration_s": 58.0,
+  "punctuation": true,
+  "punct_cue_ratio": 1.0,
+  "strategy": "sentence_punct",
+  "params": {
+    "pause_gap_s": 0.5,
+    "max_block_chars": 32,
+    "max_block_s": 6.0
+  },
+  "cue_count": 11,
+  "block_count": 11,
+  "max_block_s": 7.0,
+  "diagnostics": {
+    "reordered": false,
+    "overlapping_cues": 0,
+    "dropped_repeat_lines": 0
+  },
+  "blocks": [
+    {
+      "i": 0,
+      "start": 0.0,
+      "end": 4.0,
+      "text": "别再跟风买网红锅了，我自费五千块，把全平台销量前五全测了一遍。"
+    },
+    {
+      "i": 1,
+      "start": 4.0,
+      "end": 7.0,
+      "text": "测完当天，我退掉了三个还没发货的订单。"
+    },
+    {
+      "i": 2,
+      "start": 7.0,
+      "end": 12.0,
+      "text": "先说我的三个测试标准，受热均匀度、涂层耐磨、还有清洗成本。"
+    },
+    {
+      "i": 3,
+      "start": 12.0,
+      "end": 17.0,
+      "text": "受热均匀我用红外测温仪，锅面温差超过十五度的直接淘汰。"
+    },
+    {
+      "i": 4,
+      "start": 17.0,
+      "end": 22.0,
+      "text": "涂层耐磨用钢丝球定量擦两百下，称重看掉了多少毫克。"
+    },
+    {
+      "i": 5,
+      "start": 22.0,
+      "end": 27.0,
+      "text": "清洗成本更简单，煎一次蛋，看要用力擦几分钟。"
+    },
+    {
+      "i": 6,
+      "start": 27.0,
+      "end": 33.0,
+      "text": "按这三条，前五名里有两口锅在第一轮就出局了。"
+    },
+    {
+      "i": 7,
+      "start": 33.0,
+      "end": 39.0,
+      "text": "但真正的反转在最后，卖得最贵的那口，三项全部垫底。"
+    },
+    {
+      "i": 8,
+      "start": 39.0,
+      "end": 45.0,
+      "text": "综合第一的，是直播间从来没上过首页的老牌子，价格只有前者的三分之一。"
+    },
+    {
+      "i": 9,
+      "start": 45.0,
+      "end": 52.0,
+      "text": "完整的测试数据表我贴在评论区置顶了，下单之前先去对一遍。"
+    },
+    {
+      "i": 10,
+      "start": 52.0,
+      "end": 58.0,
+      "text": "关注我，下期把这五口锅拿去炒糖色，看谁的涂层先阵亡。"
+    }
+  ]
+}

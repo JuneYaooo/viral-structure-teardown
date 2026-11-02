@@ -4,4 +4,4 @@ interface:
   icon_small: "./assets/icon.svg"
   icon_large: "./assets/icon.svg"
   brand_color: "#6C4BB8"
-  default_prompt: "Use $viral-structure-teardown to annotate this transcript's hook/build/twist/cta structure, distill reusable structure templates, and give me second-level landing points for a new script."
+  default_prompt: "Use $viral-structure-teardown to annotate this transcript's (SRT or WebVTT) hook/build/twist/cta structure, check the annotation and boundary agreement, distill reusable structure templates, and give me median landing points for a new script."

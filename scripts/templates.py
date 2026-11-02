@@ -6,7 +6,10 @@
            （段序列模式 + 每段占比区间 + 例句 + 题材标签）
   list     列出模板库里的全部模板
   show     查看单个模板详情
-  apply    按目标时长把模板占比区间换算成秒级期望落点（借鉴节拍表按百分比打点）
+  apply    按目标时长给秒级期望落点：段边界取各支撑卡的中位数（节拍表式打点），
+           并附观测范围；首段钩子的结束点按「绝对秒数」与「占比」取较小者
+           （平台建议钩子放在前 3–6 秒，长视频不应按比例把钩子拉长）；
+           目标时长超出样本时长范围、或支撑卡 < 3 张时如实提示。
 
 模板只沉淀结构位置与句式功能：不打分、不收录整段文案、不做内容代写。
 全部本地运行，零网络；同输入输出一致。
@@ -19,11 +22,12 @@ import json
 import sys
 from pathlib import Path
 
-VERSION = "0.2.0"
+VERSION = "0.3.0"
 
 ROLES = ("hook", "build", "twist", "cta")
 ROLE_CN = {"hook": "钩子", "build": "留人", "twist": "转折", "cta": "转化"}
 MAX_EXAMPLES_PER_POSITION = 3
+COLD_START_CARDS = 3  # 支撑卡少于 3 张时，中位数就是个例值，必须提示冷启动
 
 INTENT_MAP = {
     "hook": "AIDA-Attention",
@@ -56,6 +60,24 @@ def sequence_of(card: dict) -> list[str]:
     return [seg["role"] for seg in card["segments"]]
 
 
+def median(values: list[float]) -> float:
+    ordered = sorted(values)
+    n = len(ordered)
+    mid = n // 2
+    return ordered[mid] if n % 2 else (ordered[mid - 1] + ordered[mid]) / 2
+
+
+def stats(values: list[float], digits: int = 4) -> dict | None:
+    if not values:
+        return None
+    return {
+        "median": round(median(values), digits),
+        "min": round(min(values), digits),
+        "max": round(max(values), digits),
+        "n": len(values),
+    }
+
+
 def dedupe_keep_order(items: list[str]) -> list[str]:
     seen: set[str] = set()
     result = []
@@ -80,6 +102,7 @@ def distill(cards: list[dict], args) -> dict:
     for pos_index in range(len(primary)):
         role = primary[pos_index]
         starts, ends = [], []
+        starts_s, ends_s = [], []
         functions: list[str] = []
         examples: list[str] = []
         for card in matching:
@@ -89,6 +112,8 @@ def distill(cards: list[dict], args) -> dict:
                 continue
             starts.append(round(seg["start"] / duration, 4))
             ends.append(round(seg["end"] / duration, 4))
+            starts_s.append(seg["start"])
+            ends_s.append(seg["end"])
             if seg.get("reason"):
                 functions.append(seg["reason"])
             if seg.get("evidence"):
@@ -100,6 +125,10 @@ def distill(cards: list[dict], args) -> dict:
             "position": pos_index + 1,
             "role": role,
             "ratio": [min(starts), max(ends)] if starts else None,
+            "start_ratio": stats(starts),
+            "end_ratio": stats(ends),
+            "start_s": stats(starts_s, 2),
+            "end_s": stats(ends_s, 2),
             "sample_cards": len(matching),
             "functions": dedupe_keep_order(functions)[:2],
             "example_lines": dedupe_keep_order(examples)[:MAX_EXAMPLES_PER_POSITION],
@@ -165,22 +194,31 @@ def render_template_md(template: dict) -> str:
         "",
         "## 段位与占比区间",
         "",
-        "| 序 | 角色 | 占比区间 | 支撑卡数 | 功能 | 句式模式 | 例句参考 |",
-        "| --- | --- | --- | --- | --- | --- | --- |",
+        "| 序 | 角色 | 起点（中位） | 终点（中位） | 观测包络 | 支撑卡数 | 功能 | 句式模式 | 例句参考 |",
+        "| --- | --- | --- | --- | --- | --- | --- | --- | --- |",
     ]
     for pos in template["positions"]:
         ratio = f"{pos['ratio'][0] * 100:.1f}%–{pos['ratio'][1] * 100:.1f}%" if pos["ratio"] else "—"
         examples = "；".join(f"「{line}」" for line in pos["example_lines"]) or "—"
         patterns = "；".join(pos["patterns"]) or "—"
         lines.append(
-            f"| {pos['position']} | {ROLE_CN[pos['role']]} {pos['role']} | {ratio} "
+            f"| {pos['position']} | {ROLE_CN[pos['role']]} {pos['role']} "
+            f"| {fmt_stat(pos.get('start_ratio'), pos.get('start_s'))} "
+            f"| {fmt_stat(pos.get('end_ratio'), pos.get('end_s'))} | {ratio} "
             f"| {pos.get('sample_cards', '—')} "
             f"| {('；'.join(pos['functions'])) or '—'} | {patterns} | {examples} |"
         )
+    cold = template["positions"] and min(p.get("sample_cards", 0) for p in template["positions"]) < COLD_START_CARDS
     lines += [
         "",
-        "占比区间为各支撑卡的观测包络（min–max），样本扩充时只增不减、覆盖真实波动；"
-        "支撑卡数 = 与主段序列一致的拆解卡数。",
+        "起点/终点取各支撑卡的中位数（括号内为绝对秒数中位）；观测包络为 [最早起点, 最晚终点]，"
+        "样本扩充时只增不减。支撑卡数 = 与主段序列一致的拆解卡数。",
+    ]
+    if cold:
+        lines.append(
+            f"冷启动提示：支撑卡少于 {COLD_START_CARDS} 张，中位数即个例值，区间不代表同类爆款的真实波动。"
+        )
+    lines += [
         "",
         "## 段序列模式",
         "",
@@ -198,26 +236,90 @@ def render_template_md(template: dict) -> str:
     return "\n".join(lines) + "\n"
 
 
+def fmt_stat(ratio_stat: dict | None, sec_stat: dict | None) -> str:
+    if not ratio_stat:
+        return "—"
+    text = f"{ratio_stat['median'] * 100:.1f}%"
+    if sec_stat:
+        text += f"（{sec_stat['median']:.1f}s）"
+    return text
+
+
 def run_apply(template: dict, duration: float) -> dict:
+    """段边界 = 各支撑卡中位占比 × 目标时长；首段钩子的终点取 min(绝对秒中位, 占比中位 × 时长)。
+
+    旧模板（v0.2.0 及以前，无 start_ratio/end_ratio）退回包络换算并提示重新蒸馏。
+    """
+    positions = template["positions"]
+    has_stats = bool(positions) and all(p.get("start_ratio") and p.get("end_ratio") for p in positions)
+    warnings: list[str] = []
     landing = []
-    for pos in template["positions"]:
-        if not pos["ratio"]:
-            landing.append({**pos, "start_s": None, "end_s": None})
-            continue
-        landing.append({
-            **pos,
-            "start_s": round(pos["ratio"][0] * duration, 1),
-            "end_s": round(pos["ratio"][1] * duration, 1),
-        })
+    hook_ratio_end = None
+    if has_stats:
+        bounds = [positions[0]["start_ratio"]["median"] * duration]
+        for k, pos in enumerate(positions):
+            end = pos["end_ratio"]["median"] * duration
+            anchor = None
+            if k == 0 and pos["role"] == "hook" and pos.get("end_s") and len(positions) > 1:
+                anchor = pos["end_s"]["median"]
+                hook_ratio_end = round(end, 1)
+                end = min(end, anchor)
+            bounds.append(end)
+        # 保证落点单调：后一段起点不早于前一段终点
+        for k in range(1, len(bounds)):
+            bounds[k] = max(bounds[k], bounds[k - 1])
+        if positions[-1]["end_ratio"]["median"] >= 0.999:
+            bounds[-1] = duration
+        for k, pos in enumerate(positions):
+            start_s = round(bounds[k], 1)
+            end_s = round(bounds[k + 1], 1)
+            landing.append({
+                "position": pos["position"],
+                "role": pos["role"],
+                "ratio": pos["ratio"],
+                "sample_cards": pos["sample_cards"],
+                "functions": pos.get("functions", []),
+                "expected_start_s": start_s,
+                "expected_end_s": end_s,
+                "observed_start_s": [round(pos["start_ratio"]["min"] * duration, 1),
+                                     round(pos["start_ratio"]["max"] * duration, 1)],
+                "observed_end_s": [round(pos["end_ratio"]["min"] * duration, 1),
+                                   round(pos["end_ratio"]["max"] * duration, 1)],
+                "hook_anchor_s": pos["end_s"]["median"] if k == 0 and hook_ratio_end is not None else None,
+                "hook_ratio_end_s": hook_ratio_end if k == 0 else None,
+                # 兼容 v0.2.0 字段：start_s/end_s 为观测包络换算
+                "start_s": round(pos["ratio"][0] * duration, 1) if pos["ratio"] else None,
+                "end_s": round(pos["ratio"][1] * duration, 1) if pos["ratio"] else None,
+            })
+    else:
+        warnings.append("模板缺少中位数统计（v0.2.0 及以前蒸馏），落点退回观测包络换算；请用 distill 重新蒸馏")
+        for pos in positions:
+            landing.append({
+                **pos,
+                "start_s": round(pos["ratio"][0] * duration, 1) if pos["ratio"] else None,
+                "end_s": round(pos["ratio"][1] * duration, 1) if pos["ratio"] else None,
+            })
+    lo, hi = template.get("duration_range_s", [None, None])
+    if lo is not None and (duration < lo - 0.5 or duration > hi + 0.5):
+        warnings.append(
+            f"目标时长 {duration:.0f}s 超出样本时长范围 {lo:.0f}–{hi:.0f}s，属外推：占比是否随时长线性缩放没有样本支撑"
+        )
+    min_cards = min((p.get("sample_cards", 0) for p in positions), default=0)
+    if min_cards < COLD_START_CARDS:
+        warnings.append(
+            f"冷启动：位置区间仅 {min_cards} 张拆解卡支撑（< {COLD_START_CARDS}），中位落点即个例值"
+        )
     return {
         "version": VERSION,
         "template_id": template["template_id"],
         "name": template["name"],
         "primary_sequence": template["primary_sequence"],
         "duration_s": duration,
+        "method": "median" if has_stats else "envelope",
         "landing_points": landing,
+        "warnings": warnings,
         "note": (
-            f"位置区间样本 {template['positions'][0]['sample_cards'] if template['positions'] else 0} 张拆解卡；"
+            f"位置区间样本 {positions[0]['sample_cards'] if positions else 0} 张拆解卡；"
             "落点只约束结构位置与时长占比，不约束内容本身"
         ),
     }
@@ -230,15 +332,36 @@ def render_apply_md(result: dict) -> str:
         f"- 目标时长 {result['duration_s']:.0f} 秒 ｜ 主段序列："
         f"{role_chain('→'.join(result['primary_sequence']))}",
         "",
-        "| 序 | 角色 | 期望落点（秒） | 占比参考 |",
-        "| --- | --- | --- | --- |",
     ]
-    for point in result["landing_points"]:
-        window = f"{point['start_s']:.1f}–{point['end_s']:.1f}s" if point["start_s"] is not None else "—"
-        ratio = f"{point['ratio'][0] * 100:.1f}%–{point['ratio'][1] * 100:.1f}%" if point["ratio"] else "—"
-        lines.append(f"| {point['position']} | {ROLE_CN[point['role']]} {point['role']} | {window} | {ratio} |")
+    if result.get("method") == "median":
+        lines += [
+            "| 序 | 角色 | 期望落点（中位） | 起点观测范围 | 终点观测范围 | 支撑卡数 |",
+            "| --- | --- | --- | --- | --- | --- |",
+        ]
+        for p in result["landing_points"]:
+            anchor = (
+                f"（钩子终点取 min(样本绝对秒 {p['hook_anchor_s']:.1f}s, 占比换算 {p['hook_ratio_end_s']:.1f}s)）"
+                if p.get("hook_anchor_s") is not None else ""
+            )
+            lines.append(
+                f"| {p['position']} | {ROLE_CN[p['role']]} {p['role']} "
+                f"| {p['expected_start_s']:.1f}–{p['expected_end_s']:.1f}s{anchor} "
+                f"| {p['observed_start_s'][0]:.1f}–{p['observed_start_s'][1]:.1f}s "
+                f"| {p['observed_end_s'][0]:.1f}–{p['observed_end_s'][1]:.1f}s | {p['sample_cards']} |"
+            )
+    else:
+        lines += [
+            "| 序 | 角色 | 期望落点（秒） | 占比参考 |",
+            "| --- | --- | --- | --- |",
+        ]
+        for point in result["landing_points"]:
+            window = f"{point['start_s']:.1f}–{point['end_s']:.1f}s" if point["start_s"] is not None else "—"
+            ratio = f"{point['ratio'][0] * 100:.1f}%–{point['ratio'][1] * 100:.1f}%" if point["ratio"] else "—"
+            lines.append(f"| {point['position']} | {ROLE_CN[point['role']]} {point['role']} | {window} | {ratio} |")
+    lines.append("")
+    for warning in result.get("warnings", []):
+        lines.append(f"- ⚠ {warning}")
     lines += [
-        "",
         f"- {result['note']}",
         "- 段循环（如二次钩子）时按序列就近落位；区间随模板库扩充而更新。",
         "- 红线：例句只示范结构功能，写稿必须使用原创内容；本落点不打分、不预测流量。",
@@ -347,7 +470,9 @@ def main(argv: list[str] | None = None) -> int:
             if args.output:
                 args.output.parent.mkdir(parents=True, exist_ok=True)
                 args.output.write_text(rendered, encoding="utf-8")
-                print(f"落点已生成：{args.output}（目标时长 {args.duration:.0f}s）")
+                print(f"落点已生成：{args.output}（目标时长 {args.duration:.0f}s · 方法 {result['method']}）")
+                for warning in result["warnings"]:
+                    print(f"提示：{warning}")
             else:
                 print(rendered, end="")
             if args.json:

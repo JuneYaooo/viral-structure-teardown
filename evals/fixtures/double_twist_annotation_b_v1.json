@@ -1,0 +1,51 @@
+{
+  "video_id": "double-twist-v1-annotator-b",
+  "title": "便携挂烫机三款横评（合成样本，第二份标注）",
+  "genre": "带货测评",
+  "transcript": "evals/fixtures/double_twist_v1.srt",
+  "structure_note": "第二份标注（Claude Opus 5.5 读句块后撰写，非盲标）：把「第一轮实测网红款全面领先」视为留人段里的证据铺垫，转折从「但连续熨到第五件衬衫」的渗水开始。",
+  "segments": [
+    {
+      "role": "hook",
+      "start": 0.0,
+      "end": 7.0,
+      "evidence": "我把卖爆的三款便携挂烫机全买回来了",
+      "reason": "成本背书+悬念"
+    },
+    {
+      "role": "build",
+      "start": 7.0,
+      "end": 28.0,
+      "evidence": "网红款全面领先",
+      "reason": "逐款介绍+首轮实测铺垫"
+    },
+    {
+      "role": "twist",
+      "start": 28.0,
+      "end": 34.0,
+      "evidence": "它的水箱接缝开始渗水",
+      "reason": "首轮领先者出问题"
+    },
+    {
+      "role": "build",
+      "start": 34.0,
+      "end": 50.0,
+      "evidence": "把三台机器拆开看了内部",
+      "reason": "拆机溯源"
+    },
+    {
+      "role": "twist",
+      "start": 50.0,
+      "end": 63.0,
+      "evidence": "结果反转了",
+      "reason": "最便宜的反超"
+    },
+    {
+      "role": "cta",
+      "start": 63.0,
+      "end": 75.0,
+      "evidence": "实测数据表我贴在评论区",
+      "reason": "评论区资料+互动"
+    }
+  ]
+}

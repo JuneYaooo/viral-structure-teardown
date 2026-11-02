@@ -15,3 +15,16 @@ All evaluation fixtures (transcripts, annotations, template seeds) are
 synthetic and written by hand for this repository. No real video script,
 transcript, or creator content is included, and nothing here scores or
 rates content quality.
+
+Real-input evaluation (v0.3.0): the parsing layer was also run on a Whisper
+transcription of the first 90 seconds of "Zh-规则怪谈.ogg" from Wikimedia
+Commons (CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Zh-%E8%A7%84%E5%88%99%E6%80%AA%E8%B0%88.ogg).
+Neither the audio nor its transcript is redistributed here; only aggregate
+statistics (cue counts, block counts, block durations) are stored in
+evals/runs_v2/real_whisper_stats.json.
+
+Thresholds and metrics cite public sources (Netflix Timed Text Style Guides,
+W3C WebVTT, TikTok creative best practices, Pevzner & Hearst 2002 WindowDiff,
+Cohen's kappa with Landis & Koch 1977 bands); see references/benchmarks.md.
+These are referenced for description only; no third-party text is
+redistributed.

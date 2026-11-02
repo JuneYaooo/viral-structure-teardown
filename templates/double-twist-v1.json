@@ -1,8 +1,8 @@
 {
-  "version": "0.2.0",
+  "version": "0.3.0",
   "template_id": "double-twist-v1",
   "name": "双转折带货体",
-  "created": "2026-09-19",
+  "created": "2026-11-02",
   "source_cards": [
     "double-twist-v1"
   ],
@@ -43,6 +43,30 @@
         0.0,
         0.0933
       ],
+      "start_ratio": {
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "n": 1
+      },
+      "end_ratio": {
+        "median": 0.0933,
+        "min": 0.0933,
+        "max": 0.0933,
+        "n": 1
+      },
+      "start_s": {
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "n": 1
+      },
+      "end_s": {
+        "median": 7.0,
+        "min": 7.0,
+        "max": 7.0,
+        "n": 1
+      },
       "sample_cards": 1,
       "functions": [
         "自费横评+结论后置，制造「猜哪款」的悬念开局"
@@ -59,6 +83,30 @@
         0.0933,
         0.2933
       ],
+      "start_ratio": {
+        "median": 0.0933,
+        "min": 0.0933,
+        "max": 0.0933,
+        "n": 1
+      },
+      "end_ratio": {
+        "median": 0.2933,
+        "min": 0.2933,
+        "max": 0.2933,
+        "n": 1
+      },
+      "start_s": {
+        "median": 7.0,
+        "min": 7.0,
+        "max": 7.0,
+        "n": 1
+      },
+      "end_s": {
+        "median": 22.0,
+        "min": 22.0,
+        "max": 22.0,
+        "n": 1
+      },
       "sample_cards": 1,
       "functions": [
         "三款产品按价格梯度介绍，立第一轮实测的预期"
@@ -75,6 +123,30 @@
         0.2933,
         0.4533
       ],
+      "start_ratio": {
+        "median": 0.2933,
+        "min": 0.2933,
+        "max": 0.2933,
+        "n": 1
+      },
+      "end_ratio": {
+        "median": 0.4533,
+        "min": 0.4533,
+        "max": 0.4533,
+        "n": 1
+      },
+      "start_s": {
+        "median": 22.0,
+        "min": 22.0,
+        "max": 22.0,
+        "n": 1
+      },
+      "end_s": {
+        "median": 34.0,
+        "min": 34.0,
+        "max": 34.0,
+        "n": 1
+      },
       "sample_cards": 1,
       "functions": [
         "第一次反转：「贵的就是对的」被渗水实锤当场推翻"
@@ -91,6 +163,30 @@
         0.4533,
         0.6667
       ],
+      "start_ratio": {
+        "median": 0.4533,
+        "min": 0.4533,
+        "max": 0.4533,
+        "n": 1
+      },
+      "end_ratio": {
+        "median": 0.6667,
+        "min": 0.6667,
+        "max": 0.6667,
+        "n": 1
+      },
+      "start_s": {
+        "median": 34.0,
+        "min": 34.0,
+        "max": 34.0,
+        "n": 1
+      },
+      "end_s": {
+        "median": 50.0,
+        "min": 50.0,
+        "max": 50.0,
+        "n": 1
+      },
       "sample_cards": 1,
       "functions": [
         "拆机找证据+查竞品参数，为第二次反转铺垫线索"
@@ -107,6 +203,30 @@
         0.6667,
         0.84
       ],
+      "start_ratio": {
+        "median": 0.6667,
+        "min": 0.6667,
+        "max": 0.6667,
+        "n": 1
+      },
+      "end_ratio": {
+        "median": 0.84,
+        "min": 0.84,
+        "max": 0.84,
+        "n": 1
+      },
+      "start_s": {
+        "median": 50.0,
+        "min": 50.0,
+        "max": 50.0,
+        "n": 1
+      },
+      "end_s": {
+        "median": 63.0,
+        "min": 63.0,
+        "max": 63.0,
+        "n": 1
+      },
       "sample_cards": 1,
       "functions": [
         "第二次反转：实测反超，便宜款登顶"
@@ -123,6 +243,30 @@
         0.84,
         1.0
       ],
+      "start_ratio": {
+        "median": 0.84,
+        "min": 0.84,
+        "max": 0.84,
+        "n": 1
+      },
+      "end_ratio": {
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0,
+        "n": 1
+      },
+      "start_s": {
+        "median": 63.0,
+        "min": 63.0,
+        "max": 63.0,
+        "n": 1
+      },
+      "end_s": {
+        "median": 75.0,
+        "min": 75.0,
+        "max": 75.0,
+        "n": 1
+      },
       "sample_cards": 1,
       "functions": [
         "数据表+扣字引导下期内容，软性转化"

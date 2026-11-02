@@ -1,8 +1,8 @@
 {
-  "version": "0.2.0",
+  "version": "0.3.0",
   "template_id": "soft-seed-v1",
   "name": "剧情软种草体",
-  "created": "2026-09-19",
+  "created": "2026-11-02",
   "source_cards": [
     "soft-seed-v1"
   ],
@@ -39,6 +39,30 @@
         0.0,
         0.1
       ],
+      "start_ratio": {
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "n": 1
+      },
+      "end_ratio": {
+        "median": 0.1,
+        "min": 0.1,
+        "max": 0.1,
+        "n": 1
+      },
+      "start_s": {
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "n": 1
+      },
+      "end_s": {
+        "median": 7.0,
+        "min": 7.0,
+        "max": 7.0,
+        "n": 1
+      },
       "sample_cards": 1,
       "functions": [
         "深夜+便利店+房东来电的倒霉开局，悬念钩子"
@@ -55,6 +79,30 @@
         0.1,
         0.3714
       ],
+      "start_ratio": {
+        "median": 0.1,
+        "min": 0.1,
+        "max": 0.1,
+        "n": 1
+      },
+      "end_ratio": {
+        "median": 0.3714,
+        "min": 0.3714,
+        "max": 0.3714,
+        "n": 1
+      },
+      "start_s": {
+        "median": 7.0,
+        "min": 7.0,
+        "max": 7.0,
+        "n": 1
+      },
+      "end_s": {
+        "median": 26.0,
+        "min": 26.0,
+        "max": 26.0,
+        "n": 1
+      },
       "sample_cards": 1,
       "functions": [
         "处境铺垫到雪夜第一次用锅，情绪线起步"
@@ -71,6 +119,30 @@
         0.3714,
         0.5429
       ],
+      "start_ratio": {
+        "median": 0.3714,
+        "min": 0.3714,
+        "max": 0.3714,
+        "n": 1
+      },
+      "end_ratio": {
+        "median": 0.5429,
+        "min": 0.5429,
+        "max": 0.5429,
+        "n": 1
+      },
+      "start_s": {
+        "median": 26.0,
+        "min": 26.0,
+        "max": 26.0,
+        "n": 1
+      },
+      "end_s": {
+        "median": 38.0,
+        "min": 38.0,
+        "max": 38.0,
+        "n": 1
+      },
       "sample_cards": 1,
       "functions": [
         "外部人物（房东）的态度反转，第三方背书式转折"
@@ -87,6 +159,30 @@
         0.5429,
         1.0
       ],
+      "start_ratio": {
+        "median": 0.5429,
+        "min": 0.5429,
+        "max": 0.5429,
+        "n": 1
+      },
+      "end_ratio": {
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0,
+        "n": 1
+      },
+      "start_s": {
+        "median": 38.0,
+        "min": 38.0,
+        "max": 38.0,
+        "n": 1
+      },
+      "end_s": {
+        "median": 70.0,
+        "min": 70.0,
+        "max": 70.0,
+        "n": 1
+      },
       "sample_cards": 1,
       "functions": [
         "种草收尾段：习惯养成+汤谱清单+「哪买的不重要」，无转化动作"

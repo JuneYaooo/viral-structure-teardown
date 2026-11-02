@@ -1,0 +1,91 @@
+{
+  "version": "0.3.0",
+  "source": "evals/fixtures/double_hook_loop_v1.srt",
+  "format": "srt",
+  "timed": true,
+  "duration_s": 63.0,
+  "punctuation": true,
+  "punct_cue_ratio": 1.0,
+  "strategy": "sentence_punct",
+  "params": {
+    "pause_gap_s": 0.5,
+    "max_block_chars": 32,
+    "max_block_s": 6.0
+  },
+  "cue_count": 11,
+  "block_count": 11,
+  "max_block_s": 7.0,
+  "diagnostics": {
+    "reordered": false,
+    "overlapping_cues": 0,
+    "dropped_repeat_lines": 0
+  },
+  "blocks": [
+    {
+      "i": 0,
+      "start": 0.0,
+      "end": 3.8,
+      "text": "我押一付三租的这套房，住到第二十天才发现是隔断房。"
+    },
+    {
+      "i": 1,
+      "start": 3.8,
+      "end": 7.5,
+      "text": "更离谱的是，中介从头到尾没提过一个字。"
+    },
+    {
+      "i": 2,
+      "start": 7.5,
+      "end": 14.0,
+      "text": "先说我是怎么发现的，墙体敲上去是空心的，和图纸一对比，客厅少了整整六平米。"
+    },
+    {
+      "i": 3,
+      "start": 14.0,
+      "end": 20.0,
+      "text": "我拿着图纸去找中介，对方先是不承认，后来说合同里写了按现状交付。"
+    },
+    {
+      "i": 4,
+      "start": 20.0,
+      "end": 26.5,
+      "text": "关键转折在这，我翻出带看当天的聊天记录，中介发过一句这个户型没有隔断。"
+    },
+    {
+      "i": 5,
+      "start": 26.5,
+      "end": 30.5,
+      "text": "你以为到这一步就能退钱了，远远没有。"
+    },
+    {
+      "i": 6,
+      "start": 30.5,
+      "end": 37.0,
+      "text": "对方改口说那句话指的是另一个房间，让我拿证据证明聊天记录的时间。"
+    },
+    {
+      "i": 7,
+      "start": 37.0,
+      "end": 43.5,
+      "text": "我把带看录像的元数据导出来，逐帧对时间戳，甩过去一份时间线对照表。"
+    },
+    {
+      "i": 8,
+      "start": 43.5,
+      "end": 50.0,
+      "text": "第二天，中介同意解除合同，押金和已付房租全额退还。"
+    },
+    {
+      "i": 9,
+      "start": 50.0,
+      "end": 57.0,
+      "text": "租房维权的时间线模板和取证清单，我整理好放在评论区。"
+    },
+    {
+      "i": 10,
+      "start": 57.0,
+      "end": 63.0,
+      "text": "关注我，下期讲押金被扣之后的投诉渠道，按顺序打过去真的有用。"
+    }
+  ]
+}

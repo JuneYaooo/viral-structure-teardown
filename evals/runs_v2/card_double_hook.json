@@ -1,0 +1,142 @@
+{
+  "version": "0.3.0",
+  "video_id": "double-hook-loop-v1",
+  "title": "隔断房维权记（合成样本）",
+  "genre": "剧情维权",
+  "transcript": "evals/fixtures/double_hook_loop_v1.srt",
+  "timed": true,
+  "duration_s": 63.0,
+  "block_count": 11,
+  "structure_pattern": "hook→build→twist→hook→build→cta",
+  "roles_present": [
+    "hook",
+    "build",
+    "twist",
+    "cta"
+  ],
+  "roles_missing": [],
+  "segments": [
+    {
+      "index": 1,
+      "role": "hook",
+      "start": 0.0,
+      "end": 7.5,
+      "evidence": "住到第二十天才发现是隔断房",
+      "reason": "第一人称倒霉开局+利益受损，强冲突钩子",
+      "duration_s": 7.5,
+      "ratio": 0.119,
+      "evidence_ok": true,
+      "cut_blocks": [],
+      "chars_per_s": 5.33
+    },
+    {
+      "index": 2,
+      "role": "build",
+      "start": 7.5,
+      "end": 20.0,
+      "evidence": "墙体敲上去是空心的",
+      "reason": "交代发现过程与第一次交锋，铺垫冲突升级",
+      "duration_s": 12.5,
+      "ratio": 0.1984,
+      "evidence_ok": true,
+      "cut_blocks": [],
+      "chars_per_s": 4.96
+    },
+    {
+      "index": 3,
+      "role": "twist",
+      "start": 20.0,
+      "end": 26.5,
+      "evidence": "中介发过一句这个户型没有隔断",
+      "reason": "翻出聊天记录实锤，第一次反转",
+      "duration_s": 6.5,
+      "ratio": 0.1032,
+      "evidence_ok": true,
+      "cut_blocks": [],
+      "chars_per_s": 4.92
+    },
+    {
+      "index": 4,
+      "role": "hook",
+      "start": 26.5,
+      "end": 30.5,
+      "evidence": "你以为到这一步就能退钱了",
+      "reason": "二次钩子：反转再反转，把观众留下看下半场",
+      "duration_s": 4.0,
+      "ratio": 0.0635,
+      "evidence_ok": true,
+      "cut_blocks": [],
+      "chars_per_s": 4.0
+    },
+    {
+      "index": 5,
+      "role": "build",
+      "start": 30.5,
+      "end": 50.0,
+      "evidence": "逐帧对时间戳",
+      "reason": "取证反击到全额退款，铺完解决过程",
+      "duration_s": 19.5,
+      "ratio": 0.3095,
+      "evidence_ok": true,
+      "cut_blocks": [],
+      "chars_per_s": 4.21
+    },
+    {
+      "index": 6,
+      "role": "cta",
+      "start": 50.0,
+      "end": 63.0,
+      "evidence": "我整理好放在评论区",
+      "reason": "评论区模板+下期预告，转化收尾",
+      "duration_s": 13.0,
+      "ratio": 0.2063,
+      "evidence_ok": true,
+      "cut_blocks": [],
+      "chars_per_s": 3.92
+    }
+  ],
+  "role_stats": {
+    "hook": {
+      "count": 2,
+      "duration_s": 11.5,
+      "ratio": 0.1825
+    },
+    "build": {
+      "count": 2,
+      "duration_s": 32.0,
+      "ratio": 0.5079
+    },
+    "twist": {
+      "count": 1,
+      "duration_s": 6.5,
+      "ratio": 0.1032
+    },
+    "cta": {
+      "count": 1,
+      "duration_s": 13.0,
+      "ratio": 0.2063
+    }
+  },
+  "coverage": 1.0,
+  "uncovered": [],
+  "cut_block_count": 0,
+  "hook_check": {
+    "first_role": "hook",
+    "opens_with_hook": true,
+    "speech_start_s": 0.0,
+    "first_hook_start_s": 0.0,
+    "first_hook_end_s": 7.5,
+    "hook_ends_within_6s": false,
+    "reference": "TikTok 官方创意建议：前 3 秒亮出内容主张、钩子优先放在前 6 秒（参照，不判对错）"
+  },
+  "chars_per_s": 4.49,
+  "evidence_total": 6,
+  "evidence_hits": 6,
+  "checks": {
+    "timeline_legal": true,
+    "coverage_ok": true,
+    "alignment_clean": true,
+    "evidence_all_found": true
+  },
+  "structure_note": "双钩子循环结构：7.5 秒内用隔断房开局，20 秒处第一次反转（聊天记录实锤）后不收尾，26.5 秒用「你以为就完了」再起一个钩子，把同一条稿子拆成两波冲突。钩子→留人→转折→钩子→留人→转化的循环是剧情维权体拉完播率的典型打法。"
+}

@@ -1,0 +1,30 @@
+{
+  "version": "0.2.0",
+  "source": "evals/fixtures/sparse_punct_netflix_style_v1.srt",
+  "format": "srt",
+  "timed": true,
+  "duration_s": 42.0,
+  "punctuation": true,
+  "strategy": "sentence_punct",
+  "block_count": 3,
+  "blocks": [
+    {
+      "i": 0,
+      "start": 0.0,
+      "end": 2.4,
+      "text": "你家的电热水壶 用了多久了？"
+    },
+    {
+      "i": 1,
+      "start": 2.4,
+      "end": 27.0,
+      "text": "我拆了三台用满两年的 内胆全是水垢先说结论 不锈钢内胆也会结垢区别只在于 你能不能看见第一台是玻璃壶 水垢挂在壁上一目了然第二台是不锈钢 垢藏在底盘的焊缝里第三台号称一体成型 底部照样一圈白那为什么一体成型的反而最难清理？"
+    },
+    {
+      "i": 2,
+      "start": 27.0,
+      "end": 42.0,
+      "text": "因为它没有可拆的底盖 柠檬酸泡不到死角所以买壶别只看材质 先看底部能不能擦到三台的拆机图我放在评论区第一条下期拆饮水机 想看的点个关注"
+    }
+  ]
+}

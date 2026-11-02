@@ -1,0 +1,54 @@
+{
+  "before_v0.2.0": {
+    "srt": {
+      "format": "srt",
+      "timed": true,
+      "strategy": "pause_gap",
+      "block_count": 5,
+      "zero_length_blocks": 0,
+      "max_block_s": 23.0,
+      "median_block_s": 20.0,
+      "max_block_chars": 73,
+      "text_contains_timecode": false
+    },
+    "vtt": {
+      "format": "txt",
+      "timed": false,
+      "strategy": "fixed_length",
+      "block_count": 26,
+      "zero_length_blocks": 0,
+      "max_block_s": null,
+      "median_block_s": null,
+      "max_block_chars": 40,
+      "text_contains_timecode": true
+    }
+  },
+  "after_v0.3.0": {
+    "srt": {
+      "format": "srt",
+      "timed": true,
+      "strategy": "pause_gap",
+      "block_count": 17,
+      "zero_length_blocks": 0,
+      "max_block_s": 6.0,
+      "median_block_s": 6.0,
+      "max_block_chars": 25,
+      "text_contains_timecode": false,
+      "cue_count": 31,
+      "summary": "解析完成：SRT · 31 条字幕 → 17 个句块 · 全长 90.0s · 最长句块 6.0s（切法 pause_gap）→ <blocks.json>"
+    },
+    "vtt": {
+      "format": "vtt",
+      "timed": true,
+      "strategy": "pause_gap",
+      "block_count": 17,
+      "zero_length_blocks": 0,
+      "max_block_s": 6.0,
+      "median_block_s": 6.0,
+      "max_block_chars": 25,
+      "text_contains_timecode": false,
+      "cue_count": 31,
+      "summary": "解析完成：VTT · 31 条字幕 → 17 个句块 · 全长 90.0s · 最长句块 6.0s（切法 pause_gap）→ <blocks.json>"
+    }
+  }
+}

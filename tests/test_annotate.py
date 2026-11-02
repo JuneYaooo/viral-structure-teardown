@@ -190,5 +190,65 @@ class RunTests(unittest.TestCase):
         self.assertEqual(payload["structure_pattern"], "hook→build")
 
 
+class NormalizationTests(unittest.TestCase):
+    """v0.3.0：例句核对忽略标点/全半角（Netflix 中文字幕用空格代替逗号句号）。"""
+
+    def test_norm_ignores_punct_and_width(self):
+        self.assertEqual(an.norm_text("我拆了三台，内胆全是水垢。"), an.norm_text("我拆了三台 内胆全是水垢"))
+        self.assertEqual(an.norm_text("ＡＢＣ！"), "ABC")
+
+    def test_evidence_with_comma_hits_space_separated_subtitle(self):
+        blocks = {
+            **BLOCKS_DOC,
+            "blocks": [{"i": 0, "start": 0.0, "end": 4.0, "text": "我拆了三台 内胆全是水垢"},
+                       {"i": 1, "start": 4.0, "end": 12.0, "text": "先说结论"}],
+        }
+        doc = annotation(segments=[
+            {"role": "hook", "start": 0.0, "end": 4.0, "evidence": "我拆了三台，内胆全是水垢"},
+        ])
+        card = an.build_card(doc, blocks, an.validate_segments(doc, 58.0))
+        self.assertTrue(card["segments"][0]["evidence_ok"])
+
+    def test_count_chars(self):
+        self.assertEqual(an.count_chars("我测了 iPhone 15，好用！"), 3 + 1 + 1 + 2)
+
+
+class HookAndPaceTests(unittest.TestCase):
+    def card(self, segments):
+        doc = annotation(segments=segments)
+        return an.build_card(doc, BLOCKS_DOC, an.validate_segments(doc, 58.0))
+
+    def test_opens_with_hook(self):
+        card = self.card(GOOD_ANNOTATION["segments"])
+        hook = card["hook_check"]
+        self.assertTrue(hook["opens_with_hook"])
+        self.assertEqual(hook["first_hook_end_s"], 7.0)
+        self.assertFalse(hook["hook_ends_within_6s"])
+
+    def test_hook_not_at_opening_reported(self):
+        card = self.card([
+            {"role": "build", "start": 0.0, "end": 4.0},
+            {"role": "hook", "start": 4.0, "end": 7.0},
+        ])
+        self.assertFalse(card["hook_check"]["opens_with_hook"])
+        self.assertIn("钩子不在开场", an.render_card(card))
+
+    def test_no_hook_reported_honestly(self):
+        card = self.card([{"role": "build", "start": 0.0, "end": 12.0}])
+        self.assertIsNone(card["hook_check"]["first_hook_end_s"])
+        self.assertIn("未标注任何钩子段", an.render_card(card))
+
+    def test_segment_chars_per_second(self):
+        card = self.card(GOOD_ANNOTATION["segments"])
+        # 0–7s 覆盖句块 0（12 字）与句块 1（9 字）→ 21/7 = 3.0 字/秒
+        self.assertEqual(card["segments"][0]["chars_per_s"], 3.0)
+        self.assertIn("字/秒", an.render_card(card))
+
+    def test_render_states_reference_not_judgement(self):
+        rendered = an.render_card(self.card(GOOD_ANNOTATION["segments"]))
+        self.assertIn("TikTok 官方建议", rendered)
+        self.assertIn("不判对错", rendered)
+
+
 if __name__ == "__main__":
     unittest.main()

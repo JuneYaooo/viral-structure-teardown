@@ -1,8 +1,8 @@
 {
-  "version": "0.2.0",
+  "version": "0.3.0",
   "template_id": "listicle-notwist-v1",
   "name": "无转折清单体",
-  "created": "2026-09-19",
+  "created": "2026-11-02",
   "source_cards": [
     "no-twist-listicle-v1"
   ],
@@ -39,6 +39,30 @@
         0.0,
         0.1458
       ],
+      "start_ratio": {
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "n": 1
+      },
+      "end_ratio": {
+        "median": 0.1458,
+        "min": 0.1458,
+        "max": 0.1458,
+        "n": 1
+      },
+      "start_s": {
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "n": 1
+      },
+      "end_s": {
+        "median": 7.0,
+        "min": 7.0,
+        "max": 7.0,
+        "n": 1
+      },
       "sample_cards": 1,
       "functions": [
         "痛点人群点名+时限承诺，直接留人"
@@ -55,6 +79,30 @@
         0.1458,
         0.3958
       ],
+      "start_ratio": {
+        "median": 0.1458,
+        "min": 0.1458,
+        "max": 0.1458,
+        "n": 1
+      },
+      "end_ratio": {
+        "median": 0.3958,
+        "min": 0.3958,
+        "max": 0.3958,
+        "n": 1
+      },
+      "start_s": {
+        "median": 7.0,
+        "min": 7.0,
+        "max": 7.0,
+        "n": 1
+      },
+      "end_s": {
+        "median": 19.0,
+        "min": 19.0,
+        "max": 19.0,
+        "n": 1
+      },
       "sample_cards": 1,
       "functions": [
         "清单体前半段：公式一、二，逐条给干货"
@@ -71,6 +119,30 @@
         0.3958,
         0.75
       ],
+      "start_ratio": {
+        "median": 0.3958,
+        "min": 0.3958,
+        "max": 0.3958,
+        "n": 1
+      },
+      "end_ratio": {
+        "median": 0.75,
+        "min": 0.75,
+        "max": 0.75,
+        "n": 1
+      },
+      "start_s": {
+        "median": 19.0,
+        "min": 19.0,
+        "max": 19.0,
+        "n": 1
+      },
+      "end_s": {
+        "median": 36.0,
+        "min": 36.0,
+        "max": 36.0,
+        "n": 1
+      },
       "sample_cards": 1,
       "functions": [
         "清单体后半段：公式三到五，无转折直接铺完"
@@ -87,6 +159,30 @@
         0.75,
         1.0
       ],
+      "start_ratio": {
+        "median": 0.75,
+        "min": 0.75,
+        "max": 0.75,
+        "n": 1
+      },
+      "end_ratio": {
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0,
+        "n": 1
+      },
+      "start_s": {
+        "median": 36.0,
+        "min": 36.0,
+        "max": 36.0,
+        "n": 1
+      },
+      "end_s": {
+        "median": 48.0,
+        "min": 48.0,
+        "max": 48.0,
+        "n": 1
+      },
       "sample_cards": 1,
       "functions": [
         "评论区清单+关注提醒，转化收尾"

@@ -1,0 +1,143 @@
+{
+  "version": "0.2.0",
+  "template_id": "flat-notwist-v1",
+  "name": "无转折平铺讲解体",
+  "primary_sequence": [
+    "hook",
+    "build",
+    "build",
+    "cta"
+  ],
+  "duration_s": 30.0,
+  "landing_points": [
+    {
+      "position": 1,
+      "role": "hook",
+      "ratio": [
+        0.0,
+        0.1458
+      ],
+      "start_ratio": {
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "n": 2
+      },
+      "end_ratio": {
+        "median": 0.1213,
+        "min": 0.0968,
+        "max": 0.1458,
+        "n": 2
+      },
+      "start_s": 0.0,
+      "end_s": 4.4,
+      "sample_cards": 2,
+      "functions": [
+        "痛点人群点名+时限承诺，直接留人",
+        "损失厌恶式承诺+人群点名，利益前置的强钩子"
+      ],
+      "example_lines": [
+        "上班族想带饭又怕麻烦的",
+        "租房被坑过的人，这条先收藏"
+      ],
+      "patterns": []
+    },
+    {
+      "position": 2,
+      "role": "build",
+      "ratio": [
+        0.0968,
+        0.4194
+      ],
+      "start_ratio": {
+        "median": 0.1213,
+        "min": 0.0968,
+        "max": 0.1458,
+        "n": 2
+      },
+      "end_ratio": {
+        "median": 0.4076,
+        "min": 0.3958,
+        "max": 0.4194,
+        "n": 2
+      },
+      "start_s": 2.9,
+      "end_s": 12.6,
+      "sample_cards": 2,
+      "functions": [
+        "清单体前半段：公式一、二，逐条给干货",
+        "清单体第一组：看房三看，逐条给可执行动作"
+      ],
+      "example_lines": [
+        "公式一",
+        "第一看，别在晚上看"
+      ],
+      "patterns": []
+    },
+    {
+      "position": 3,
+      "role": "build",
+      "ratio": [
+        0.3958,
+        0.75
+      ],
+      "start_ratio": {
+        "median": 0.4076,
+        "min": 0.3958,
+        "max": 0.4194,
+        "n": 2
+      },
+      "end_ratio": {
+        "median": 0.746,
+        "min": 0.7419,
+        "max": 0.75,
+        "n": 2
+      },
+      "start_s": 11.9,
+      "end_s": 22.5,
+      "sample_cards": 2,
+      "functions": [
+        "清单体后半段：公式三到五，无转折直接铺完",
+        "清单体第二组：合同三查，与上一组平行推进"
+      ],
+      "example_lines": [
+        "公式三，酱汁永远单独装",
+        "第一查，查签约主体"
+      ],
+      "patterns": []
+    },
+    {
+      "position": 4,
+      "role": "cta",
+      "ratio": [
+        0.7419,
+        1.0
+      ],
+      "start_ratio": {
+        "median": 0.746,
+        "min": 0.7419,
+        "max": 0.75,
+        "n": 2
+      },
+      "end_ratio": {
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0,
+        "n": 2
+      },
+      "start_s": 22.3,
+      "end_s": 30.0,
+      "sample_cards": 2,
+      "functions": [
+        "评论区清单+关注提醒，转化收尾",
+        "资料清单+关注预告+下期选题，双转化收尾"
+      ],
+      "example_lines": [
+        "我写成了图文清单放在评论区",
+        "核对清单做成了表格，放在评论区置顶"
+      ],
+      "patterns": []
+    }
+  ],
+  "note": "位置区间样本 2 张拆解卡；落点只约束结构位置与时长占比，不约束内容本身"
+}

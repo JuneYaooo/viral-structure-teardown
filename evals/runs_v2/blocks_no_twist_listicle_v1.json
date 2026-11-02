@@ -1,0 +1,79 @@
+{
+  "version": "0.3.0",
+  "source": "evals/fixtures/no_twist_listicle_v1.srt",
+  "format": "srt",
+  "timed": true,
+  "duration_s": 48.0,
+  "punctuation": true,
+  "punct_cue_ratio": 1.0,
+  "strategy": "sentence_punct",
+  "params": {
+    "pause_gap_s": 0.5,
+    "max_block_chars": 32,
+    "max_block_s": 6.0
+  },
+  "cue_count": 9,
+  "block_count": 9,
+  "max_block_s": 6.0,
+  "diagnostics": {
+    "reordered": false,
+    "overlapping_cues": 0,
+    "dropped_repeat_lines": 0
+  },
+  "blocks": [
+    {
+      "i": 0,
+      "start": 0.0,
+      "end": 3.5,
+      "text": "上班族想带饭又怕麻烦的，把这三十秒看完。"
+    },
+    {
+      "i": 1,
+      "start": 3.5,
+      "end": 7.0,
+      "text": "这期是能提前一晚做好的五个通勤便当公式。"
+    },
+    {
+      "i": 2,
+      "start": 7.0,
+      "end": 13.0,
+      "text": "公式一，一个主食加一个硬菜加一个爽口菜，微波炉打两分钟就能吃。"
+    },
+    {
+      "i": 3,
+      "start": 13.0,
+      "end": 19.0,
+      "text": "公式二，食材全部切成一口大小，装盒前必须完全放凉，不然下午全闷馊。"
+    },
+    {
+      "i": 4,
+      "start": 19.0,
+      "end": 25.0,
+      "text": "公式三，酱汁永远单独装，我用这种小分装盒，几块钱一大包。"
+    },
+    {
+      "i": 5,
+      "start": 25.0,
+      "end": 31.0,
+      "text": "公式四，绿叶菜换成冷冻杂菜，解冻不出水，颜色还好看。"
+    },
+    {
+      "i": 6,
+      "start": 31.0,
+      "end": 36.0,
+      "text": "公式五，周日花一小时把五个盒子的主菜一次做完，冷冻分装。"
+    },
+    {
+      "i": 7,
+      "start": 36.0,
+      "end": 42.0,
+      "text": "每个公式的具体克数和做法，我写成了图文清单放在评论区。"
+    },
+    {
+      "i": 8,
+      "start": 42.0,
+      "end": 48.0,
+      "text": "想要下周的跟做清单，点个关注，更新第一时间提醒你。"
+    }
+  ]
+}

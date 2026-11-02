@@ -1,0 +1,124 @@
+{
+  "version": "0.3.0",
+  "template_id": "listicle-notwist-v1",
+  "name": "无转折清单体",
+  "primary_sequence": [
+    "hook",
+    "build",
+    "build",
+    "cta"
+  ],
+  "duration_s": 60.0,
+  "method": "median",
+  "landing_points": [
+    {
+      "position": 1,
+      "role": "hook",
+      "ratio": [
+        0.0,
+        0.1458
+      ],
+      "sample_cards": 1,
+      "functions": [
+        "痛点人群点名+时限承诺，直接留人"
+      ],
+      "expected_start_s": 0.0,
+      "expected_end_s": 7.0,
+      "observed_start_s": [
+        0.0,
+        0.0
+      ],
+      "observed_end_s": [
+        8.7,
+        8.7
+      ],
+      "hook_anchor_s": 7.0,
+      "hook_ratio_end_s": 8.7,
+      "start_s": 0.0,
+      "end_s": 8.7
+    },
+    {
+      "position": 2,
+      "role": "build",
+      "ratio": [
+        0.1458,
+        0.3958
+      ],
+      "sample_cards": 1,
+      "functions": [
+        "清单体前半段：公式一、二，逐条给干货"
+      ],
+      "expected_start_s": 7.0,
+      "expected_end_s": 23.7,
+      "observed_start_s": [
+        8.7,
+        8.7
+      ],
+      "observed_end_s": [
+        23.7,
+        23.7
+      ],
+      "hook_anchor_s": null,
+      "hook_ratio_end_s": null,
+      "start_s": 8.7,
+      "end_s": 23.7
+    },
+    {
+      "position": 3,
+      "role": "build",
+      "ratio": [
+        0.3958,
+        0.75
+      ],
+      "sample_cards": 1,
+      "functions": [
+        "清单体后半段：公式三到五，无转折直接铺完"
+      ],
+      "expected_start_s": 23.7,
+      "expected_end_s": 45.0,
+      "observed_start_s": [
+        23.7,
+        23.7
+      ],
+      "observed_end_s": [
+        45.0,
+        45.0
+      ],
+      "hook_anchor_s": null,
+      "hook_ratio_end_s": null,
+      "start_s": 23.7,
+      "end_s": 45.0
+    },
+    {
+      "position": 4,
+      "role": "cta",
+      "ratio": [
+        0.75,
+        1.0
+      ],
+      "sample_cards": 1,
+      "functions": [
+        "评论区清单+关注提醒，转化收尾"
+      ],
+      "expected_start_s": 45.0,
+      "expected_end_s": 60.0,
+      "observed_start_s": [
+        45.0,
+        45.0
+      ],
+      "observed_end_s": [
+        60.0,
+        60.0
+      ],
+      "hook_anchor_s": null,
+      "hook_ratio_end_s": null,
+      "start_s": 45.0,
+      "end_s": 60.0
+    }
+  ],
+  "warnings": [
+    "目标时长 60s 超出样本时长范围 48–48s，属外推：占比是否随时长线性缩放没有样本支撑",
+    "冷启动：位置区间仅 1 张拆解卡支撑（< 3），中位落点即个例值"
+  ],
+  "note": "位置区间样本 1 张拆解卡；落点只约束结构位置与时长占比，不约束内容本身"
+}

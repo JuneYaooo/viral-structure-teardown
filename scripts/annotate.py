@@ -12,7 +12,10 @@
   2. 覆盖率：标注段覆盖全片时长的比例，未覆盖区间如实列出；
   3. 四段齐缺：hook/build/twist/cta 缺哪个如实标注，不强行补段；
   4. 边界对齐：段边界是否切开了句块（切开处逐条列出，供人工复核）；
-  5. 例句核对：evidence 是否真的出现在对应时间段内。
+  5. 例句核对：evidence 是否真的出现在对应时间段内（v0.3.0 起忽略标点与全半角差异）；
+  6. 开场钩子（仅描述）：首段是否为从开场起的 hook、钩子止于第几秒，
+     对照平台公开建议（TikTok：3 秒内亮出主张、6 秒内完成钩子）给参照，不判对错；
+  7. 段语速（仅描述）：每段每秒字数，供「节奏」复核，不打分。
 
 校验不通过（时间轴非法等）以退出码 3 结束，不输出任何半成品卡片。
 红线：不给内容打分、不生成或改写文案。
@@ -23,14 +26,17 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+import unicodedata
 from pathlib import Path
 
-VERSION = "0.2.0"
+VERSION = "0.3.0"
 
 ROLES = ("hook", "build", "twist", "cta")
 ROLE_CN = {"hook": "钩子", "build": "留人", "twist": "转折", "cta": "转化"}
 EPS = 1e-6
 COVERAGE_WARN = 0.6  # 覆盖率低于 60% 时提示可能有漏标（仅提示，不拦截）
+HOOK_PROPOSITION_S = 3.0  # TikTok 官方创意建议：前 3 秒亮出内容主张（参照值，不判对错）
+HOOK_PRIORITY_S = 6.0     # TikTok 官方创意建议：钩子优先放在前 6 秒（参照值，不判对错）
 
 
 class ValidationError(ValueError):
@@ -48,8 +54,46 @@ def load_json(path: Path, label: str) -> dict:
 
 
 def norm_text(text: str) -> str:
-    """归一化：去掉所有空白后比较（ASR 空格不稳定）。"""
-    return "".join(text.split())
+    """归一化：NFKC（全半角统一）后去掉空白与标点再比较。
+
+    ASR 的空格不稳定；Netflix 中文字幕规范用空格代替逗号句号，标注者摘例句时却常写回
+    「，」——只比文字本身，避免标点差异造成误判未命中。
+    """
+    text = unicodedata.normalize("NFKC", text)
+    return "".join(
+        ch for ch in text
+        if not ch.isspace() and not unicodedata.category(ch).startswith("P")
+    )
+
+
+def count_chars(text: str) -> int:
+    """语速计数：汉字/假名等按字计，连续 ASCII 字母数字按 1 个词计，忽略空白与标点。"""
+    count = 0
+    in_word = False
+    for ch in unicodedata.normalize("NFKC", text):
+        if ch.isascii() and ch.isalnum():
+            if not in_word:
+                count += 1
+            in_word = True
+            continue
+        in_word = False
+        if ch.isspace() or unicodedata.category(ch)[0] in "PSZ":
+            continue
+        count += 1
+    return count
+
+
+def segment_chars(blocks: list[dict], start: float, end: float) -> float:
+    """段内字数：句块与段相交时按时间重叠比例计入（句块被切开时近似）。"""
+    total = 0.0
+    for block in blocks:
+        b_start, b_end = block.get("start"), block.get("end")
+        if b_start is None or b_end is None or b_end <= b_start:
+            continue
+        overlap = min(end, b_end) - max(start, b_start)
+        if overlap > EPS:
+            total += count_chars(block["text"]) * overlap / (b_end - b_start)
+    return total
 
 
 def fmt_clock(seconds: float) -> str:
@@ -171,6 +215,9 @@ def build_card(annotation: dict, blocks_doc: dict, segments: list[dict]) -> dict
         else:
             seg["evidence_ok"] = None
         seg["cut_blocks"] = find_cut_blocks(blocks, seg["start"], seg["end"]) if timed else []
+        seg["chars_per_s"] = round(
+            segment_chars(blocks, seg["start"], seg["end"]) / seg["duration_s"], 2
+        ) if seg["duration_s"] > 0 else None
 
     covered = sum(seg["duration_s"] for seg in segments)
     coverage = round(covered / duration, 4) if duration else None
@@ -202,6 +249,24 @@ def build_card(annotation: dict, blocks_doc: dict, segments: list[dict]) -> dict
         }
 
     cut_total = sum(len(s["cut_blocks"]) for s in segments)
+
+    timed_blocks = [b for b in blocks if b.get("start") is not None]
+    speech_start = min((b["start"] for b in timed_blocks), default=0.0)
+    first = segments[0]
+    opens_with_hook = first["role"] == "hook" and first["start"] <= speech_start + 0.05
+    first_hook = next((s for s in segments if s["role"] == "hook"), None)
+    hook_check = {
+        "first_role": first["role"],
+        "opens_with_hook": opens_with_hook,
+        "speech_start_s": round(speech_start, 2),
+        "first_hook_start_s": first_hook["start"] if first_hook else None,
+        "first_hook_end_s": first_hook["end"] if first_hook else None,
+        "hook_ends_within_6s": (first_hook["end"] <= HOOK_PRIORITY_S + 0.05) if first_hook else None,
+        "reference": "TikTok 官方创意建议：前 3 秒亮出内容主张、钩子优先放在前 6 秒（参照，不判对错）",
+    }
+    total_chars = sum(count_chars(b["text"]) for b in timed_blocks)
+    speech_span = (max((b["end"] for b in timed_blocks), default=0.0) - speech_start)
+    overall_cps = round(total_chars / speech_span, 2) if speech_span > 0 else None
     evidence_total = sum(1 for s in segments if s["evidence"])
     evidence_hits = sum(1 for s in segments if s["evidence"] and s["evidence_ok"])
 
@@ -222,6 +287,8 @@ def build_card(annotation: dict, blocks_doc: dict, segments: list[dict]) -> dict
         "coverage": coverage,
         "uncovered": uncovered,
         "cut_block_count": cut_total,
+        "hook_check": hook_check,
+        "chars_per_s": overall_cps,
         "evidence_total": evidence_total,
         "evidence_hits": evidence_hits,
         "checks": {
@@ -246,16 +313,17 @@ def render_card(card: dict) -> str:
         "",
         "## 结构时间轴",
         "",
-        "| # | 角色 | 时间 | 时长 | 占比 | 归类理由 | 例句 |",
-        "| --- | --- | --- | --- | --- | --- | --- |",
+        "| # | 角色 | 时间 | 时长 | 占比 | 语速 | 归类理由 | 例句 |",
+        "| --- | --- | --- | --- | --- | --- | --- | --- |",
     ]
     for seg in card["segments"]:
         time_range = f"{fmt_clock(seg['start'])}–{fmt_clock(seg['end'])}"
         ratio = f"{seg['ratio'] * 100:.1f}%" if seg["ratio"] is not None else "—"
         evidence = f"「{seg['evidence']}」" if seg["evidence"] else "—"
+        cps = f"{seg['chars_per_s']:.1f} 字/秒" if seg.get("chars_per_s") is not None else "—"
         lines.append(
             f"| {seg['index']} | {ROLE_CN[seg['role']]} {seg['role']} | {time_range} "
-            f"| {seg['duration_s']}s | {ratio} | {seg['reason'] or '—'} | {evidence} |"
+            f"| {seg['duration_s']}s | {ratio} | {cps} | {seg['reason'] or '—'} | {evidence} |"
         )
     lines.append("")
     if card["role_stats"]:
@@ -264,6 +332,11 @@ def render_card(card: dict) -> str:
             for role in ROLES if role in card["role_stats"]
         )
         lines.append(f"各角色占比：{stats}")
+        lines.append("")
+    if card.get("chars_per_s") is not None:
+        lines.append(
+            f"全片语速：{card['chars_per_s']:.1f} 字/秒（汉字按字、英文按词计；段语速为描述值，不打分）"
+        )
         lines.append("")
 
     lines += ["## 校验", ""]
@@ -302,6 +375,21 @@ def render_card(card: dict) -> str:
         else:
             parts.append(f"{ROLE_CN[role]} ✗（未检出，如实标注）")
     lines.append("- 四段齐缺：" + " ｜ ".join(parts))
+    hook = card.get("hook_check")
+    if hook:
+        if hook["first_hook_end_s"] is None:
+            hook_line = "- 开场钩子：未标注任何钩子段（如实记录）"
+        else:
+            opening = "从开场第一句起即为钩子" if hook["opens_with_hook"] else (
+                f"首段是 {ROLE_CN.get(hook['first_role'], hook['first_role'])}，钩子不在开场"
+            )
+            hook_line = (
+                f"- 开场钩子：{opening}；首个钩子 {fmt_clock(hook['first_hook_start_s'])}–"
+                f"{fmt_clock(hook['first_hook_end_s'])}"
+                f"（参照：TikTok 官方建议 {HOOK_PROPOSITION_S:.0f} 秒内亮出主张、"
+                f"{HOOK_PRIORITY_S:.0f} 秒内完成钩子；仅作对照，不判对错）"
+            )
+        lines.append(hook_line)
     lines.append("")
 
     lines += [

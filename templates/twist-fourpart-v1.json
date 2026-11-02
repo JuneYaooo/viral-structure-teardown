@@ -1,8 +1,8 @@
 {
-  "version": "0.2.0",
+  "version": "0.3.0",
   "template_id": "twist-fourpart-v1",
   "name": "标准四段反转体",
-  "created": "2026-09-19",
+  "created": "2026-11-02",
   "source_cards": [
     "standard-four-part-v1",
     "double-hook-loop-v1"
@@ -52,6 +52,30 @@
         0.0,
         0.1207
       ],
+      "start_ratio": {
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "n": 1
+      },
+      "end_ratio": {
+        "median": 0.1207,
+        "min": 0.1207,
+        "max": 0.1207,
+        "n": 1
+      },
+      "start_s": {
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "n": 1
+      },
+      "end_s": {
+        "median": 7.0,
+        "min": 7.0,
+        "max": 7.0,
+        "n": 1
+      },
       "sample_cards": 1,
       "functions": [
         "否定式开场+自费五千块的成本背书，强冲突钩子"
@@ -68,6 +92,30 @@
         0.1207,
         0.569
       ],
+      "start_ratio": {
+        "median": 0.1207,
+        "min": 0.1207,
+        "max": 0.1207,
+        "n": 1
+      },
+      "end_ratio": {
+        "median": 0.569,
+        "min": 0.569,
+        "max": 0.569,
+        "n": 1
+      },
+      "start_s": {
+        "median": 7.0,
+        "min": 7.0,
+        "max": 7.0,
+        "n": 1
+      },
+      "end_s": {
+        "median": 33.0,
+        "min": 33.0,
+        "max": 33.0,
+        "n": 1
+      },
       "sample_cards": 1,
       "functions": [
         "立三条量化标准再逐条展开，铺垫可信度"
@@ -84,6 +132,30 @@
         0.569,
         0.7759
       ],
+      "start_ratio": {
+        "median": 0.569,
+        "min": 0.569,
+        "max": 0.569,
+        "n": 1
+      },
+      "end_ratio": {
+        "median": 0.7759,
+        "min": 0.7759,
+        "max": 0.7759,
+        "n": 1
+      },
+      "start_s": {
+        "median": 33.0,
+        "min": 33.0,
+        "max": 33.0,
+        "n": 1
+      },
+      "end_s": {
+        "median": 45.0,
+        "min": 45.0,
+        "max": 45.0,
+        "n": 1
+      },
       "sample_cards": 1,
       "functions": [
         "反常识结论：最贵垫底、无名老牌第一"
@@ -100,6 +172,30 @@
         0.7759,
         1.0
       ],
+      "start_ratio": {
+        "median": 0.7759,
+        "min": 0.7759,
+        "max": 0.7759,
+        "n": 1
+      },
+      "end_ratio": {
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0,
+        "n": 1
+      },
+      "start_s": {
+        "median": 45.0,
+        "min": 45.0,
+        "max": 45.0,
+        "n": 1
+      },
+      "end_s": {
+        "median": 58.0,
+        "min": 58.0,
+        "max": 58.0,
+        "n": 1
+      },
       "sample_cards": 1,
       "functions": [
         "评论区资料+关注预告，双转化动作"

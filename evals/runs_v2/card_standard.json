@@ -1,0 +1,116 @@
+{
+  "version": "0.3.0",
+  "video_id": "standard-four-part-v1",
+  "title": "网红锅五款横评（合成样本）",
+  "genre": "好物测评",
+  "transcript": "evals/fixtures/standard_four_part_v1.srt",
+  "timed": true,
+  "duration_s": 58.0,
+  "block_count": 11,
+  "structure_pattern": "hook→build→twist→cta",
+  "roles_present": [
+    "hook",
+    "build",
+    "twist",
+    "cta"
+  ],
+  "roles_missing": [],
+  "segments": [
+    {
+      "index": 1,
+      "role": "hook",
+      "start": 0.0,
+      "end": 7.0,
+      "evidence": "别再跟风买网红锅了",
+      "reason": "否定式开场+自费五千块的成本背书，强冲突钩子",
+      "duration_s": 7.0,
+      "ratio": 0.1207,
+      "evidence_ok": true,
+      "cut_blocks": [],
+      "chars_per_s": 6.43
+    },
+    {
+      "index": 2,
+      "role": "build",
+      "start": 7.0,
+      "end": 33.0,
+      "evidence": "先说我的三个测试标准",
+      "reason": "立三条量化标准再逐条展开，铺垫可信度",
+      "duration_s": 26.0,
+      "ratio": 0.4483,
+      "evidence_ok": true,
+      "cut_blocks": [],
+      "chars_per_s": 4.31
+    },
+    {
+      "index": 3,
+      "role": "twist",
+      "start": 33.0,
+      "end": 45.0,
+      "evidence": "卖得最贵的那口，三项全部垫底",
+      "reason": "反常识结论：最贵垫底、无名老牌第一",
+      "duration_s": 12.0,
+      "ratio": 0.2069,
+      "evidence_ok": true,
+      "cut_blocks": [],
+      "chars_per_s": 4.42
+    },
+    {
+      "index": 4,
+      "role": "cta",
+      "start": 45.0,
+      "end": 58.0,
+      "evidence": "完整的测试数据表我贴在评论区置顶",
+      "reason": "评论区资料+关注预告，双转化动作",
+      "duration_s": 13.0,
+      "ratio": 0.2241,
+      "evidence_ok": true,
+      "cut_blocks": [],
+      "chars_per_s": 3.77
+    }
+  ],
+  "role_stats": {
+    "hook": {
+      "count": 1,
+      "duration_s": 7.0,
+      "ratio": 0.1207
+    },
+    "build": {
+      "count": 1,
+      "duration_s": 26.0,
+      "ratio": 0.4483
+    },
+    "twist": {
+      "count": 1,
+      "duration_s": 12.0,
+      "ratio": 0.2069
+    },
+    "cta": {
+      "count": 1,
+      "duration_s": 13.0,
+      "ratio": 0.2241
+    }
+  },
+  "coverage": 1.0,
+  "uncovered": [],
+  "cut_block_count": 0,
+  "hook_check": {
+    "first_role": "hook",
+    "opens_with_hook": true,
+    "speech_start_s": 0.0,
+    "first_hook_start_s": 0.0,
+    "first_hook_end_s": 7.0,
+    "hook_ends_within_6s": false,
+    "reference": "TikTok 官方创意建议：前 3 秒亮出内容主张、钩子优先放在前 6 秒（参照，不判对错）"
+  },
+  "chars_per_s": 4.47,
+  "evidence_total": 4,
+  "evidence_hits": 4,
+  "checks": {
+    "timeline_legal": true,
+    "coverage_ok": true,
+    "alignment_clean": true,
+    "evidence_all_found": true
+  },
+  "structure_note": "标准四段反转结构：前 7 秒用否定式开场加自费背书留人，中段用三条量化测试标准堆可信度，33 秒处抛出最贵垫底的反常识结论制造记忆点，最后用评论区资料和下期预告完成转化。钩子短、铺垫足、转折清晰，是口播测评体最稳的四段落位。"
+}

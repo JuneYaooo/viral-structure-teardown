@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "suite": "viral-structure-teardown-v2",
+  "case_file": "cases_v2.jsonl",
+  "rubric_file": "rubric_v2.md",
+  "judgment_file": "judgments_v2.jsonl",
+  "summary_file": "summary_v2.json",
+  "runner": "python3 evals/scripts/run_v2.py --real-dir <含 real.srt/real.vtt 的目录>（不带 --real-dir 时跳过 c10/c11）",
+  "conditions": {
+    "baseline": "v0.2.0 脚本，由 run_v2.py 从 git 提交 266ad86 取出到临时目录执行（同一输入）",
+    "skill": "v0.3.0 当前工作区脚本"
+  },
+  "runs_per_case": 1,
+  "determinism": "脚本全部确定性；run_v2.py 连跑两次，evals/runs_v2/ 与 templates/ 全部文件 sha256 一致（2026-11-02 实测）",
+  "real_input": {
+    "source": "https://commons.wikimedia.org/wiki/File:Zh-%E8%A7%84%E5%88%99%E6%80%AA%E8%B0%88.ogg",
+    "license": "CC BY-SA 4.0（Wikimedia Commons 页面所示）",
+    "audio_sha256": "51dac321f249b2db0bc75734b5f65296fa2e15d4366f413666fcd11ebfeca243",
+    "preprocess": "ffmpeg -t 90 -ac 1 -ar 16000（截取前 90 秒）",
+    "asr": "openai-whisper CLI，--model small --language zh --fp16 False，输出 srt/vtt",
+    "stored": "转写文本不入库，只存 evals/runs_v2/real_whisper_stats.json 的统计量",
+    "limitation": "朗读体维基条目，不是爆款口播；只验证解析层"
+  },
+  "real_data_attempts": [
+    {"source": "YouTube（yt-dlp 2026-11-02）", "result": "Sign in to confirm you're not a bot，未绕过"},
+    {"source": "Bilibili 搜索（yt-dlp 2026-11-02）", "result": "HTTP 412 Precondition Failed，未绕过"}
+  ],
+  "judging": {
+    "judge": "Claude Opus 5.5（实现改动的同一 Agent）按 rubric_v2.md 判定，review_status=model_only",
+    "blind_condition_labels": false,
+    "bias_note": "用例由实现改动的 Agent 设计，针对的正是本轮修复的问题，baseline 必然失败；该对比证明问题被修复，不证明整体质量提升幅度",
+    "human_review": "尚未独立人工复核"
+  },
+  "regression": "c1–c9（cases_v1.jsonl）在 v0.3.0 下重跑并机械核对：段位、占比、例句命中、exit 3 拦截、无标点 txt 40/40/38 全部复现，见 evals/runs_v2/report.json 与 iteration_notes.md 迭代 6",
+  "environment": {
+    "os": "macOS 26.2 arm64 (Darwin 25.2.0)",
+    "python": "3.12.9",
+    "network": "调研与真实样本下载时联网；脚本层运行离线"
+  },
+  "date": "2026-11-02",
+  "skill_version": "0.3.0"
+}

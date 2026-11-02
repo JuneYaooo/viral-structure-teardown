@@ -21,6 +21,10 @@
 | knowledge_flat_annotation_v1.json | 钩子前置平铺标注（无转折，如实标缺） |
 | double_twist_annotation_v1.json | 双转折标注（twist 复现两次） |
 | soft_seed_annotation_v1.json | 软种草标注（无转化段，cta 如实标缺） |
+| sparse_punct_netflix_style_v1.srt | 按 Netflix 简中字幕规范写的稿子：不用逗号句号、短语间用空格、只保留问号，42s 好物测评（v0.3.0 新增） |
+| sparse_punct_annotation_v1.json | 上一条的标注；例句故意写成带「，」的形式，测例句核对忽略标点 |
+| multi_sentence_cue_v1.srt | 一条字幕里有 2–3 句的稿子，40s 知识口播，测同条多句的时间插值（v0.3.0 新增） |
+| double_twist_annotation_b_v1.json | double_twist_v1 的第二份标注（Claude Opus 5.5 撰写，非盲标），测 agreement.py |
 
 五条 SRT 的段位设计（供评测核对「标注是否落在设计位置」）：
 
@@ -36,3 +40,6 @@
 v0.2.0 新增的三条夹具为模板库扩充样本：knowledge_flat_v1 与 no_twist_listicle_v1 同主序列，
 二者共同支撑 flat-notwist-v1（无转折平铺讲解体）的位置区间；double_twist_v1、soft_seed_v1
 各自支撑一个新模板。
+
+v0.3.0 新增的夹具同样全部原创虚构。真实输入（Whisper 转写的 CC BY-SA 维基有声条目）不放在本目录，
+只在 [../runs_v2/real_whisper_stats.json](../runs_v2/real_whisper_stats.json) 存统计量。

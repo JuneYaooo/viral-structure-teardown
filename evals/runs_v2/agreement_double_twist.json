@@ -1,0 +1,44 @@
+{
+  "version": "0.3.0",
+  "transcript": "evals/fixtures/double_twist_v1.srt",
+  "block_count": 14,
+  "a": {
+    "video_id": "double-twist-v1",
+    "pattern": "hook→build→twist→build→twist→cta"
+  },
+  "b": {
+    "video_id": "double-twist-v1-annotator-b",
+    "pattern": "hook→build→twist→build→twist→cta"
+  },
+  "same_sequence": true,
+  "label_agreement": 0.9286,
+  "kappa": 0.8955,
+  "kappa_band": "几乎完全一致（almost perfect）",
+  "boundary": {
+    "a_count": 5,
+    "b_count": 5,
+    "matched": 5,
+    "tolerance_blocks": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "matched_offsets_s": [
+      0.0,
+      6.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "window_diff": 0.1538,
+  "window_k": 2,
+  "disagreements": [
+    {
+      "block_i": 5,
+      "start": 22.0,
+      "end": 28.0,
+      "a": "twist",
+      "b": "build"
+    }
+  ]
+}

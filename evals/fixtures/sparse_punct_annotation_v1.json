@@ -1,0 +1,13 @@
+{
+  "video_id": "sparse-punct-netflix-style-v1",
+  "title": "电热水壶拆机三台（合成样本，Netflix 中文字幕式标点）",
+  "genre": "好物测评",
+  "transcript": "evals/fixtures/sparse_punct_netflix_style_v1.srt",
+  "structure_note": "提问式开场接拆机实证做钩子；中段三台逐个展开；以自问自答的反常识解释做转折；结尾评论区资料+下期预告转化。",
+  "segments": [
+    {"role": "hook", "start": 0.0, "end": 5.6, "evidence": "我拆了三台用满两年的，内胆全是水垢", "reason": "痛点提问+拆机实证"},
+    {"role": "build", "start": 6.3, "end": 23.5, "evidence": "第二台是不锈钢，垢藏在底盘的焊缝里", "reason": "立结论后三台逐个展开"},
+    {"role": "twist", "start": 23.5, "end": 34.8, "evidence": "那为什么一体成型的反而最难清理？", "reason": "自问自答的反常识解释"},
+    {"role": "cta", "start": 35.4, "end": 42.0, "evidence": "三台的拆机图我放在评论区第一条", "reason": "评论区资料+关注预告"}
+  ]
+}

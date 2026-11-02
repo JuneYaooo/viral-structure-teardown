@@ -8,7 +8,7 @@
 
 | 角色 | 中文 | 功能 | 常见手法 | 可选 intent 标签 |
 | --- | --- | --- | --- | --- |
-| hook | 钩子 | 前 3–7 秒留人 | 悬念、反常识、痛点提问、强冲突、利益受损开局、二次钩子（可复现） | AIDA-Attention |
+| hook | 钩子 | 开场留人（平台建议 3 秒亮主张、6 秒内完成；按绝对秒计，不随全片时长等比拉长） | 悬念、反常识、痛点提问、强冲突、利益受损开局、二次钩子（可复现） | AIDA-Attention |
 | build | 留人 | 铺垫与展开，堆可信度 | 立标准/清单逐条、过程叙事、交锋升级 | AIDA-Interest/Desire |
 | twist | 转折 | 制造记忆点的反转 | 反常识结论、实锤证据、剧情反转 | HSO-Story |
 | cta | 转化 | 关注/引流/资料引导 | 评论区资料、下期预告、点关注 | HSO-Offer |
@@ -19,20 +19,26 @@
   钩子→留人→转折→钩子→留人→转化）。
 - 二次钩子是重新拉注意力的话术转折，标回 hook 而不是 twist：它不产生新信息，
   只制造「还没完」的期待。
-- 标注段边界必须贴合句块边界；段边界主观，占比存区间不存点值。
+- 标注段边界必须贴合句块边界；段边界主观，模板存中位数与观测范围，两份标注的分歧可用
+  scripts/agreement.py 量化。
 
 ## blocks.json（parse_transcript.py 产出）
 
 ```json
 {
-  "version": "0.2.0",
+  "version": "0.3.0",
   "source": "evals/fixtures/standard_four_part_v1.srt",
   "format": "srt",
   "timed": true,
   "duration_s": 58.0,
   "punctuation": true,
+  "punct_cue_ratio": 1.0,
   "strategy": "sentence_punct",
+  "params": {"pause_gap_s": 0.5, "max_block_chars": 32, "max_block_s": 6.0},
+  "cue_count": 11,
   "block_count": 11,
+  "max_block_s": 7.0,
+  "diagnostics": {"reordered": false, "overlapping_cues": 0, "dropped_repeat_lines": 0},
   "blocks": [
     {"i": 0, "start": 0.0, "end": 4.0, "text": "别再跟风买网红锅了，我自费五千块，把全平台销量前五全测了一遍。"}
   ]
@@ -41,9 +47,13 @@
 
 | 字段 | 说明 |
 | --- | --- |
-| timed | SRT 为 true；纯文本为 false（start/end 为 null，无法做时间轴标注） |
-| strategy | sentence_punct（按句）/ pause_gap（无标点按 >0.8s 停顿）/ fixed_length（纯文本 40 字） |
-| blocks[].start / end | 秒，保留两位；取所在字幕条区间 |
+| format | srt / vtt / txt（.vtt 或首行为 WEBVTT 的文件按 WebVTT 解析） |
+| timed | SRT/VTT 为 true；纯文本为 false（start/end 为 null，无法做时间轴标注） |
+| punct_cue_ratio | 带标点（终止或逗号类）的字幕条占比；≥ 0.5 且有终止标点才按句切 |
+| strategy | sentence_punct（按句）/ sparse_punct（标点稀疏，字幕条边界切）/ pause_gap（无标点，字幕条边界切）/ single_block / fixed_length（纯文本 40 字） |
+| params | 字幕条边界切块参数：停顿 ≥ 0.5s、单块 ≤ 32 字、单块 ≤ 6 秒（单条字幕本身更长时不细切） |
+| diagnostics | 字幕条是否被重排、时间重叠的条数、去掉的滚动重复行数 |
+| blocks[].start / end | 秒，保留两位；同一字幕条内多句时按字数比例插值 |
 
 ## annotation.json（Agent 产出，annotate.py 消费）
 
@@ -66,18 +76,25 @@
 | --- | --- | --- |
 | segments[].role | 是 | hook / build / twist / cta，按时间顺序排列 |
 | segments[].start / end | 是 | 秒；end > start、无重叠、单调、不超全片时长，且贴合句块边界 |
-| segments[].evidence | 建议 | 该时间段内的一句原文；脚本逐字核对（去空白归一） |
+| segments[].evidence | 建议 | 该时间段内的一句原文；脚本逐字核对（NFKC 后去空白与标点） |
 | segments[].reason | 建议 | 命中的手法，供拆解卡「归类理由」列与人工复核 |
 | patterns | 否 | 该稿的句式模式（填空模板），蒸馏时并入模板 |
 
 脚本确定性校验：时间轴合法性、覆盖率与未覆盖区间、四段齐缺（缺段如实标注）、
 边界对齐（切开句块处列出）、例句命中。校验失败 exit 3，不产出半成品卡片。
 
+拆解卡 JSON 另含两项描述值（不参与校验、不打分）：
+
+| 字段 | 说明 |
+| --- | --- |
+| hook_check | first_role、opens_with_hook（首段是否为从第一句起的 hook）、first_hook_start_s / end_s、hook_ends_within_6s，以及参照出处 |
+| segments[].chars_per_s / chars_per_s | 段语速与全片语速：汉字按字、连续英文数字按 1 词计，句块被段边界切开时按时间比例计入 |
+
 ## 模板 JSON（templates.py distill 产出）
 
 ```json
 {
-  "version": "0.2.0",
+  "version": "0.3.0",
   "template_id": "twist-fourpart-v1",
   "name": "标准四段反转体",
   "created": "2026-09-19",
@@ -92,6 +109,10 @@
   "primary_sequence": ["hook", "build", "twist", "cta"],
   "positions": [
     {"position": 1, "role": "hook", "ratio": [0.0, 0.1207], "sample_cards": 1,
+     "start_ratio": {"median": 0.0, "min": 0.0, "max": 0.0, "n": 1},
+     "end_ratio": {"median": 0.1207, "min": 0.1207, "max": 0.1207, "n": 1},
+     "start_s": {"median": 0.0, "min": 0.0, "max": 0.0, "n": 1},
+     "end_s": {"median": 7.0, "min": 7.0, "max": 7.0, "n": 1},
      "functions": ["否定式开场"], "example_lines": ["别再跟风买网红锅了"],
      "patterns": ["别再…了，我自费…全测了一遍"]}
   ],
@@ -107,15 +128,29 @@
 | 字段 | 说明 |
 | --- | --- |
 | role_sequences | 观测到的全部段序列及次数；主序列取最常见（并列取更短者） |
-| positions[].ratio | 该序位在各卡中的占比区间 [min_start, max_end]，即观测包络（样本增加时只增不减）；只统计与主序列一致的卡 |
+| positions[].ratio | 该序位在各卡中的观测包络 [最早起点, 最晚终点]（样本增加时只增不减）；只统计与主序列一致的卡；v0.2.0 兼容字段 |
+| positions[].start_ratio / end_ratio | 起点、终点占比的中位数 / 最小 / 最大 / 样本数（v0.3.0 新增，apply 用中位数） |
+| positions[].start_s / end_s | 同上，按绝对秒统计；首段钩子终点用它封顶 |
 | positions[].sample_cards | 支撑该序位的卡片数（样本量必须如实随产物披露，模板说明的段位表含「支撑卡数」列） |
 | role_ratio_ranges | 每个角色跨全部卡的总出现区间（含复现段，供参考） |
 
-apply 落点：期望区间（秒）= positions[].ratio × 目标时长，节拍表式按百分比打点；
+apply 落点（v0.3.0）：段边界 = 各序位终点占比中位数 × 目标时长（节拍表式点值），相邻段首尾相接；
+首段为钩子时终点取 min(end_s 中位数, 占比换算)；同时给出起止观测范围。目标时长超出
+duration_range_s 时提示外推，支撑卡 < 3 张时提示冷启动。缺中位数统计的旧模板退回包络换算并提示重新蒸馏。
 落点只约束结构位置与时长占比，不约束内容本身。
+
+## 一致性报告（agreement.py 产出）
+
+| 字段 | 说明 |
+| --- | --- |
+| label_agreement | 逐句块（按句块时间中点归段）角色一致的比例 |
+| kappa / kappa_band | Cohen kappa 与 Landis & Koch 分档（经验约定，仅作参照） |
+| boundary | 以标注 A 为参照、±1 句块容差的边界 precision / recall / f1，及配对边界秒差 |
+| window_diff / window_k | WindowDiff（Pevzner & Hearst 2002），k = A 平均段长（句块数）的一半，至少 2 |
+| disagreements | 角色不一致的句块列表 |
 
 ## 与其他框架的映射（可选标签，不单独成体系）
 
 - AIDA（注意/兴趣/欲望/行动）：hook≈Attention，build≈Interest/Desire，cta≈Action。
 - Hook-Story-Offer：hook 对应 Hook，twist/build 叙事对应 Story，cta 对应 Offer。
-- Save the Cat 节拍表：占比区间 → 期望落点的换算思路与此同源，适用于时长打点。
+- Save the Cat 节拍表：按百分比给点值；本项目落点取中位数点值而非包络，思路同源。

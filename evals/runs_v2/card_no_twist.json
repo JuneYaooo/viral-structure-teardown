@@ -1,0 +1,112 @@
+{
+  "version": "0.3.0",
+  "video_id": "no-twist-listicle-v1",
+  "title": "通勤便当五公式（合成样本）",
+  "genre": "干货清单",
+  "transcript": "evals/fixtures/no_twist_listicle_v1.srt",
+  "timed": true,
+  "duration_s": 48.0,
+  "block_count": 9,
+  "structure_pattern": "hook→build→build→cta",
+  "roles_present": [
+    "hook",
+    "build",
+    "cta"
+  ],
+  "roles_missing": [
+    "twist"
+  ],
+  "segments": [
+    {
+      "index": 1,
+      "role": "hook",
+      "start": 0.0,
+      "end": 7.0,
+      "evidence": "上班族想带饭又怕麻烦的",
+      "reason": "痛点人群点名+时限承诺，直接留人",
+      "duration_s": 7.0,
+      "ratio": 0.1458,
+      "evidence_ok": true,
+      "cut_blocks": [],
+      "chars_per_s": 5.29
+    },
+    {
+      "index": 2,
+      "role": "build",
+      "start": 7.0,
+      "end": 19.0,
+      "evidence": "公式一",
+      "reason": "清单体前半段：公式一、二，逐条给干货",
+      "duration_s": 12.0,
+      "ratio": 0.25,
+      "evidence_ok": true,
+      "cut_blocks": [],
+      "chars_per_s": 4.75
+    },
+    {
+      "index": 3,
+      "role": "build",
+      "start": 19.0,
+      "end": 36.0,
+      "evidence": "公式三，酱汁永远单独装",
+      "reason": "清单体后半段：公式三到五，无转折直接铺完",
+      "duration_s": 17.0,
+      "ratio": 0.3542,
+      "evidence_ok": true,
+      "cut_blocks": [],
+      "chars_per_s": 4.18
+    },
+    {
+      "index": 4,
+      "role": "cta",
+      "start": 36.0,
+      "end": 48.0,
+      "evidence": "我写成了图文清单放在评论区",
+      "reason": "评论区清单+关注提醒，转化收尾",
+      "duration_s": 12.0,
+      "ratio": 0.25,
+      "evidence_ok": true,
+      "cut_blocks": [],
+      "chars_per_s": 3.92
+    }
+  ],
+  "role_stats": {
+    "hook": {
+      "count": 1,
+      "duration_s": 7.0,
+      "ratio": 0.1458
+    },
+    "build": {
+      "count": 2,
+      "duration_s": 29.0,
+      "ratio": 0.6042
+    },
+    "cta": {
+      "count": 1,
+      "duration_s": 12.0,
+      "ratio": 0.25
+    }
+  },
+  "coverage": 1.0,
+  "uncovered": [],
+  "cut_block_count": 0,
+  "hook_check": {
+    "first_role": "hook",
+    "opens_with_hook": true,
+    "speech_start_s": 0.0,
+    "first_hook_start_s": 0.0,
+    "first_hook_end_s": 7.0,
+    "hook_ends_within_6s": false,
+    "reference": "TikTok 官方创意建议：前 3 秒亮出内容主张、钩子优先放在前 6 秒（参照，不判对错）"
+  },
+  "chars_per_s": 4.42,
+  "evidence_total": 4,
+  "evidence_hits": 4,
+  "checks": {
+    "timeline_legal": true,
+    "coverage_ok": true,
+    "alignment_clean": true,
+    "evidence_all_found": true
+  },
+  "structure_note": "无转折的干货清单体：钩子点名人群后直接进入公式清单，两段留人连贯铺完五个公式，全程没有反转记忆点，靠信息密度留人。四段式里的转折在本片未检出，如实标注为缺段；这类结构适合教程清单，不适合需要情绪起伏的题材。"
+}

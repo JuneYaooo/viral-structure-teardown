@@ -178,7 +178,8 @@ class ApplyTests(unittest.TestCase):
     def test_render_contains_boundaries(self):
         result = tp.run_apply(tp.distill([CARD_STD], DistillArgs()), 90.0)
         rendered = tp.render_apply_md(result)
-        self.assertIn("| 1 | 钩子 hook | 0.0–10.9s |", rendered)
+        # v0.3.0：58s 样本的钩子止于 7.0s，套到 90s 时按绝对秒封顶，不按占比拉长到 10.9s
+        self.assertIn("| 1 | 钩子 hook | 0.0–7.0s（钩子终点取 min(样本绝对秒 7.0s, 占比换算 10.9s)）", rendered)
         self.assertIn("不打分", rendered)
 
 
@@ -221,7 +222,7 @@ class LibraryTests(unittest.TestCase):
             "--library", str(self.library),
         ]), 0)
         text = out_path.read_text(encoding="utf-8")
-        self.assertIn("期望落点（秒）", text)
+        self.assertIn("期望落点（中位）", text)
 
     def test_missing_template_exit_2(self):
         self.library.mkdir()
@@ -241,6 +242,81 @@ class LibraryTests(unittest.TestCase):
         path = self.write_card("bad", {"segments": []})
         with self.assertRaises(tp.TemplateError):
             tp.load_card(path)
+
+
+class MedianLandingTests(unittest.TestCase):
+    """v0.3.0：落点取中位数 + 观测范围；钩子按绝对秒封顶；外推与冷启动如实提示。"""
+
+    def setUp(self):
+        self.cards = [CARD_STD, scaled(CARD_STD, 1.2, "s2"), scaled(CARD_STD, 0.9, "s3")]
+        self.template = tp.distill(self.cards, DistillArgs())
+
+    def test_position_stats(self):
+        hook = self.template["positions"][0]
+        self.assertEqual(hook["sample_cards"], 3)
+        self.assertEqual(hook["end_s"]["median"], 7.0)
+        self.assertEqual(hook["end_s"]["min"], 6.3)
+        self.assertEqual(hook["end_s"]["max"], 8.4)
+        self.assertEqual(hook["end_ratio"]["median"], 0.1207)
+
+    def test_median_is_robust_to_outlier(self):
+        outlier = json.loads(json.dumps(CARD_STD))
+        outlier["video_id"] = "outlier"
+        outlier["segments"][0]["end"] = 25.0
+        outlier["segments"][1]["start"] = 25.0
+        template = tp.distill(self.cards + [outlier, scaled(CARD_STD, 1.1, "s5")], DistillArgs())
+        hook = template["positions"][0]
+        self.assertLess(hook["end_ratio"]["median"], 0.13)   # 中位数不被离群卡拖走
+        self.assertGreater(hook["ratio"][1], 0.4)            # 包络仍如实记录离群
+
+    def test_hook_capped_by_absolute_seconds_on_longer_target(self):
+        result = tp.run_apply(self.template, 120.0)
+        first = result["landing_points"][0]
+        self.assertEqual(first["expected_end_s"], 7.0)        # 而不是 0.1207×120=14.5
+        self.assertEqual(result["landing_points"][1]["expected_start_s"], 7.0)
+
+    def test_hook_scales_down_on_shorter_target(self):
+        result = tp.run_apply(self.template, 30.0)
+        self.assertEqual(result["landing_points"][0]["expected_end_s"], 3.6)  # min(7.0, 0.1207×30)
+
+    def test_landing_is_contiguous_and_ends_at_duration(self):
+        result = tp.run_apply(self.template, 60.0)
+        points = result["landing_points"]
+        for a, b in zip(points, points[1:]):
+            self.assertEqual(a["expected_end_s"], b["expected_start_s"])
+        self.assertEqual(points[-1]["expected_end_s"], 60.0)
+
+    def test_extrapolation_warning(self):
+        inside = tp.run_apply(self.template, 60.0)
+        outside = tp.run_apply(self.template, 180.0)
+        self.assertFalse(any("外推" in w for w in inside["warnings"]))
+        self.assertTrue(any("外推" in w for w in outside["warnings"]))
+
+    def test_cold_start_warning(self):
+        single = tp.distill([CARD_STD], DistillArgs())
+        self.assertTrue(any("冷启动" in w for w in tp.run_apply(single, 58.0)["warnings"]))
+        self.assertFalse(any("冷启动" in w for w in tp.run_apply(self.template, 58.0)["warnings"]))
+
+    def test_legacy_template_falls_back_to_envelope(self):
+        legacy = json.loads(json.dumps(tp.distill([CARD_STD], DistillArgs())))
+        for pos in legacy["positions"]:
+            for key in ("start_ratio", "end_ratio", "start_s", "end_s"):
+                pos.pop(key)
+        result = tp.run_apply(legacy, 90.0)
+        self.assertEqual(result["method"], "envelope")
+        self.assertEqual(result["landing_points"][0]["end_s"], 10.9)
+        self.assertIn("重新蒸馏", tp.render_apply_md(result))
+
+
+def scaled(card: dict, factor: float, vid: str) -> dict:
+    """把一张卡按时长等比缩放（保持占比不变），用于构造同结构的多张卡。"""
+    out = json.loads(json.dumps(card))
+    out["video_id"] = vid
+    out["duration_s"] = round(card["duration_s"] * factor, 2)
+    for seg in out["segments"]:
+        seg["start"] = round(seg["start"] * factor, 2)
+        seg["end"] = round(seg["end"] * factor, 2)
+    return out
 
 
 if __name__ == "__main__":

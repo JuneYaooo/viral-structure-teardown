@@ -1,0 +1,254 @@
+{
+  "blocks_double_hook_loop_v1": {
+    "format": "srt",
+    "timed": true,
+    "strategy": "sentence_punct",
+    "block_count": 11,
+    "zero_length_blocks": 0,
+    "max_block_s": 7.0,
+    "median_block_s": 6.5,
+    "max_block_chars": 37,
+    "text_contains_timecode": false
+  },
+  "blocks_double_twist_v1": {
+    "format": "srt",
+    "timed": true,
+    "strategy": "sentence_punct",
+    "block_count": 14,
+    "zero_length_blocks": 0,
+    "max_block_s": 7.0,
+    "median_block_s": 6.0,
+    "max_block_chars": 36,
+    "text_contains_timecode": false
+  },
+  "blocks_knowledge_flat_v1": {
+    "format": "srt",
+    "timed": true,
+    "strategy": "sentence_punct",
+    "block_count": 13,
+    "zero_length_blocks": 0,
+    "max_block_s": 6.0,
+    "median_block_s": 5.0,
+    "max_block_chars": 32,
+    "text_contains_timecode": false
+  },
+  "blocks_multi_sentence_cue_v1": {
+    "format": "srt",
+    "timed": true,
+    "strategy": "sentence_punct",
+    "block_count": 14,
+    "zero_length_blocks": 0,
+    "max_block_s": 6.0,
+    "median_block_s": 3.06,
+    "max_block_chars": 25,
+    "text_contains_timecode": false
+  },
+  "blocks_no_twist_listicle_v1": {
+    "format": "srt",
+    "timed": true,
+    "strategy": "sentence_punct",
+    "block_count": 9,
+    "zero_length_blocks": 0,
+    "max_block_s": 6.0,
+    "median_block_s": 6.0,
+    "max_block_chars": 33,
+    "text_contains_timecode": false
+  },
+  "blocks_soft_seed_v1": {
+    "format": "srt",
+    "timed": true,
+    "strategy": "sentence_punct",
+    "block_count": 13,
+    "zero_length_blocks": 0,
+    "max_block_s": 7.0,
+    "median_block_s": 5.0,
+    "max_block_chars": 34,
+    "text_contains_timecode": false
+  },
+  "blocks_sparse_punct_netflix_style_v1": {
+    "format": "srt",
+    "timed": true,
+    "strategy": "sparse_punct",
+    "block_count": 11,
+    "zero_length_blocks": 0,
+    "max_block_s": 5.9,
+    "median_block_s": 3.5,
+    "max_block_chars": 26,
+    "text_contains_timecode": false
+  },
+  "blocks_standard_four_part_v1": {
+    "format": "srt",
+    "timed": true,
+    "strategy": "sentence_punct",
+    "block_count": 11,
+    "zero_length_blocks": 0,
+    "max_block_s": 7.0,
+    "median_block_s": 5.0,
+    "max_block_chars": 34,
+    "text_contains_timecode": false
+  },
+  "card_standard": {
+    "stdout": [
+      "校验通过：时间轴合法 · 覆盖率 100.0% · 四段齐全（钩子→留人→转折→转化）",
+      "拆解卡已生成：evals/runs_v2/card_standard.md（边界错位 0 处 · 例句 4/4 命中）"
+    ],
+    "pattern": "hook→build→twist→cta",
+    "cut_block_count": 0,
+    "evidence": "4/4",
+    "opens_with_hook": true,
+    "first_hook_end_s": 7.0,
+    "chars_per_s": 4.47,
+    "sha256_md": "bbc7231983cf1d833bce615388e6b3660dc7e972c59acf3c4ee1bb0cdfdf8bad"
+  },
+  "card_no_twist": {
+    "stdout": [
+      "校验通过：时间轴合法 · 覆盖率 100.0% · 缺 转折（已如实标注）",
+      "拆解卡已生成：evals/runs_v2/card_no_twist.md（边界错位 0 处 · 例句 4/4 命中）"
+    ],
+    "pattern": "hook→build→build→cta",
+    "cut_block_count": 0,
+    "evidence": "4/4",
+    "opens_with_hook": true,
+    "first_hook_end_s": 7.0,
+    "chars_per_s": 4.42,
+    "sha256_md": "643253915ec703514175ac9079f8e91c94ebc7e0bbd7ba409cbd43cf161f056c"
+  },
+  "card_double_hook": {
+    "stdout": [
+      "校验通过：时间轴合法 · 覆盖率 100.0% · 四段齐全（钩子→留人→转折→钩子→留人→转化）",
+      "拆解卡已生成：evals/runs_v2/card_double_hook.md（边界错位 0 处 · 例句 6/6 命中）"
+    ],
+    "pattern": "hook→build→twist→hook→build→cta",
+    "cut_block_count": 0,
+    "evidence": "6/6",
+    "opens_with_hook": true,
+    "first_hook_end_s": 7.5,
+    "chars_per_s": 4.49,
+    "sha256_md": "bfcc709f2cf7b50ac654246a92463a8e83e21701e033a98db1a826a16abd5512"
+  },
+  "card_knowledge_flat": {
+    "stdout": [
+      "校验通过：时间轴合法 · 覆盖率 100.0% · 缺 转折（已如实标注）",
+      "拆解卡已生成：evals/runs_v2/card_knowledge_flat.md（边界错位 0 处 · 例句 4/4 命中）"
+    ],
+    "pattern": "hook→build→build→cta",
+    "cut_block_count": 0,
+    "evidence": "4/4",
+    "opens_with_hook": true,
+    "first_hook_end_s": 6.0,
+    "chars_per_s": 4.85,
+    "sha256_md": "9db13e6b57e24dc50c544f1b8fd1202dda5ee3e01ee8d5e83d3183eab81ba1d4"
+  },
+  "card_double_twist": {
+    "stdout": [
+      "校验通过：时间轴合法 · 覆盖率 100.0% · 四段齐全（钩子→留人→转折→留人→转折→转化）",
+      "拆解卡已生成：evals/runs_v2/card_double_twist.md（边界错位 0 处 · 例句 6/6 命中）"
+    ],
+    "pattern": "hook→build→twist→build→twist→cta",
+    "cut_block_count": 0,
+    "evidence": "6/6",
+    "opens_with_hook": true,
+    "first_hook_end_s": 7.0,
+    "chars_per_s": 4.53,
+    "sha256_md": "429381f10ededb340210ab37de2034d94cfefd6f7b089b654bac1b79bd66bf75"
+  },
+  "card_soft_seed": {
+    "stdout": [
+      "校验通过：时间轴合法 · 覆盖率 100.0% · 缺 转化（已如实标注）",
+      "拆解卡已生成：evals/runs_v2/card_soft_seed.md（边界错位 0 处 · 例句 4/4 命中）"
+    ],
+    "pattern": "hook→build→twist→build",
+    "cut_block_count": 0,
+    "evidence": "4/4",
+    "opens_with_hook": true,
+    "first_hook_end_s": 7.0,
+    "chars_per_s": 4.96,
+    "sha256_md": "c862ba0edf90f18848d93eb691bf2cf0e065db827705964de0617bf9a3f21294"
+  },
+  "card_misplaced_evidence": {
+    "stdout": [
+      "校验通过：时间轴合法 · 覆盖率 100.0% · 四段齐全（钩子→留人→转折→转化）",
+      "拆解卡已生成：evals/runs_v2/card_misplaced_evidence.md（边界错位 0 处 · 例句 3/4 命中）"
+    ],
+    "pattern": "hook→build→twist→cta",
+    "cut_block_count": 0,
+    "evidence": "3/4",
+    "opens_with_hook": true,
+    "first_hook_end_s": 7.0,
+    "chars_per_s": 4.47,
+    "sha256_md": "ce622642d9e19cc90e9ed13e46a993bcb7fd98cd0acd3f721e4a00b17a73726a"
+  },
+  "card_sparse_punct": {
+    "stdout": [
+      "校验通过：时间轴合法 · 覆盖率 96.9% · 四段齐全（钩子→留人→转折→转化）",
+      "拆解卡已生成：evals/runs_v2/card_sparse_punct.md（边界错位 0 处 · 例句 4/4 命中）"
+    ],
+    "pattern": "hook→build→twist→cta",
+    "cut_block_count": 0,
+    "evidence": "4/4",
+    "opens_with_hook": true,
+    "first_hook_end_s": 5.6,
+    "chars_per_s": 4.29,
+    "sha256_md": "273e0bff2ee539ffb43db41bbcf90e65af50aeecb051f14c81f9970467ba8f9c"
+  },
+  "bad_timeline": {
+    "exit": 3,
+    "card_written": false
+  },
+  "determinism": {
+    "first": "bbc7231983cf1d833bce615388e6b3660dc7e972c59acf3c4ee1bb0cdfdf8bad",
+    "second": "bbc7231983cf1d833bce615388e6b3660dc7e972c59acf3c4ee1bb0cdfdf8bad",
+    "equal": true
+  },
+  "apply_flat_notwist_90s": [
+    "落点已生成：evals/runs_v2/apply_flat_notwist_90s.md（目标时长 90s · 方法 median）",
+    "提示：目标时长 90s 超出样本时长范围 48–62s，属外推：占比是否随时长线性缩放没有样本支撑",
+    "提示：冷启动：位置区间仅 2 张拆解卡支撑（< 3），中位落点即个例值"
+  ],
+  "apply_flat_notwist_30s": [
+    "落点已生成：evals/runs_v2/apply_flat_notwist_30s.md（目标时长 30s · 方法 median）",
+    "提示：目标时长 30s 超出样本时长范围 48–62s，属外推：占比是否随时长线性缩放没有样本支撑",
+    "提示：冷启动：位置区间仅 2 张拆解卡支撑（< 3），中位落点即个例值"
+  ],
+  "apply_twist_fourpart_90s": [
+    "落点已生成：evals/runs_v2/apply_twist_fourpart_90s.md（目标时长 90s · 方法 median）",
+    "提示：目标时长 90s 超出样本时长范围 58–63s，属外推：占比是否随时长线性缩放没有样本支撑",
+    "提示：冷启动：位置区间仅 1 张拆解卡支撑（< 3），中位落点即个例值"
+  ],
+  "apply_listicle_notwist_60s": [
+    "落点已生成：evals/runs_v2/apply_listicle_notwist_60s.md（目标时长 60s · 方法 median）",
+    "提示：目标时长 60s 超出样本时长范围 48–48s，属外推：占比是否随时长线性缩放没有样本支撑",
+    "提示：冷启动：位置区间仅 1 张拆解卡支撑（< 3），中位落点即个例值"
+  ],
+  "agreement_double_twist": [
+    "一致性：角色 92.9% · kappa 0.8955 （几乎完全一致（almost perfect））· 边界 F1 1.00 · WindowDiff 0.1538"
+  ],
+  "real_whisper": {
+    "srt": {
+      "format": "srt",
+      "timed": true,
+      "strategy": "pause_gap",
+      "block_count": 17,
+      "zero_length_blocks": 0,
+      "max_block_s": 6.0,
+      "median_block_s": 6.0,
+      "max_block_chars": 25,
+      "text_contains_timecode": false,
+      "cue_count": 31,
+      "summary": "解析完成：SRT · 31 条字幕 → 17 个句块 · 全长 90.0s · 最长句块 6.0s（切法 pause_gap）→ <blocks.json>"
+    },
+    "vtt": {
+      "format": "vtt",
+      "timed": true,
+      "strategy": "pause_gap",
+      "block_count": 17,
+      "zero_length_blocks": 0,
+      "max_block_s": 6.0,
+      "median_block_s": 6.0,
+      "max_block_chars": 25,
+      "text_contains_timecode": false,
+      "cue_count": 31,
+      "summary": "解析完成：VTT · 31 条字幕 → 17 个句块 · 全长 90.0s · 最长句块 6.0s（切法 pause_gap）→ <blocks.json>"
+    }
+  }
+}

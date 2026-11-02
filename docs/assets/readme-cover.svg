@@ -7,7 +7,7 @@
   <text x="120" y="130" fill="#9FE3C0" font-family="Arial, 'PingFang SC', sans-serif" font-size="22" font-weight="700">TRANSCRIPT IN, STRUCTURE TEMPLATE OUT</text>
   <text x="120" y="228" fill="#FFFFFF" font-family="Arial, 'PingFang SC', sans-serif" font-size="66" font-weight="800">爆款拆解模板库</text>
   <text x="120" y="292" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="30">转写稿按句切块 → 钩子/留人/转折/转化标注 → 多条拆解蒸馏成模板，</text>
-  <text x="120" y="338" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="30">写新脚本时按占比换算秒级期望落点。不打分，不代写。</text>
+  <text x="120" y="338" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="30">写新脚本时按中位数给秒级期望落点。不打分，不代写。</text>
   <g transform="translate(120 408)">
     <rect width="360" height="120" rx="6" fill="#2A2638"/>
     <text x="24" y="38" fill="#F0C94B" font-family="Arial, 'PingFang SC', sans-serif" font-size="17" font-weight="700">转写稿（SRT 句块）</text>
@@ -19,7 +19,7 @@
     <rect width="688" height="120" rx="6" fill="#6C4BB8"/>
     <text x="24" y="38" fill="#FFFFFF" font-family="Arial, 'PingFang SC', sans-serif" font-size="17" font-weight="700">拆解卡时间轴（真实运行节选）</text>
     <text x="24" y="70" fill="#E6DEF7" font-size="16" font-family="Arial, 'PingFang SC', sans-serif">钩子 0–7s·12.1% ｜ 留人 7–33s·44.8% ｜ 转折 33–45s·20.7% ｜ 转化 45–58s·22.4%</text>
-    <text x="24" y="96" fill="#E6DEF7" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">apply 模板 ×90s → 钩子落点 0–10.9s · 转折 51.2–69.8s</text>
+    <text x="24" y="96" fill="#E6DEF7" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">apply 模板 ×90s → 钩子 0–7.0s（按绝对秒）· 转折 51.2–69.8s</text>
   </g>
-  <text x="120" y="572" fill="#555954" font-family="Arial, 'PingFang SC', sans-serif" font-size="18">样例取自仓库内真实运行产物 evals/runs_v1/（合成样本，不打分）</text>
+  <text x="120" y="572" fill="#555954" font-family="Arial, 'PingFang SC', sans-serif" font-size="18">样例取自仓库内真实运行产物 evals/runs_v2/（v0.3.0，合成样本，不打分）</text>
 </svg>

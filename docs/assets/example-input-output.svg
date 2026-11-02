@@ -2,8 +2,8 @@
   <title id="t">拆解输入输出对照</title>
   <desc id="d">左侧为转写稿句块输入，右侧为脚本生成的拆解卡节选，合成样本</desc>
   <rect width="1440" height="760" fill="#F4F1E8"/>
-  <text x="72" y="64" fill="#171A19" font-family="Arial, 'PingFang SC', sans-serif" font-size="34" font-weight="800">真实运行对照（合成样本，v0.1.0，58s 好物测评口播）</text>
-  <text x="72" y="96" fill="#555954" font-family="Arial, 'PingFang SC', sans-serif" font-size="18">输入：standard_four_part_v1.srt → 解析 11 个句块 → 标注校验 → 输出：evals/runs_v1/card_standard_v1.md</text>
+  <text x="72" y="64" fill="#171A19" font-family="Arial, 'PingFang SC', sans-serif" font-size="34" font-weight="800">真实运行对照（合成样本，v0.3.0，58s 好物测评口播）</text>
+  <text x="72" y="96" fill="#555954" font-family="Arial, 'PingFang SC', sans-serif" font-size="18">输入：standard_four_part_v1.srt → 解析 11 个句块 → 标注校验 → 输出：evals/runs_v2/card_standard.md</text>
 
   <rect x="72" y="124" width="600" height="596" rx="10" fill="#2A2E2C"/>
   <text x="100" y="170" fill="#F0C94B" font-family="Arial, 'PingFang SC', sans-serif" font-size="20" font-weight="700">你手里的一条转写稿</text>
@@ -30,12 +30,12 @@
   <text x="820" y="312" fill="#3A3F3B" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">3 转折　00:33.0–00:45.0　12.0s　20.7%　反常识结论：最贵垫底</text>
   <text x="820" y="340" fill="#3A3F3B" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">4 转化　00:45.0–00:58.0　13.0s　22.4%　评论区资料+关注预告</text>
   <text x="820" y="372" fill="#3A3F3B" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">各角色占比：钩子 12.1% ｜ 留人 44.8% ｜ 转折 20.7% ｜ 转化 22.4%</text>
-  <text x="820" y="404" fill="#3A3F3B" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">校验：时间轴合法 · 覆盖率 100.0% · 例句 4/4 命中 · 边界错位 0 处</text>
+  <text x="820" y="404" fill="#3A3F3B" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">校验：时间轴合法 · 覆盖 100% · 例句 4/4 · 错位 0 · 钩子止于 7.0s</text>
   <text x="820" y="432" fill="#8A8F8B" font-family="Arial, 'PingFang SC', sans-serif" font-size="15">段边界为主观判定，占比仅供参考；本卡不打分、不生成文案</text>
   <rect x="796" y="472" width="544" height="130" rx="8" fill="#17151F"/>
-  <text x="820" y="504" fill="#F0C94B" font-family="Arial, 'PingFang SC', sans-serif" font-size="17" font-weight="700">蒸馏成模板后，写新脚本 90s 版</text>
-  <text x="820" y="536" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">钩子 0–10.9s ｜ 留人 10.9–51.2s ｜ 转折 51.2–69.8s ｜ 转化 69.8–90.0s</text>
-  <text x="820" y="566" fill="#8A8F8B" font-family="Arial, 'PingFang SC', sans-serif" font-size="15">占比区间 × 目标时长 = 秒级落点（节拍表式打点，合成样本）</text>
-  <text x="796" y="640" fill="#8A8F8B" font-family="Arial, 'PingFang SC', sans-serif" font-size="15">同输入两次渲染 sha256 一致（e8b80c7e…，确定性）</text>
+  <text x="820" y="504" fill="#F0C94B" font-family="Arial, 'PingFang SC', sans-serif" font-size="17" font-weight="700">蒸馏成模板后，写新脚本 90s 版（apply 中位落点）</text>
+  <text x="820" y="536" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">钩子 0–7.0s ｜ 留人 7.0–51.2s ｜ 转折 51.2–69.8s ｜ 转化 69.8–90.0s</text>
+  <text x="820" y="566" fill="#8A8F8B" font-family="Arial, 'PingFang SC', sans-serif" font-size="15">钩子按样本绝对秒封顶（占比换算会拉长到 10.9s）；附外推与冷启动提示</text>
+  <text x="796" y="640" fill="#8A8F8B" font-family="Arial, 'PingFang SC', sans-serif" font-size="15">同输入两次渲染 sha256 一致（bbc72319…，确定性）</text>
   <text x="796" y="666" fill="#8A8F8B" font-family="Arial, 'PingFang SC', sans-serif" font-size="15">缺转折的清单体会如实标注「转折 ✗ 未检出」，不硬凑四段</text>
 </svg>

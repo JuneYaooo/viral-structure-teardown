@@ -1,74 +1,280 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="t d">
-  <title id="t">爆款拆解模板库 viral-structure-teardown</title>
-  <desc id="d">把对标爆款的字幕稿拆成钩子、留人、转折、转化的时间轴，沉淀成结构模板，写新脚本时直接拿到每段的秒级落点</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="560" viewBox="0 0 1280 560" role="img" aria-labelledby="title desc">
+  <title id="title">爆款拆解模板库</title>
+  <desc id="desc">把对标爆款的字幕稿剪成句块，拼成钩子、留人、转折、转化四段结构积木，沉淀成模板，写新脚本时直接拿到秒级落点。</desc>
   <defs>
-    <style>
-      .zh{font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC","Source Han Sans SC",sans-serif}
-      .mono{font-family:"SF Mono",Menlo,Consolas,"PingFang SC",monospace}
-    </style>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFF6EF"/>
+      <stop offset="0.55" stop-color="#FBF3FF"/>
+      <stop offset="1" stop-color="#EEF3FF"/>
+    </linearGradient>
+    <radialGradient id="glowCoral" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#FF8A6B" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#FF8A6B" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowViolet" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#9C7BFF" stop-opacity="0.36"/>
+      <stop offset="1" stop-color="#9C7BFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowTeal" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#3CCFA0" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#3CCFA0" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.1" fill="#3A2C66" fill-opacity="0.07"/>
+    </pattern>
+    <linearGradient id="screen" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#3B2D6B"/>
+      <stop offset="0.55" stop-color="#231B42"/>
+      <stop offset="1" stop-color="#140F27"/>
+    </linearGradient>
+    <linearGradient id="phoneBody" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3A3550"/>
+      <stop offset="1" stop-color="#16131F"/>
+    </linearGradient>
+    <linearGradient id="titleInk" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1F1835"/>
+      <stop offset="1" stop-color="#3B2A73"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FF6B5B"/>
+      <stop offset="0.33" stop-color="#F5B53D"/>
+      <stop offset="0.66" stop-color="#8B6CF0"/>
+      <stop offset="1" stop-color="#22B58A"/>
+    </linearGradient>
+    <linearGradient id="hookG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF8577"/><stop offset="1" stop-color="#F0533F"/></linearGradient>
+    <linearGradient id="buildG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFCB63"/><stop offset="1" stop-color="#EEA21F"/></linearGradient>
+    <linearGradient id="twistG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A58CFF"/><stop offset="1" stop-color="#7553E6"/></linearGradient>
+    <linearGradient id="ctaG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#43D3A6"/><stop offset="1" stop-color="#14A077"/></linearGradient>
+    <linearGradient id="flame" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#F0533F"/>
+      <stop offset="1" stop-color="#FFB36B"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#2B1E55" flood-opacity="0.08"/>
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#2B1E55" flood-opacity="0.16"/>
+    </filter>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#2B1E55" flood-opacity="0.18"/>
+    </filter>
+    <filter id="blur40" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="30"/>
+    </filter>
+    <clipPath id="screenClip"><rect x="0" y="0" width="150" height="300" rx="22"/></clipPath>
   </defs>
-  <rect width="1200" height="420" fill="#F6F2E9"/>
-  <circle cx="1150" cy="40" r="140" fill="#EFE7D6"/>
-  <circle cx="40" cy="420" r="90" fill="#EFE7D6"/>
 
-  <!-- left: title -->
-  <g class="zh">
-    <rect x="64" y="70" width="6" height="22" rx="3" fill="#F0644B"/>
-    <text x="82" y="88" fill="#6B6458" font-size="16" font-weight="600" letter-spacing="1">AGENT SKILL · 短视频脚本结构拆解</text>
-    <text x="62" y="160" fill="#1B1A23" font-size="56" font-weight="800">爆款拆解模板库</text>
-    <text x="64" y="196" class="mono" fill="#8A8273" font-size="18">viral-structure-teardown</text>
-    <text x="64" y="248" fill="#3A3630" font-size="20">把对标爆款的字幕稿拆成「钩子 · 留人 · 转折 · 转化」</text>
-    <text x="64" y="280" fill="#3A3630" font-size="20">时间轴，沉淀成模板，写新脚本时直接拿到秒级落点。</text>
-    <g font-size="14" font-weight="600">
-      <rect x="64" y="318" width="118" height="32" rx="16" fill="#FFFFFF" stroke="#E2D9C6"/>
-      <text x="123" y="339" text-anchor="middle" fill="#3A3630">SRT · WebVTT</text>
-      <rect x="194" y="318" width="96" height="32" rx="16" fill="#FFFFFF" stroke="#E2D9C6"/>
-      <text x="242" y="339" text-anchor="middle" fill="#3A3630">全程本地</text>
-      <rect x="302" y="318" width="136" height="32" rx="16" fill="#FFFFFF" stroke="#E2D9C6"/>
-      <text x="370" y="339" text-anchor="middle" fill="#3A3630">不打分 · 不代写</text>
+  <!-- background -->
+  <rect width="1280" height="560" fill="url(#bg)"/>
+  <circle cx="1110" cy="70" r="300" fill="url(#glowCoral)"/>
+  <circle cx="120" cy="560" r="320" fill="url(#glowViolet)"/>
+  <circle cx="760" cy="520" r="240" fill="url(#glowTeal)"/>
+  <rect width="1280" height="560" fill="url(#dots)"/>
+  <rect x="0" y="0" width="1280" height="5" fill="url(#accentLine)"/>
+
+  <!-- ============ left: copy ============ -->
+  <g font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans CJK SC',sans-serif">
+    <g transform="translate(72 84)">
+      <rect width="314" height="36" rx="18" fill="#FFFFFF" fill-opacity="0.78" stroke="#E7DDF6"/>
+      <circle cx="20" cy="18" r="5" fill="#FF6B5B"/>
+      <circle cx="20" cy="18" r="9" fill="#FF6B5B" fill-opacity="0.18"/>
+      <text x="36" y="23.5" font-size="14.5" font-weight="700" fill="#4A3D72" letter-spacing="1">AGENT SKILL</text>
+      <text x="146" y="23.5" font-size="14.5" fill="#6E6390">·</text>
+      <text x="160" y="23.5" font-size="14.5" fill="#6E6390">短视频脚本结构拆解</text>
+    </g>
+
+    <text x="70" y="196" font-size="66" font-weight="800" fill="url(#titleInk)" letter-spacing="2">爆款拆解模板库</text>
+    <rect x="74" y="216" width="132" height="6" rx="3" fill="url(#accentLine)"/>
+    <text x="220" y="224" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="15" fill="#8C82A6">viral-structure-teardown</text>
+
+    <text x="72" y="282" font-size="21" fill="#3E365A">把对标爆款的字幕稿拆成
+      <tspan fill="#E8503C" font-weight="700">钩子</tspan><tspan fill="#B8B0CC">&#160;·&#160;</tspan><tspan fill="#D98C0B" font-weight="700">留人</tspan><tspan fill="#B8B0CC">&#160;·&#160;</tspan><tspan fill="#6A48DE" font-weight="700">转折</tspan><tspan fill="#B8B0CC">&#160;·&#160;</tspan><tspan fill="#0F9A71" font-weight="700">转化</tspan></text>
+    <text x="72" y="318" font-size="21" fill="#3E365A">攒成模板，写新脚本时直接拿到每段的秒级落点。</text>
+
+    <!-- feature pills -->
+    <g font-size="14.5" font-weight="600" fill="#3E365A">
+      <g transform="translate(72 360)" filter="url(#softShadow)">
+        <rect width="126" height="40" rx="20" fill="#FFFFFF"/>
+        <path d="M18 13h11l5 5v10a2 2 0 0 1-2 2H18a2 2 0 0 1-2-2V15a2 2 0 0 1 2-2z" fill="none" stroke="#8B6CF0" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M20 22h9M20 26h6" stroke="#8B6CF0" stroke-width="1.8" stroke-linecap="round"/>
+        <text x="42" y="25.5">SRT · VTT</text>
+      </g>
+      <g transform="translate(208 360)" filter="url(#softShadow)">
+        <rect width="140" height="40" rx="20" fill="#FFFFFF"/>
+        <circle cx="25" cy="20" r="9" fill="none" stroke="#22B58A" stroke-width="1.8"/>
+        <path d="M20.5 20.3l3.2 3.2 5.8-6.2" fill="none" stroke="#22B58A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="42" y="25.5">脚本逐项校验</text>
+      </g>
+      <g transform="translate(358 360)" filter="url(#softShadow)">
+        <rect width="112" height="40" rx="20" fill="#FFFFFF"/>
+        <rect x="16" y="13" width="18" height="13" rx="2.5" fill="none" stroke="#F0A31F" stroke-width="1.8"/>
+        <path d="M21 30h8M25 26v4" stroke="#F0A31F" stroke-width="1.8" stroke-linecap="round"/>
+        <text x="42" y="25.5">全程本地</text>
+      </g>
+      <g transform="translate(480 360)" filter="url(#softShadow)">
+        <rect width="154" height="40" rx="20" fill="#FFFFFF"/>
+        <circle cx="25" cy="20" r="9" fill="none" stroke="#F0533F" stroke-width="1.8"/>
+        <path d="M18.8 26.2l12.4-12.4" stroke="#F0533F" stroke-width="1.8" stroke-linecap="round"/>
+        <text x="42" y="25.5">不打分 · 不代写</text>
+      </g>
+    </g>
+
+    <!-- stat strip -->
+    <g transform="translate(72 444)">
+      <rect width="562" height="64" rx="16" fill="#FFFFFF" fill-opacity="0.6" stroke="#E9E1F5"/>
+      <text x="26" y="40" font-size="26" font-weight="800" fill="#1F1835">4</text>
+      <text x="48" y="39" font-size="14.5" fill="#6E6390">段结构角色</text>
+      <line x1="150" y1="18" x2="150" y2="46" stroke="#E2D8F0"/>
+      <text x="174" y="40" font-size="26" font-weight="800" fill="#1F1835">5</text>
+      <text x="196" y="39" font-size="14.5" fill="#6E6390">个起步模板</text>
+      <line x1="298" y1="18" x2="298" y2="46" stroke="#E2D8F0"/>
+      <text x="322" y="39" font-size="14.5" fill="#6E6390">只需</text>
+      <text x="356" y="40" font-size="20" font-weight="800" fill="#1F1835">Python 3</text>
+      <text x="452" y="39" font-size="14.5" fill="#6E6390">无需密钥</text>
     </g>
   </g>
 
-  <!-- right: transcript -> timeline -->
-  <rect x="640" y="40" width="500" height="346" rx="18" fill="#1B1A23"/>
-  <g class="zh">
-    <text x="672" y="86" fill="#9A97A8" font-size="13" font-weight="600" letter-spacing="1">字幕稿</text>
-    <g font-size="15">
-      <circle cx="676" cy="113" r="4" fill="#F0644B"/>
-      <text x="690" y="118" class="mono" fill="#7D7A8C" font-size="13">00:00</text>
-      <text x="742" y="118" fill="#E6E3F0">别再跟风买网红锅了，我自费五千块…</text>
-      <circle cx="676" cy="139" r="4" fill="#F2B441"/>
-      <text x="690" y="144" class="mono" fill="#7D7A8C" font-size="13">00:07</text>
-      <text x="742" y="144" fill="#E6E3F0">先说我的三个测试标准…</text>
-      <circle cx="676" cy="165" r="4" fill="#9B7BF2"/>
-      <text x="690" y="170" class="mono" fill="#7D7A8C" font-size="13">00:33</text>
-      <text x="742" y="170" fill="#E6E3F0">但真正的反转在最后，卖得最贵的那口…</text>
-      <circle cx="676" cy="191" r="4" fill="#2FB58A"/>
-      <text x="690" y="196" class="mono" fill="#7D7A8C" font-size="13">00:45</text>
-      <text x="742" y="196" fill="#E6E3F0">完整的测试数据表我贴在评论区置顶了…</text>
+  <!-- ============ right: illustration ============ -->
+  <g font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans CJK SC',sans-serif">
+
+    <!-- big soft panel -->
+    <rect x="664" y="40" width="580" height="480" rx="32" fill="#FFFFFF" fill-opacity="0.45" stroke="#FFFFFF" stroke-opacity="0.9"/>
+
+    <!-- phone -->
+    <g transform="translate(694 70) rotate(-5 75 150)" filter="url(#shadow)">
+      <rect x="-8" y="-8" width="166" height="316" rx="30" fill="url(#phoneBody)"/>
+      <g clip-path="url(#screenClip)">
+        <rect width="150" height="300" fill="url(#screen)"/>
+        <circle cx="120" cy="40" r="70" fill="#FF6B5B" fill-opacity="0.22"/>
+        <circle cx="20" cy="230" r="80" fill="#8B6CF0" fill-opacity="0.25"/>
+        <!-- creator silhouette -->
+        <circle cx="75" cy="112" r="26" fill="#F6D2C0"/>
+        <path d="M49 106c0-18 12-30 27-30s27 11 27 28c-7-8-17-11-27-11s-20 4-27 13z" fill="#2B2140"/>
+        <path d="M30 200c4-32 22-50 45-50s41 18 45 50z" fill="#FF7A66"/>
+        <path d="M60 154l15 16 15-16" fill="none" stroke="#FFFFFF" stroke-opacity="0.7" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="66" cy="114" r="2.4" fill="#2B2140"/>
+        <circle cx="84" cy="114" r="2.4" fill="#2B2140"/>
+        <path d="M68 124q7 6 14 0" fill="none" stroke="#C0563F" stroke-width="2.2" stroke-linecap="round"/>
+        <!-- caption -->
+        <rect x="12" y="214" width="126" height="26" rx="8" fill="#000000" fill-opacity="0.45"/>
+        <text x="75" y="231.5" text-anchor="middle" font-size="11.5" font-weight="600" fill="#FFFFFF">别再跟风买网红锅了</text>
+        <!-- progress -->
+        <rect x="12" y="262" width="126" height="5" rx="2.5" fill="#FFFFFF" fill-opacity="0.18"/>
+        <rect x="12" y="262" width="15.2" height="5" rx="2.5" fill="#FF6B5B"/>
+        <rect x="28.2" y="262" width="55.5" height="5" fill="#F5B53D"/>
+        <rect x="84.7" y="262" width="24.6" height="5" fill="#8B6CF0"/>
+        <rect x="110.3" y="262" width="27.7" height="5" rx="2.5" fill="#22B58A"/>
+        <circle cx="27.7" cy="264.5" r="5" fill="#FFFFFF"/>
+        <!-- side actions -->
+        <g fill="#FFFFFF">
+          <path d="M131 150c-3-4-9-3-9 2 0 4 6 8 9 10 3-2 9-6 9-10 0-5-6-6-9-2z" fill="#FF5A7A"/>
+          <circle cx="131" cy="182" r="7" fill="#FFFFFF" fill-opacity="0.85"/>
+        </g>
+        <rect x="55" y="10" width="40" height="8" rx="4" fill="#0B0814"/>
+      </g>
     </g>
 
-    <text x="672" y="234" fill="#9A97A8" font-size="13" font-weight="600" letter-spacing="1">拆解卡 · 58 秒</text>
-    <g font-size="13" font-weight="700">
-      <rect x="672" y="246" width="52.8" height="30" rx="6" fill="#F0644B"/>
-      <text x="698.4" y="266" text-anchor="middle" fill="#FFFFFF">钩子</text>
-      <rect x="726.8" y="246" width="191.3" height="30" rx="6" fill="#F2B441"/>
-      <text x="822.5" y="266" text-anchor="middle" fill="#2B2410">留人 44.8%</text>
-      <rect x="920.1" y="246" width="88.3" height="30" rx="6" fill="#9B7BF2"/>
-      <text x="964.3" y="266" text-anchor="middle" fill="#FFFFFF">转折 20.7%</text>
-      <rect x="1010.4" y="246" width="97.6" height="30" rx="6" fill="#2FB58A"/>
-      <text x="1059.2" y="266" text-anchor="middle" fill="#FFFFFF">转化 22.4%</text>
-    </g>
-    <g class="mono" font-size="12" fill="#7D7A8C">
-      <text x="672" y="294">0s</text>
-      <text x="725.8" y="294" text-anchor="middle">7s</text>
-      <text x="919.1" y="294" text-anchor="middle">33s</text>
-      <text x="1009.4" y="294" text-anchor="middle">45s</text>
-      <text x="1108" y="294" text-anchor="end">58s</text>
+    <!-- flame badge -->
+    <g transform="translate(676 58)" filter="url(#softShadow)">
+      <rect width="78" height="34" rx="17" fill="#FFFFFF"/>
+      <path d="M22 26c-6 0-9-4-9-8 0-5 4-7 5-11 3 2 4 5 4 7 1-1 2-3 2-4 3 3 5 6 5 9 0 4-3 7-7 7z" fill="url(#flame)"/>
+      <text x="36" y="22.5" font-size="14" font-weight="800" fill="#E8503C">爆款</text>
     </g>
 
-    <line x1="672" y1="312" x2="1108" y2="312" stroke="#2E2C3A"/>
-    <text x="672" y="337" fill="#9A97A8" font-size="13" font-weight="600" letter-spacing="1">套到 90 秒新脚本</text>
-    <text x="672" y="358" fill="#E6E3F0" font-size="13">钩子 0–7s · 留人 7–51.2s · 转折 51.2–69.8s · 转化 69.8–90s</text>
+    <!-- subtitle film tape -->
+    <g transform="translate(876 96) rotate(-3)" filter="url(#shadow)">
+      <rect width="340" height="64" rx="10" fill="#FFFFFF"/>
+      <g fill="#EDE6F8">
+        <rect x="12" y="6" width="10" height="6" rx="2"/><rect x="34" y="6" width="10" height="6" rx="2"/><rect x="56" y="6" width="10" height="6" rx="2"/><rect x="78" y="6" width="10" height="6" rx="2"/><rect x="100" y="6" width="10" height="6" rx="2"/><rect x="122" y="6" width="10" height="6" rx="2"/><rect x="144" y="6" width="10" height="6" rx="2"/><rect x="166" y="6" width="10" height="6" rx="2"/><rect x="188" y="6" width="10" height="6" rx="2"/><rect x="210" y="6" width="10" height="6" rx="2"/><rect x="232" y="6" width="10" height="6" rx="2"/><rect x="254" y="6" width="10" height="6" rx="2"/><rect x="276" y="6" width="10" height="6" rx="2"/><rect x="298" y="6" width="10" height="6" rx="2"/><rect x="320" y="6" width="10" height="6" rx="2"/>
+        <rect x="12" y="52" width="10" height="6" rx="2"/><rect x="34" y="52" width="10" height="6" rx="2"/><rect x="56" y="52" width="10" height="6" rx="2"/><rect x="78" y="52" width="10" height="6" rx="2"/><rect x="100" y="52" width="10" height="6" rx="2"/><rect x="122" y="52" width="10" height="6" rx="2"/><rect x="144" y="52" width="10" height="6" rx="2"/><rect x="166" y="52" width="10" height="6" rx="2"/><rect x="188" y="52" width="10" height="6" rx="2"/><rect x="210" y="52" width="10" height="6" rx="2"/><rect x="232" y="52" width="10" height="6" rx="2"/><rect x="254" y="52" width="10" height="6" rx="2"/><rect x="276" y="52" width="10" height="6" rx="2"/><rect x="298" y="52" width="10" height="6" rx="2"/><rect x="320" y="52" width="10" height="6" rx="2"/>
+      </g>
+      <text x="14" y="37" font-family="'SF Mono',Menlo,monospace" font-size="11" fill="#A79CC2">00:00</text>
+      <text x="54" y="37.5" font-size="13" font-weight="600" fill="#2E2650">别再跟风买网红锅了</text>
+      <line x1="178" y1="14" x2="178" y2="50" stroke="#FF6B5B" stroke-width="1.6" stroke-dasharray="4 3"/>
+      <text x="188" y="37" font-family="'SF Mono',Menlo,monospace" font-size="11" fill="#A79CC2">00:07</text>
+      <text x="228" y="37.5" font-size="13" font-weight="600" fill="#2E2650">先说我的三个…</text>
+    </g>
+
+    <!-- scissors -->
+    <g transform="translate(1058 52) rotate(8)" filter="url(#softShadow)">
+      <path d="M-3 -2 L-13 50 L-5 47 L4 4 Z" fill="#D7D2E6" stroke="#8E86A8" stroke-width="1.2" stroke-linejoin="round"/>
+      <path d="M3 -2 L13 50 L5 47 L-4 4 Z" fill="#EEEBF6" stroke="#8E86A8" stroke-width="1.2" stroke-linejoin="round"/>
+      <path d="M-2 0 L-10 -16" stroke="#E8503C" stroke-width="5" stroke-linecap="round"/>
+      <path d="M2 0 L10 -16" stroke="#E8503C" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="-14" cy="-25" r="10" fill="none" stroke="#FF6B5B" stroke-width="5"/>
+      <circle cx="14" cy="-25" r="10" fill="none" stroke="#FF6B5B" stroke-width="5"/>
+      <circle cx="0" cy="1" r="3.6" fill="#3B2D6B"/>
+    </g>
+    <g fill="#FF6B5B">
+      <path d="M1088 72l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
+    </g>
+    <path d="M1225 62l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#F5B53D"/>
+    <path d="M880 238l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#8B6CF0"/>
+
+    <!-- falling bricks -->
+    <g font-size="15" font-weight="800" fill="#FFFFFF" text-anchor="middle">
+      <g transform="translate(890 214) rotate(-8)" filter="url(#softShadow)">
+        <path d="M0 10 L10 0 H70 L60 10Z" fill="#FFB0A6"/>
+        <path d="M60 10 L70 0 V34 L60 44Z" fill="#D9442F"/>
+        <rect x="0" y="10" width="60" height="34" rx="3" fill="url(#hookG)"/>
+        <text x="30" y="33">钩子</text>
+      </g>
+      <g transform="translate(970 230) rotate(5)" filter="url(#softShadow)">
+        <path d="M0 10 L10 0 H92 L82 10Z" fill="#FFE3A6"/>
+        <path d="M82 10 L92 0 V34 L82 44Z" fill="#D18A10"/>
+        <rect x="0" y="10" width="82" height="34" rx="3" fill="url(#buildG)"/>
+        <text x="41" y="33">留人</text>
+      </g>
+      <g transform="translate(1072 208) rotate(-6)" filter="url(#softShadow)">
+        <path d="M0 10 L10 0 H72 L62 10Z" fill="#D3C6FF"/>
+        <path d="M62 10 L72 0 V34 L62 44Z" fill="#5F3FCC"/>
+        <rect x="0" y="10" width="62" height="34" rx="3" fill="url(#twistG)"/>
+        <text x="31" y="33">转折</text>
+      </g>
+      <g transform="translate(1150 232) rotate(7)" filter="url(#softShadow)">
+        <path d="M0 10 L10 0 H72 L62 10Z" fill="#A6EED6"/>
+        <path d="M62 10 L72 0 V34 L62 44Z" fill="#0E8461"/>
+        <rect x="0" y="10" width="62" height="34" rx="3" fill="url(#ctaG)"/>
+        <text x="31" y="33">转化</text>
+      </g>
+    </g>
+
+    <!-- motion arrows -->
+    <g fill="none" stroke="#B3A6D6" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 6">
+      <path d="M930 296 C 930 318, 920 330, 910 352"/>
+      <path d="M1012 304 C 1012 326, 1004 338, 996 352"/>
+      <path d="M1106 290 C 1106 316, 1100 334, 1094 352"/>
+      <path d="M1186 304 C 1186 326, 1180 338, 1176 352"/>
+    </g>
+
+    <!-- teardown card -->
+    <g transform="translate(694 366)" filter="url(#shadow)">
+      <rect width="526" height="128" rx="20" fill="#FFFFFF"/>
+      <text x="24" y="34" font-size="15" font-weight="800" fill="#1F1835">拆解卡</text>
+      <text x="80" y="34" font-size="13.5" fill="#8C82A6">好物测评口播 · 58 秒 · 11 个句块</text>
+      <g transform="translate(410 20)">
+        <rect width="92" height="22" rx="11" fill="#E7F8F1"/>
+        <path d="M12 11.5l3.5 3.5 6-7" fill="none" stroke="#14A077" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="28" y="15.5" font-size="12" font-weight="700" fill="#0F8A63">例句 4/4</text>
+      </g>
+      <!-- bar: 478px for 58s -->
+      <g transform="translate(24 54)">
+        <rect width="57.7" height="34" rx="8" fill="url(#hookG)"/>
+        <rect x="59.7" width="212.3" height="34" rx="4" fill="url(#buildG)"/>
+        <rect x="274" width="96.9" height="34" rx="4" fill="url(#twistG)"/>
+        <rect x="372.9" width="105.1" height="34" rx="8" fill="url(#ctaG)"/>
+        <g font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">
+          <text x="28.9" y="22">钩子</text>
+          <text x="165.8" y="22">留人 44.8%</text>
+          <text x="322.4" y="22">转折 20.7%</text>
+          <text x="425.4" y="22">转化 22.4%</text>
+        </g>
+        <g font-family="'SF Mono',Menlo,monospace" font-size="11" fill="#8C82A6" text-anchor="middle">
+          <text x="2" y="54" text-anchor="start">0s</text>
+          <text x="58.7" y="54">7s</text>
+          <text x="273" y="54">33s</text>
+          <text x="371.9" y="54">45s</text>
+          <text x="478" y="54" text-anchor="end">58s</text>
+        </g>
+      </g>
+    </g>
   </g>
 </svg>

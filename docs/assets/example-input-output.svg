@@ -1,41 +1,130 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="760" viewBox="0 0 1440 760" role="img" aria-labelledby="t d">
-  <title id="t">拆解输入输出对照</title>
-  <desc id="d">左侧为转写稿句块输入，右侧为脚本生成的拆解卡节选，合成样本</desc>
-  <rect width="1440" height="760" fill="#F4F1E8"/>
-  <text x="72" y="64" fill="#171A19" font-family="Arial, 'PingFang SC', sans-serif" font-size="34" font-weight="800">真实运行：一条 58 秒好物测评口播（合成样本）</text>
-  <text x="72" y="96" fill="#555954" font-family="Arial, 'PingFang SC', sans-serif" font-size="18">输入：standard_four_part_v1.srt → 解析 11 个句块 → 标注校验 → 输出：evals/runs_v2/card_standard.md</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="t d">
+<title id="t">拆解效果</title>
+<desc id="d">左侧为 58 秒好物测评口播的 11 个字幕句块，右侧为脚本生成的拆解卡节选：四段时间轴、占比、例句和校验结果，以及套到 90 秒新脚本的落点。</desc>
 
-  <rect x="72" y="124" width="600" height="596" rx="10" fill="#2A2E2C"/>
-  <text x="100" y="170" fill="#F0C94B" font-family="Arial, 'PingFang SC', sans-serif" font-size="20" font-weight="700">你手里的一条转写稿</text>
-  <text x="100" y="208" fill="#9FE3C0" font-family="Arial, 'PingFang SC', sans-serif" font-size="17" font-weight="700">SRT 句块（节选）</text>
-  <text x="100" y="238" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">00:00–00:04　别再跟风买网红锅了，我自费五千块…</text>
-  <text x="100" y="266" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">00:07–00:12　先说我的三个测试标准…</text>
-  <text x="100" y="294" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">00:33–00:39　但真正的反转在最后，卖得最贵的那口…</text>
-  <text x="100" y="322" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">00:52–00:58　关注我，下期把这五口锅拿去炒糖色…</text>
-  <rect x="100" y="470" width="544" height="200" rx="8" fill="#1F231F"/>
-  <text x="124" y="504" fill="#E8A9A0" font-family="Arial, 'PingFang SC', sans-serif" font-size="17" font-weight="700">人工拆解的痛点</text>
-  <text x="124" y="534" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">· 逐句暂停填表，一条 0.5–1 小时</text>
-  <text x="124" y="562" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">· 转折到底在第几秒？各人说法不一</text>
-  <text x="124" y="590" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">· 拆完十来条，占比规律散在表格里没法复用</text>
-  <text x="124" y="630" fill="#8A8F8B" font-family="Arial, 'PingFang SC', sans-serif" font-size="15">（以上输入与痛点均为合成示例）</text>
-
-  <text x="720" y="440" fill="#171A19" font-family="Arial, 'PingFang SC', sans-serif" font-size="40" font-weight="800">→</text>
-
-  <rect x="768" y="124" width="600" height="596" rx="10" fill="#FFFFFF" stroke="#D8D4C8"/>
-  <text x="796" y="170" fill="#6C4BB8" font-family="Arial, 'PingFang SC', sans-serif" font-size="20" font-weight="700">拆解卡（脚本真实输出节选）</text>
-  <rect x="796" y="192" width="544" height="264" rx="8" fill="#F5F1FB"/>
-  <text x="820" y="224" fill="#6C4BB8" font-family="Arial, 'PingFang SC', sans-serif" font-size="18" font-weight="700">结构时间轴（58.0s · 句块 11 · 标注段 4）</text>
-  <text x="820" y="256" fill="#3A3F3B" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">1 钩子　00:00.0–00:07.0　7.0s　12.1%　否定式开场+自费背书</text>
-  <text x="820" y="284" fill="#3A3F3B" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">2 留人　00:07.0–00:33.0　26.0s　44.8%　立三条量化标准再逐条展开</text>
-  <text x="820" y="312" fill="#3A3F3B" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">3 转折　00:33.0–00:45.0　12.0s　20.7%　反常识结论：最贵垫底</text>
-  <text x="820" y="340" fill="#3A3F3B" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">4 转化　00:45.0–00:58.0　13.0s　22.4%　评论区资料+关注预告</text>
-  <text x="820" y="372" fill="#3A3F3B" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">各角色占比：钩子 12.1% ｜ 留人 44.8% ｜ 转折 20.7% ｜ 转化 22.4%</text>
-  <text x="820" y="404" fill="#3A3F3B" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">校验：时间轴合法 · 覆盖 100% · 例句 4/4 · 错位 0 · 钩子止于 7.0s</text>
-  <text x="820" y="432" fill="#8A8F8B" font-family="Arial, 'PingFang SC', sans-serif" font-size="15">段边界为主观判定，占比仅供参考；本卡不打分、不生成文案</text>
-  <rect x="796" y="472" width="544" height="130" rx="8" fill="#17151F"/>
-  <text x="820" y="504" fill="#F0C94B" font-family="Arial, 'PingFang SC', sans-serif" font-size="17" font-weight="700">蒸馏成模板后，写新脚本 90s 版（apply 中位落点）</text>
-  <text x="820" y="536" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">钩子 0–7.0s ｜ 留人 7.0–51.2s ｜ 转折 51.2–69.8s ｜ 转化 69.8–90.0s</text>
-  <text x="820" y="566" fill="#8A8F8B" font-family="Arial, 'PingFang SC', sans-serif" font-size="15">钩子按样本绝对秒封顶（占比换算会拉长到 10.9s）；附外推与冷启动提示</text>
-  <text x="796" y="640" fill="#8A8F8B" font-family="Arial, 'PingFang SC', sans-serif" font-size="15">同输入两次渲染 sha256 一致（bbc72319…，确定性）</text>
-  <text x="796" y="666" fill="#8A8F8B" font-family="Arial, 'PingFang SC', sans-serif" font-size="15">缺转折的清单体会如实标注「转折 ✗ 未检出」，不硬凑四段</text>
-</svg>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#FFF7F1"/><stop offset="0.5" stop-color="#FAF5FF"/><stop offset="1" stop-color="#EEF4FF"/>
+  </linearGradient>
+  <radialGradient id="g1" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FF8A6B" stop-opacity=".30"/><stop offset="1" stop-color="#FF8A6B" stop-opacity="0"/></radialGradient>
+  <radialGradient id="g2" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#9C7BFF" stop-opacity=".28"/><stop offset="1" stop-color="#9C7BFF" stop-opacity="0"/></radialGradient>
+  <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#3A2C66" fill-opacity=".06"/></pattern>
+  <linearGradient id="hookG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF8577"/><stop offset="1" stop-color="#F0533F"/></linearGradient>
+  <linearGradient id="buildG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFCB63"/><stop offset="1" stop-color="#EEA21F"/></linearGradient>
+  <linearGradient id="twistG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A58CFF"/><stop offset="1" stop-color="#7553E6"/></linearGradient>
+  <linearGradient id="ctaG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#43D3A6"/><stop offset="1" stop-color="#14A077"/></linearGradient>
+  <linearGradient id="belt" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FF6B5B"/><stop offset=".33" stop-color="#F5B53D"/><stop offset=".66" stop-color="#8B6CF0"/><stop offset="1" stop-color="#22B58A"/></linearGradient>
+  <filter id="sh" x="-10%" y="-10%" width="120%" height="130%">
+    <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#2B1E55" flood-opacity=".07"/>
+    <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#2B1E55" flood-opacity=".12"/>
+  </filter>
+  <filter id="sh2" x="-30%" y="-30%" width="160%" height="170%">
+    <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#2B1E55" flood-opacity=".16"/>
+  </filter>
+  <marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L9 5L1 9z" fill="#9A8CC4"/></marker>
+</defs>
+<rect width="1280" height="760" fill="url(#bg)"/>
+<circle cx="1180" cy="40" r="300" fill="url(#g1)"/><circle cx="80" cy="760" r="320" fill="url(#g2)"/>
+<rect width="1280" height="760" fill="url(#dots)"/><rect width="1280" height="5" fill="url(#belt)"/>
+<g font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans CJK SC',sans-serif">
+<text x="40" y="74" font-size="32" font-weight="800" fill="#1F1835">一条 58 秒测评口播，拆完是这样</text>
+<text x="40" y="108" font-size="16" fill="#6E6390">左边是输入的字幕句块，右边是脚本生成的拆解卡节选。数字逐字摘自仓库里的真实运行产物，示例稿为合成样本。</text>
+<g filter="url(#sh)"><rect x="40" y="140" width="420" height="580" rx="22" fill="#211B36"/></g>
+<rect x="40" y="140" width="420" height="52" rx="22" fill="#2B2445"/><rect x="40" y="170" width="420" height="22" fill="#2B2445"/>
+<circle cx="64" cy="166" r="6" fill="#FF5F57"/>
+<circle cx="84" cy="166" r="6" fill="#FEBC2E"/>
+<circle cx="104" cy="166" r="6" fill="#28C840"/>
+<text x="132" y="171" font-size="14" font-weight="700" fill="#E9E4FA">字幕句块</text><text x="440" y="171" text-anchor="end" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="12" fill="#9C93C0">11 块 · 58.0s</text>
+<rect x="56" y="212" width="4" height="34" rx="2" fill="#F0533F"/>
+<text x="70" y="226" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="11" fill="#8F86B3">#0  00.0–04.0s</text>
+<text x="70" y="244" font-size="13" fill="#E9E4FA">别再跟风买网红锅了，我自费五千块，把全平台销量前…</text>
+<rect x="56" y="257" width="4" height="34" rx="2" fill="#F0533F"/>
+<text x="70" y="271" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="11" fill="#8F86B3">#1  04.0–07.0s</text>
+<text x="70" y="289" font-size="13" fill="#E9E4FA">测完当天，我退掉了三个还没发货的订单。</text>
+<rect x="56" y="302" width="4" height="34" rx="2" fill="#EEA21F"/>
+<text x="70" y="316" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="11" fill="#8F86B3">#2  07.0–12.0s</text>
+<text x="70" y="334" font-size="13" fill="#E9E4FA">先说我的三个测试标准，受热均匀度、涂层耐磨、还有…</text>
+<rect x="56" y="347" width="4" height="34" rx="2" fill="#EEA21F"/>
+<text x="70" y="361" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="11" fill="#8F86B3">#3  12.0–17.0s</text>
+<text x="70" y="379" font-size="13" fill="#E9E4FA">受热均匀我用红外测温仪，锅面温差超过十五度的直接…</text>
+<rect x="56" y="392" width="4" height="34" rx="2" fill="#EEA21F"/>
+<text x="70" y="406" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="11" fill="#8F86B3">#4  17.0–22.0s</text>
+<text x="70" y="424" font-size="13" fill="#E9E4FA">涂层耐磨用钢丝球定量擦两百下，称重看掉了多少毫克。</text>
+<rect x="56" y="437" width="4" height="34" rx="2" fill="#EEA21F"/>
+<text x="70" y="451" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="11" fill="#8F86B3">#5  22.0–27.0s</text>
+<text x="70" y="469" font-size="13" fill="#E9E4FA">清洗成本更简单，煎一次蛋，看要用力擦几分钟。</text>
+<rect x="56" y="482" width="4" height="34" rx="2" fill="#EEA21F"/>
+<text x="70" y="496" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="11" fill="#8F86B3">#6  27.0–33.0s</text>
+<text x="70" y="514" font-size="13" fill="#E9E4FA">按这三条，前五名里有两口锅在第一轮就出局了。</text>
+<rect x="56" y="527" width="4" height="34" rx="2" fill="#7553E6"/>
+<text x="70" y="541" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="11" fill="#8F86B3">#7  33.0–39.0s</text>
+<text x="70" y="559" font-size="13" fill="#E9E4FA">但真正的反转在最后，卖得最贵的那口，三项全部垫底。</text>
+<rect x="56" y="572" width="4" height="34" rx="2" fill="#7553E6"/>
+<text x="70" y="586" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="11" fill="#8F86B3">#8  39.0–45.0s</text>
+<text x="70" y="604" font-size="13" fill="#E9E4FA">综合第一的，是直播间从来没上过首页的老牌子，价格…</text>
+<rect x="56" y="617" width="4" height="34" rx="2" fill="#14A077"/>
+<text x="70" y="631" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="11" fill="#8F86B3">#9  45.0–52.0s</text>
+<text x="70" y="649" font-size="13" fill="#E9E4FA">完整的测试数据表我贴在评论区置顶了，下单之前先去…</text>
+<rect x="56" y="662" width="4" height="34" rx="2" fill="#14A077"/>
+<text x="70" y="676" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="11" fill="#8F86B3">#10  52.0–58.0s</text>
+<text x="70" y="694" font-size="13" fill="#E9E4FA">关注我，下期把这五口锅拿去炒糖色，看谁的涂层先阵…</text>
+<g transform="translate(484 430)" filter="url(#sh2)"><circle r="24" fill="#fff"/><path d="M-8 -9 L4 0 L-8 9" fill="none" stroke="#7553E6" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g filter="url(#sh)"><rect x="508" y="140" width="732" height="580" rx="22" fill="#fff"/></g>
+<text x="536" y="184" font-size="20" font-weight="800" fill="#1F1835">拆解卡：网红锅五款横评</text>
+<text x="536" y="210" font-size="13.5" fill="#8C82A6">好物测评 · 全长 58.0s · 句块 11 个 · 标注 4 段 · 钩子→留人→转折→转化</text>
+<rect x="537.0" y="232" width="79.6" height="34" rx="7" fill="url(#hookG)"/>
+<rect x="618.6" y="232" width="301.0" height="34" rx="7" fill="url(#buildG)"/>
+<rect x="921.6" y="232" width="137.9" height="34" rx="7" fill="url(#twistG)"/>
+<rect x="1061.5" y="232" width="149.5" height="34" rx="7" fill="url(#ctaG)"/>
+<text x="536.0" y="284" text-anchor="start" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="11" fill="#9A90B4">0s</text>
+<text x="617.6" y="284" text-anchor="middle" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="11" fill="#9A90B4">7s</text>
+<text x="920.6" y="284" text-anchor="middle" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="11" fill="#9A90B4">33s</text>
+<text x="1060.5" y="284" text-anchor="middle" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="11" fill="#9A90B4">45s</text>
+<text x="1212.0" y="284" text-anchor="end" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="11" fill="#9A90B4">58s</text>
+<text x="576.8" y="254" text-anchor="middle" font-size="12.5" font-weight="800" fill="#fff">钩子</text>
+<text x="769.1" y="254" text-anchor="middle" font-size="12.5" font-weight="800" fill="#fff">留人</text>
+<text x="990.6" y="254" text-anchor="middle" font-size="12.5" font-weight="800" fill="#fff">转折</text>
+<text x="1136.2" y="254" text-anchor="middle" font-size="12.5" font-weight="800" fill="#fff">转化</text>
+<g font-size="12" fill="#9A90B4"><text x="536" y="312">角色</text><text x="622" y="312">时间</text><text x="774" y="312">时长</text><text x="836" y="312">占比</text><text x="906" y="312">例句（脚本已核对在段内）</text></g>
+<rect x="526" y="328" width="696" height="40" rx="10" fill="#FFE7E3" fill-opacity=".55"/>
+<rect x="536" y="336" width="58" height="24" rx="12" fill="#F0533F"/><text x="565" y="352.5" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">钩子</text>
+<text x="622" y="353" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="12.5" fill="#3E365A">00:00.0–00:07.0</text>
+<text x="774" y="353" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="12.5" fill="#3E365A">7.0s</text>
+<text x="836" y="353" font-size="14" font-weight="800" fill="#C2412E">12.1%</text>
+<text x="906" y="353" font-size="13.5" fill="#2E2650">「别再跟风买网红锅了」</text>
+<rect x="526" y="374" width="696" height="40" rx="10" fill="#FFF1D4" fill-opacity=".55"/>
+<rect x="536" y="382" width="58" height="24" rx="12" fill="#EEA21F"/><text x="565" y="398.5" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">留人</text>
+<text x="622" y="399" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="12.5" fill="#3E365A">00:07.0–00:33.0</text>
+<text x="774" y="399" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="12.5" fill="#3E365A">26.0s</text>
+<text x="836" y="399" font-size="14" font-weight="800" fill="#9A6300">44.8%</text>
+<text x="906" y="399" font-size="13.5" fill="#2E2650">「先说我的三个测试标准」</text>
+<rect x="526" y="420" width="696" height="40" rx="10" fill="#EDE7FF" fill-opacity=".55"/>
+<rect x="536" y="428" width="58" height="24" rx="12" fill="#7553E6"/><text x="565" y="444.5" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">转折</text>
+<text x="622" y="445" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="12.5" fill="#3E365A">00:33.0–00:45.0</text>
+<text x="774" y="445" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="12.5" fill="#3E365A">12.0s</text>
+<text x="836" y="445" font-size="14" font-weight="800" fill="#5F3FCC">20.7%</text>
+<text x="906" y="445" font-size="13.5" fill="#2E2650">「卖得最贵的那口，三项全部垫底」</text>
+<rect x="526" y="466" width="696" height="40" rx="10" fill="#DFF6EE" fill-opacity=".55"/>
+<rect x="536" y="474" width="58" height="24" rx="12" fill="#14A077"/><text x="565" y="490.5" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">转化</text>
+<text x="622" y="491" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="12.5" fill="#3E365A">00:45.0–00:58.0</text>
+<text x="774" y="491" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="12.5" fill="#3E365A">13.0s</text>
+<text x="836" y="491" font-size="14" font-weight="800" fill="#0E8461">22.4%</text>
+<text x="906" y="491" font-size="13.5" fill="#2E2650">「完整的测试数据表我贴在评论区置顶」</text>
+<g transform="translate(536 530)"><rect width="109" height="30" rx="15" fill="#E7F8F1"/><circle cx="17" cy="15" r="7.5" fill="#14A077"/><path d="M13.6 15.2l2.6 2.6 4.8-5.2" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="30" y="19.8" font-size="12.5" font-weight="700" fill="#0F8A63">时间轴合法</text></g>
+<g transform="translate(655 530)"><rect width="107" height="30" rx="15" fill="#E7F8F1"/><circle cx="17" cy="15" r="7.5" fill="#14A077"/><path d="M13.6 15.2l2.6 2.6 4.8-5.2" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="30" y="19.8" font-size="12.5" font-weight="700" fill="#0F8A63">覆盖 100%</text></g>
+<g transform="translate(772 530)"><rect width="131" height="30" rx="15" fill="#E7F8F1"/><circle cx="17" cy="15" r="7.5" fill="#14A077"/><path d="M13.6 15.2l2.6 2.6 4.8-5.2" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="30" y="19.8" font-size="12.5" font-weight="700" fill="#0F8A63">边界错位 0 处</text></g>
+<g transform="translate(913 530)"><rect width="132" height="30" rx="15" fill="#E7F8F1"/><circle cx="17" cy="15" r="7.5" fill="#14A077"/><path d="M13.6 15.2l2.6 2.6 4.8-5.2" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="30" y="19.8" font-size="12.5" font-weight="700" fill="#0F8A63">例句 4/4 命中</text></g>
+<g transform="translate(1055 530)"><rect width="96" height="30" rx="15" fill="#E7F8F1"/><circle cx="17" cy="15" r="7.5" fill="#14A077"/><path d="M13.6 15.2l2.6 2.6 4.8-5.2" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="30" y="19.8" font-size="12.5" font-weight="700" fill="#0F8A63">四段齐全</text></g>
+<rect x="526" y="590" width="696" height="102" rx="16" fill="#211B36"/>
+<text x="544" y="618" font-size="14" font-weight="800" fill="#fff">攒成模板后，套到 90 秒新脚本</text>
+<text x="1204" y="618" text-anchor="end" font-size="12" fill="#FFD27A">⚠ 外推 · ⚠ 冷启动 会原样提醒</text>
+<rect x="545.0" y="632" width="49.3" height="26" rx="6" fill="url(#hookG)"/>
+<text x="569.7" y="649.5" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">钩子</text>
+<rect x="596.3" y="632" width="322.1" height="26" rx="6" fill="url(#buildG)"/>
+<text x="757.4" y="649.5" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">留人 7.0–51.2s</text>
+<rect x="920.5" y="632" width="134.4" height="26" rx="6" fill="url(#twistG)"/>
+<text x="987.7" y="649.5" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">转折 51.2–69.8s</text>
+<rect x="1056.9" y="632" width="146.1" height="26" rx="6" fill="url(#ctaG)"/>
+<text x="1129.9" y="649.5" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">转化 69.8–90.0s</text>
+<text x="544" y="678" font-size="12" fill="#B9AEE0">钩子 0.0–7.0s：按样本绝对秒封顶，不按占比拉长到 10.9s</text>
+</g></svg>

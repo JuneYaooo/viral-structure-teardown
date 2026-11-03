@@ -2,7 +2,7 @@
   <title id="t">拆解输入输出对照</title>
   <desc id="d">左侧为转写稿句块输入，右侧为脚本生成的拆解卡节选，合成样本</desc>
   <rect width="1440" height="760" fill="#F4F1E8"/>
-  <text x="72" y="64" fill="#171A19" font-family="Arial, 'PingFang SC', sans-serif" font-size="34" font-weight="800">真实运行对照（合成样本，v0.3.0，58s 好物测评口播）</text>
+  <text x="72" y="64" fill="#171A19" font-family="Arial, 'PingFang SC', sans-serif" font-size="34" font-weight="800">真实运行：一条 58 秒好物测评口播（合成样本）</text>
   <text x="72" y="96" fill="#555954" font-family="Arial, 'PingFang SC', sans-serif" font-size="18">输入：standard_four_part_v1.srt → 解析 11 个句块 → 标注校验 → 输出：evals/runs_v2/card_standard.md</text>
 
   <rect x="72" y="124" width="600" height="596" rx="10" fill="#2A2E2C"/>

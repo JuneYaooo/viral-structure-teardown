@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="230" viewBox="0 0 1200 230" role="img" aria-labelledby="t d">
+  <title id="t">工作流程</title>
+  <desc id="d">字幕稿经脚本切成句块，Agent 判断每段角色，脚本校验时间轴、边界和例句，生成拆解卡；多张拆解卡蒸馏成模板，给新脚本秒级落点</desc>
+  <defs>
+    <style>
+      .zh{font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC","Source Han Sans SC",sans-serif}
+    </style>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#B9AF9B"/>
+    </marker>
+    <clipPath id="c"><rect width="196" height="170" rx="14"/></clipPath>
+  </defs>
+  <rect width="1200" height="230" fill="#F6F2E9"/>
+  <g class="zh">
+    <!-- card template: x, w=196 -->
+    <g transform="translate(20 30)">
+      <rect width="196" height="170" rx="14" fill="#FFFFFF" stroke="#E2D9C6"/>
+      <rect x="0" y="0" width="196" height="6" fill="#8A8273" clip-path="url(#c)"/>
+      <text x="20" y="40" fill="#8A8273" font-size="13" font-weight="700">01 · 你提供</text>
+      <text x="20" y="74" fill="#1B1A23" font-size="22" font-weight="800">字幕稿</text>
+      <text x="20" y="108" fill="#5A544A" font-size="14">SRT / WebVTT / 纯文本</text>
+      <text x="20" y="132" fill="#5A544A" font-size="14">剪映、妙记、Whisper</text>
+      <text x="20" y="156" fill="#5A544A" font-size="14">导出的都可以</text>
+    </g>
+    <line x1="222" y1="115" x2="255" y2="115" stroke="#B9AF9B" stroke-width="2" marker-end="url(#a)"/>
+    <g transform="translate(261 30)">
+      <rect width="196" height="170" rx="14" fill="#FFFFFF" stroke="#E2D9C6"/>
+      <rect x="0" y="0" width="196" height="6" fill="#3C66B1" clip-path="url(#c)"/>
+      <text x="20" y="40" fill="#3C66B1" font-size="13" font-weight="700">02 · 脚本</text>
+      <text x="20" y="74" fill="#1B1A23" font-size="22" font-weight="800">切成句块</text>
+      <text x="20" y="108" fill="#5A544A" font-size="14">有标点按句切</text>
+      <text x="20" y="132" fill="#5A544A" font-size="14">无标点按停顿切</text>
+      <text x="20" y="156" fill="#5A544A" font-size="14">单块不超过 6 秒</text>
+    </g>
+    <line x1="463" y1="115" x2="496" y2="115" stroke="#B9AF9B" stroke-width="2" marker-end="url(#a)"/>
+    <g transform="translate(502 30)">
+      <rect width="196" height="170" rx="14" fill="#1B1A23"/>
+      <rect x="0" y="0" width="196" height="6" fill="#F0644B" clip-path="url(#c)"/>
+      <text x="20" y="40" fill="#F0C94B" font-size="13" font-weight="700">03 · Agent</text>
+      <text x="20" y="74" fill="#FFFFFF" font-size="22" font-weight="800">标注结构</text>
+      <text x="20" y="108" fill="#D6D3E0" font-size="14">判断钩子 / 留人 /</text>
+      <text x="20" y="132" fill="#D6D3E0" font-size="14">转折 / 转化，摘例句</text>
+      <text x="20" y="156" fill="#D6D3E0" font-size="14">缺哪段就写未检出</text>
+    </g>
+    <line x1="704" y1="115" x2="737" y2="115" stroke="#B9AF9B" stroke-width="2" marker-end="url(#a)"/>
+    <g transform="translate(743 30)">
+      <rect width="196" height="170" rx="14" fill="#FFFFFF" stroke="#E2D9C6"/>
+      <rect x="0" y="0" width="196" height="6" fill="#3C66B1" clip-path="url(#c)"/>
+      <text x="20" y="40" fill="#3C66B1" font-size="13" font-weight="700">04 · 脚本</text>
+      <text x="20" y="74" fill="#1B1A23" font-size="22" font-weight="800">校验出卡</text>
+      <text x="20" y="108" fill="#5A544A" font-size="14">时间轴、边界对齐</text>
+      <text x="20" y="132" fill="#5A544A" font-size="14">例句逐字核对</text>
+      <text x="20" y="156" fill="#5A544A" font-size="14">生成拆解卡</text>
+    </g>
+    <line x1="945" y1="115" x2="978" y2="115" stroke="#B9AF9B" stroke-width="2" marker-end="url(#a)"/>
+    <g transform="translate(984 30)">
+      <rect width="196" height="170" rx="14" fill="#FFFFFF" stroke="#E2D9C6"/>
+      <rect x="0" y="0" width="196" height="6" fill="#2FB58A" clip-path="url(#c)"/>
+      <text x="20" y="40" fill="#16825D" font-size="13" font-weight="700">05 · 脚本 + 你确认</text>
+      <text x="20" y="74" fill="#1B1A23" font-size="22" font-weight="800">模板与落点</text>
+      <text x="20" y="108" fill="#5A544A" font-size="14">多张卡蒸馏成模板</text>
+      <text x="20" y="132" fill="#5A544A" font-size="14">按目标时长给出</text>
+      <text x="20" y="156" fill="#5A544A" font-size="14">每段的秒级落点</text>
+    </g>
+  </g>
+</svg>

@@ -1,25 +1,74 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="640" viewBox="0 0 1440 640" role="img" aria-labelledby="t d">
-  <title id="t">viral-structure-teardown</title>
-  <desc id="d">把爆款转写稿按钩子、留人、转折、转化标注结构，蒸馏成可套用的模板落点</desc>
-  <rect width="1440" height="640" fill="#F4F1E8"/>
-  <rect x="0" y="0" width="1440" height="16" fill="#6C4BB8"/>
-  <rect x="72" y="64" width="1296" height="512" rx="8" fill="#17151F"/>
-  <text x="120" y="130" fill="#9FE3C0" font-family="Arial, 'PingFang SC', sans-serif" font-size="22" font-weight="700">TRANSCRIPT IN, STRUCTURE TEMPLATE OUT</text>
-  <text x="120" y="228" fill="#FFFFFF" font-family="Arial, 'PingFang SC', sans-serif" font-size="66" font-weight="800">爆款拆解模板库</text>
-  <text x="120" y="292" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="30">转写稿按句切块 → 钩子/留人/转折/转化标注 → 多条拆解蒸馏成模板，</text>
-  <text x="120" y="338" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="30">写新脚本时按中位数给秒级期望落点。不打分，不代写。</text>
-  <g transform="translate(120 408)">
-    <rect width="360" height="120" rx="6" fill="#2A2638"/>
-    <text x="24" y="38" fill="#F0C94B" font-family="Arial, 'PingFang SC', sans-serif" font-size="17" font-weight="700">转写稿（SRT 句块）</text>
-    <text x="24" y="70" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">11 个句块 · 全长 58.0s</text>
-    <text x="24" y="96" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">「别再跟风买网红锅了…」</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="t d">
+  <title id="t">爆款拆解模板库 viral-structure-teardown</title>
+  <desc id="d">把对标爆款的字幕稿拆成钩子、留人、转折、转化的时间轴，沉淀成结构模板，写新脚本时直接拿到每段的秒级落点</desc>
+  <defs>
+    <style>
+      .zh{font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC","Source Han Sans SC",sans-serif}
+      .mono{font-family:"SF Mono",Menlo,Consolas,"PingFang SC",monospace}
+    </style>
+  </defs>
+  <rect width="1200" height="420" fill="#F6F2E9"/>
+  <circle cx="1150" cy="40" r="140" fill="#EFE7D6"/>
+  <circle cx="40" cy="420" r="90" fill="#EFE7D6"/>
+
+  <!-- left: title -->
+  <g class="zh">
+    <rect x="64" y="70" width="6" height="22" rx="3" fill="#F0644B"/>
+    <text x="82" y="88" fill="#6B6458" font-size="16" font-weight="600" letter-spacing="1">AGENT SKILL · 短视频脚本结构拆解</text>
+    <text x="62" y="160" fill="#1B1A23" font-size="56" font-weight="800">爆款拆解模板库</text>
+    <text x="64" y="196" class="mono" fill="#8A8273" font-size="18">viral-structure-teardown</text>
+    <text x="64" y="248" fill="#3A3630" font-size="20">把对标爆款的字幕稿拆成「钩子 · 留人 · 转折 · 转化」</text>
+    <text x="64" y="280" fill="#3A3630" font-size="20">时间轴，沉淀成模板，写新脚本时直接拿到秒级落点。</text>
+    <g font-size="14" font-weight="600">
+      <rect x="64" y="318" width="118" height="32" rx="16" fill="#FFFFFF" stroke="#E2D9C6"/>
+      <text x="123" y="339" text-anchor="middle" fill="#3A3630">SRT · WebVTT</text>
+      <rect x="194" y="318" width="96" height="32" rx="16" fill="#FFFFFF" stroke="#E2D9C6"/>
+      <text x="242" y="339" text-anchor="middle" fill="#3A3630">全程本地</text>
+      <rect x="302" y="318" width="136" height="32" rx="16" fill="#FFFFFF" stroke="#E2D9C6"/>
+      <text x="370" y="339" text-anchor="middle" fill="#3A3630">不打分 · 不代写</text>
+    </g>
   </g>
-  <text x="516" y="478" fill="#F0C94B" font-family="Arial, 'PingFang SC', sans-serif" font-size="34" font-weight="800">→</text>
-  <g transform="translate(560 408)">
-    <rect width="688" height="120" rx="6" fill="#6C4BB8"/>
-    <text x="24" y="38" fill="#FFFFFF" font-family="Arial, 'PingFang SC', sans-serif" font-size="17" font-weight="700">拆解卡时间轴（真实运行节选）</text>
-    <text x="24" y="70" fill="#E6DEF7" font-size="16" font-family="Arial, 'PingFang SC', sans-serif">钩子 0–7s·12.1% ｜ 留人 7–33s·44.8% ｜ 转折 33–45s·20.7% ｜ 转化 45–58s·22.4%</text>
-    <text x="24" y="96" fill="#E6DEF7" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">apply 模板 ×90s → 钩子 0–7.0s（按绝对秒）· 转折 51.2–69.8s</text>
+
+  <!-- right: transcript -> timeline -->
+  <rect x="640" y="40" width="500" height="346" rx="18" fill="#1B1A23"/>
+  <g class="zh">
+    <text x="672" y="86" fill="#9A97A8" font-size="13" font-weight="600" letter-spacing="1">字幕稿</text>
+    <g font-size="15">
+      <circle cx="676" cy="113" r="4" fill="#F0644B"/>
+      <text x="690" y="118" class="mono" fill="#7D7A8C" font-size="13">00:00</text>
+      <text x="742" y="118" fill="#E6E3F0">别再跟风买网红锅了，我自费五千块…</text>
+      <circle cx="676" cy="139" r="4" fill="#F2B441"/>
+      <text x="690" y="144" class="mono" fill="#7D7A8C" font-size="13">00:07</text>
+      <text x="742" y="144" fill="#E6E3F0">先说我的三个测试标准…</text>
+      <circle cx="676" cy="165" r="4" fill="#9B7BF2"/>
+      <text x="690" y="170" class="mono" fill="#7D7A8C" font-size="13">00:33</text>
+      <text x="742" y="170" fill="#E6E3F0">但真正的反转在最后，卖得最贵的那口…</text>
+      <circle cx="676" cy="191" r="4" fill="#2FB58A"/>
+      <text x="690" y="196" class="mono" fill="#7D7A8C" font-size="13">00:45</text>
+      <text x="742" y="196" fill="#E6E3F0">完整的测试数据表我贴在评论区置顶了…</text>
+    </g>
+
+    <text x="672" y="234" fill="#9A97A8" font-size="13" font-weight="600" letter-spacing="1">拆解卡 · 58 秒</text>
+    <g font-size="13" font-weight="700">
+      <rect x="672" y="246" width="52.8" height="30" rx="6" fill="#F0644B"/>
+      <text x="698.4" y="266" text-anchor="middle" fill="#FFFFFF">钩子</text>
+      <rect x="726.8" y="246" width="191.3" height="30" rx="6" fill="#F2B441"/>
+      <text x="822.5" y="266" text-anchor="middle" fill="#2B2410">留人 44.8%</text>
+      <rect x="920.1" y="246" width="88.3" height="30" rx="6" fill="#9B7BF2"/>
+      <text x="964.3" y="266" text-anchor="middle" fill="#FFFFFF">转折 20.7%</text>
+      <rect x="1010.4" y="246" width="97.6" height="30" rx="6" fill="#2FB58A"/>
+      <text x="1059.2" y="266" text-anchor="middle" fill="#FFFFFF">转化 22.4%</text>
+    </g>
+    <g class="mono" font-size="12" fill="#7D7A8C">
+      <text x="672" y="294">0s</text>
+      <text x="725.8" y="294" text-anchor="middle">7s</text>
+      <text x="919.1" y="294" text-anchor="middle">33s</text>
+      <text x="1009.4" y="294" text-anchor="middle">45s</text>
+      <text x="1108" y="294" text-anchor="end">58s</text>
+    </g>
+
+    <line x1="672" y1="312" x2="1108" y2="312" stroke="#2E2C3A"/>
+    <text x="672" y="337" fill="#9A97A8" font-size="13" font-weight="600" letter-spacing="1">套到 90 秒新脚本</text>
+    <text x="672" y="358" fill="#E6E3F0" font-size="13">钩子 0–7s · 留人 7–51.2s · 转折 51.2–69.8s · 转化 69.8–90s</text>
   </g>
-  <text x="120" y="572" fill="#555954" font-family="Arial, 'PingFang SC', sans-serif" font-size="18">样例取自仓库内真实运行产物 evals/runs_v2/（v0.3.0，合成样本，不打分）</text>
 </svg>
